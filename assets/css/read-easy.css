@@ -1,0 +1,35 @@
+#read-easy {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#magnifying-glass {
+    display: flex;
+    /* show the contents centered */
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(20, 1, 44);
+    color:white;
+}
+
+#read-easy-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
