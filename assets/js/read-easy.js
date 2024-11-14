@@ -93,8 +93,7 @@ class ReadEasy {
 
     // fetch the url and display it in the div with id content
     fetchURL(url) {
-        // const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
-        const proxyUrl = `https://readeasy-b281a909ec0b.herokuapp.com/proxy?url=${encodeURIComponent(url)}`;
+        const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
         fetch(proxyUrl)
             .then(response => response.text())
             .then(data => {
