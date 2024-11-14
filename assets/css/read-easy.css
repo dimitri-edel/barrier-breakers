@@ -10,6 +10,7 @@ body {
     font-size: 110%;
     background-color: #DFF2EB;
     color: #4A628A;
+    padding-top: 60px;
 }
 
 h1 {
@@ -24,7 +25,7 @@ header {
     left: 0;
     padding: 1rem;
     width: 100%;
-    z-index: 99;
+    z-index: 9999;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -39,19 +40,28 @@ main {
     padding:2em 2em 0 2em;
 }
 
-/*
+
 .intro {
-    margin: 1em 0 5em 0;
-}*/
+    margin: 2em 1em;
+    z-index: 98;
+    position: relative;
+}
+
+
+#content-section {
+    display: flex;
+    flex-direction: column;
+}
 
 #read-easy {
     display: flex;
-    position: relative;
-    /*top: 0;*/
+    position: fixed;
     left: 0;
     right: 0;
-    z-index: 9999;
-    /*background: #fff;
+    z-index: 999;
+    top: 160px;
+    /*
+    background: #fff;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
