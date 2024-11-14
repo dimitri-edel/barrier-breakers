@@ -39,17 +39,23 @@ main {
     padding:2em 2em 0 2em;
 }
 
+/*
+.intro {
+    margin: 1em 0 5em 0;
+}*/
+
 #read-easy {
     display: flex;
-    position: fixed;
+    position: relative;
     /*top: 0;*/
     left: 0;
     right: 0;
     z-index: 9999;
-    background: #fff;
+    /*background: #fff;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    */
 }
 
 #magnifying-glass {
