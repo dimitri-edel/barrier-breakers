@@ -93,20 +93,34 @@ class ReadEasy {
 
     // fetch the url and display it in the div with id content
     fetchURL(url) {
-        //const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
         const proxyUrl = `https://readeasy-b281a909ec0b.herokuapp.com/proxy?url=${encodeURIComponent(url)}`;
+    
+        // Show loading spinner
+        document.getElementById('loading-spinner').style.display = 'block';
+    
         fetch(proxyUrl)
             .then(response => response.text())
             .then(data => {
-                var content = document.getElementById(this.content_element_id);
+                const content = document.getElementById(this.content_element_id);
                 content.innerHTML = data;
-
+    
+                // Hide loading spinner
+                document.getElementById('loading-spinner').style.display = 'none';
+    
                 // Re-apply event listeners to new content
                 this.addEventListeners();
-            }).catch(error => {
+            })
+            .catch(error => {
                 console.error('Error:', error);
+                
+                // Hide loading spinner on error
+                document.getElementById('loading-spinner').style.display = 'none';
+    
+                // Display an error message to the user
+                document.getElementById(this.content_element_id).innerHTML = '<p>Failed to load content. Please check the URL and try again.</p>';
             });
     }
+    
 
     enableMagnification() {
         const content = document.getElementById(this.content_element_id);
