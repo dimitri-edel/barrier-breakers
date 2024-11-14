@@ -49,24 +49,32 @@ class ReadEasy {
 
     addEventListeners() {
         var button = document.getElementById('read-easy-button');
+        button.removeEventListener('click', this.toggleReadEasy.bind(this)); // Remove existing listener
         button.addEventListener('click', this.toggleReadEasy.bind(this));
+
         var url_field = document.querySelector('#url-field');
-        url_field.addEventListener('keyup', (event) => {
+        url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
+        this.urlFieldKeyUpBound = (event) => {
             if (event.key === 'Enter') {
                 this.fetchURL(url_field.value);
             }
-        });
+        };
+        url_field.addEventListener('keyup', this.urlFieldKeyUpBound);
 
         // Intercept anchor clicks inside the dynamically fetched content
-        document.getElementById(this.content_element_id).addEventListener('click', (event) => {
+        var content = document.getElementById(this.content_element_id);
+        content.removeEventListener('click', this.contentClickBound); // Remove existing listener
+        this.contentClickBound = (event) => {
             if (event.target.tagName === 'A' && event.target.href) {
                 event.preventDefault();
                 this.fetchURL(event.target.href);
             }
-        });
+        };
+        content.addEventListener('click', this.contentClickBound);
 
         // Add initial event listener for magnifying glass
         var magnifyingGlass = document.getElementById('magnifying-glass');
+        magnifyingGlass.removeEventListener('click', this.enableMagnificationBound); // Remove existing listener
         magnifyingGlass.addEventListener('click', this.enableMagnificationBound);
     }
 
@@ -85,7 +93,8 @@ class ReadEasy {
 
     // fetch the url and display it in the div with id content
     fetchURL(url) {
-        const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
+        //const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
+        const proxyUrl = `https://readeasy-b281a909ec0b.herokuapp.com/proxy?url=${encodeURIComponent(url)}`;
         fetch(proxyUrl)
             .then(response => response.text())
             .then(data => {
@@ -128,20 +137,35 @@ class ReadEasy {
 
         const element = document.elementFromPoint(event.clientX, event.clientY);
         if (element && content.contains(element)) {
-            if (!element.dataset.originalFontSize) {
-                element.dataset.originalFontSize = window.getComputedStyle(element).fontSize;
+            if (element.tagName === 'IMG') {
+                if (!element.dataset.originalWidth) {
+                    element.dataset.originalWidth = element.width;
+                    element.dataset.originalHeight = element.height;
+                }
+                element.style.transition = 'transform 0.1s';
+                element.style.transform = `scale(${magnificationFactor})`;
+            } else {
+                if (!element.dataset.originalFontSize) {
+                    element.dataset.originalFontSize = window.getComputedStyle(element).fontSize;
+                }
+                element.style.transition = 'font-size 0.1s';
+                element.style.fontSize = `${parseFloat(element.dataset.originalFontSize) * magnificationFactor}px`;
             }
-            element.style.transition = 'font-size 0.1s';
-            element.style.fontSize = `${parseFloat(element.dataset.originalFontSize) * magnificationFactor}px`;
         }
     }
 
     restoreFontSize() {
         const content = document.getElementById(this.content_element_id);
-        const elements = content.querySelectorAll('[data-original-font-size]');
+        const elements = content.querySelectorAll('[data-original-font-size], [data-original-width]');
         elements.forEach(element => {
-            element.style.fontSize = element.dataset.originalFontSize;
-            delete element.dataset.originalFontSize;
+            if (element.tagName === 'IMG') {
+                element.style.transform = 'scale(1)';
+                delete element.dataset.originalWidth;
+                delete element.dataset.originalHeight;
+            } else {
+                element.style.fontSize = element.dataset.originalFontSize;
+                delete element.dataset.originalFontSize;
+            }
         });
     }
 }
@@ -153,4 +177,4 @@ function handleAnchorClick(url) {
 
 var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: true});
 // Apply initial event listeners
-read_easy.addEventListeners();
+// read_easy.addEventListeners();
