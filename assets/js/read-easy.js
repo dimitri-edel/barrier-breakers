@@ -112,6 +112,8 @@ class ReadEasy {
         const content = document.getElementById(this.content_element_id);
         content.addEventListener('mousemove', this.magnifyBound);
         content.addEventListener('mouseleave', this.restoreFontSizeBound);
+        
+        document.body.style.cursor = 'url(/assets/images/magnifying-glass.png) 16 16, auto';
 
         // Swap the event listener to disable magnification
         var magnifyingGlass = document.getElementById('magnifying-glass');
@@ -129,6 +131,9 @@ class ReadEasy {
         var magnifyingGlass = document.getElementById('magnifying-glass');
         magnifyingGlass.removeEventListener('click', this.disableMagnificationBound);
         magnifyingGlass.addEventListener('click', this.enableMagnificationBound);
+
+        // Remove the CSS class to reset the cursor
+        content.classList.remove('magnify-cursor');
     }
 
     magnify(event) {
@@ -136,7 +141,7 @@ class ReadEasy {
         const magnificationFactor = 1.3;
 
         const element = document.elementFromPoint(event.clientX, event.clientY);
-        if (element && content.contains(element)) {
+        if (element && content.contains(element)) {            
             if (element.tagName === 'IMG') {
                 if (!element.dataset.originalWidth) {
                     element.dataset.originalWidth = element.width;
@@ -167,6 +172,8 @@ class ReadEasy {
                 delete element.dataset.originalFontSize;
             }
         });
+        // Reset the cursor to default
+        document.body.style.cursor = 'default';
     }
 }
 
@@ -175,6 +182,6 @@ function handleAnchorClick(url) {
     read_easy.fetchURL(url);
 }
 
-var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: true});
+// var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: true});
 // Apply initial event listeners
 // read_easy.addEventListeners();

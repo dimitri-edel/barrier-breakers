@@ -1,7 +1,7 @@
 #read-easy {
     display: flex;
     position: fixed;
-    top: 0;
+    top: 100;
     left: 0;
     right: 0;
     z-index: 9999;
@@ -24,6 +24,11 @@
     color:white;
 }
 
+
+.magnify-cursor {
+    cursor: url(/assets/images/magnifying-glass.png), auto;
+}
+
 #read-easy-button {
     display: inline-block;
     padding: 5px 10px;
@@ -42,4 +47,8 @@
     border: none;
     border-radius: 3px;
     font-size: 14px;
+}
+
+#content {
+    padding-top: 70px;
 }
