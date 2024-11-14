@@ -1,3 +1,19 @@
+/*Font*/
+@font-face {
+    font-family: openDyslexic;
+    src: url(../font/open_dyslexic/OpenDyslexic-Regular.otf);
+}
+
+/*General Styles*/
+body {
+    font-family: "openDyslexic", sans-serif;
+    font-size: 110%;
+}
+
+h1 {
+    letter-spacing: 1px;
+}
+
 #read-easy {
     display: flex;
     position: fixed;
