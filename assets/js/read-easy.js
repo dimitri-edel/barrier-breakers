@@ -5,10 +5,12 @@ class ReadEasy {
         this.content_element_id = content_element_id;
         this.options = options;
         this.magnificationEnabled = false; // Flag to track magnification state
+        this.textToSpeechEnabled = false; // Flag to track text-to-speech state
         this.magnifyBound = this.magnify.bind(this); // Store bound function
         this.restoreFontSizeBound = this.restoreFontSize.bind(this); // Store bound function
         this.enableMagnificationBound = this.enableMagnification.bind(this); // Store bound function
         this.disableMagnificationBound = this.disableMagnification.bind(this); // Store bound function
+        this.getSelectionTextBound = this.getSelectionText.bind(this); // Store bound function
         this.init();
     }
 
@@ -34,6 +36,15 @@ class ReadEasy {
                 <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
             `;
         }
+        if (this.options.show_text_to_speech) {
+            // append the input button to the toolbar
+            toolbar.innerHTML += `
+                <button id="text-to-speech-button" title="Toggle Text to Speech">
+                    <i class="fa-regular fa-volume-high"></i>
+                </button>
+            `;
+        }
+
         if (this.options.show_url_field) {
             // append the input to the toolbar
             toolbar.innerHTML += `
@@ -49,10 +60,17 @@ class ReadEasy {
     }
 
     addEventListeners() {
-        var button = document.getElementById('read-easy-button');
-        button.removeEventListener('click', this.toggleReadEasy.bind(this)); // Remove existing listener
-        button.addEventListener('click', this.toggleReadEasy.bind(this));
+        var read_easy_button = document.getElementById('read-easy-button');
+        read_easy_button.removeEventListener('click', this.toggleReadEasy.bind(this)); // Remove existing listener
+        read_easy_button.addEventListener('click', this.toggleReadEasy.bind(this));
 
+        var textToSpeechButton = document.getElementById('text-to-speech-button');
+        if (textToSpeechButton) {
+            textToSpeechButton.removeEventListener('click', this.toggleTextToSpeech.bind(this)); // Remove existing listener
+            textToSpeechButton.addEventListener('click', this.toggleTextToSpeech.bind(this));
+        }
+
+        // The URL field is only available if the option is enabled
         var url_field = document.querySelector('#url-field');
         if(url_field) {
             url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
@@ -64,6 +82,22 @@ class ReadEasy {
         };
         if(url_field)
             {url_field.addEventListener('keyup', this.urlFieldKeyUpBound);}
+        // The speech synthesis is only available if the option is enabled        
+        // Add event listener for selection text onmoouseup in the content
+        var content = document.getElementById(this.content_element_id);
+        // if the mousup event listener is already added, remove it
+        if(content)
+            {content.removeEventListener('mouseup', this.getSelectionTextBound);}
+        this.getSelectionTextBound = (event) => {
+            const selectedText = this.getSelectionText();
+            if (selectedText) {
+                this.textToSpeech(selectedText);
+            }
+        }
+        // Add event listener for selection text onmoouseup in the content
+        if(content)
+            {content.addEventListener('mouseup', this.getSelectionTextBound);}
+        
 
         // Intercept anchor clicks inside the dynamically fetched content
         var content = document.getElementById(this.content_element_id);
@@ -82,6 +116,18 @@ class ReadEasy {
         magnifyingGlass.addEventListener('click', this.enableMagnificationBound);
     }
 
+    toggleTextToSpeech() {
+        this.textToSpeechEnabled = !this.textToSpeechEnabled;
+        var textToSpeechButton = document.getElementById('text-to-speech-button');
+        if (this.textToSpeechEnabled) {
+            textToSpeechButton.innerHTML = '<i class="fa-regular fa-volume-mute"></i>';
+            this.textToSpeech('Text to speech enabled.');
+        } else {
+            textToSpeechButton.innerHTML = '<i class="fa-regular fa-volume-high"></i>';
+            this.textToSpeech('Text to speech disabled.');
+        }
+    }
+
     toggleReadEasy() {
         let magnifying_glass = document.getElementById('magnifying-glass');
         let url_field = document.getElementById('url-field');
@@ -95,9 +141,19 @@ class ReadEasy {
         }
     }
 
+    getSelectionText() {
+        var text = "";
+        if (window.getSelection) {
+            text = window.getSelection().toString();
+        // for Internet Explorer 8 and below. For Blogger, you should use &amp;&amp; instead of &&.
+        } else if (document.selection && document.selection.type != "Control") { 
+            text = document.selection.createRange().text;
+        }
+        return text;
+    }
+
     // fetch the url and display it in the div with id content
-    fetchURL(url) {
-        //const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
+    fetchURL(url) {        
         const proxyUrl = `https://readeasy-b281a909ec0b.herokuapp.com/proxy?url=${encodeURIComponent(url)}`;
         fetch(proxyUrl)
             .then(response => response.text())
@@ -117,9 +173,7 @@ class ReadEasy {
         content.addEventListener('mousemove', this.magnifyBound);
         content.addEventListener('mouseleave', this.restoreFontSizeBound);
         
-        document.body.style.cursor = 'url(/assets/images/magnifying-glass.png) 16 16, auto';
-
-        // Swap the event listener to disable magnification
+        // Swap the event listener to enable magnification
         var magnifyingGlass = document.getElementById('magnifying-glass');
         magnifyingGlass.removeEventListener('click', this.enableMagnificationBound);
         magnifyingGlass.addEventListener('click', this.disableMagnificationBound);
@@ -131,13 +185,10 @@ class ReadEasy {
         content.removeEventListener('mouseleave', this.restoreFontSizeBound);
         this.restoreFontSize();
 
-        // Swap the event listener to enable magnification
+        // Swap the event listener to disable magnification
         var magnifyingGlass = document.getElementById('magnifying-glass');
         magnifyingGlass.removeEventListener('click', this.disableMagnificationBound);
         magnifyingGlass.addEventListener('click', this.enableMagnificationBound);
-
-        // Remove the CSS class to reset the cursor
-        content.classList.remove('magnify-cursor');
     }
 
     magnify(event) {
@@ -182,6 +233,7 @@ class ReadEasy {
 
     textToSpeech(text) {
         if (typeof responsiveVoice !== 'undefined') {
+            responsiveVoice.cancel(); // stop anything currently being spoken
             responsiveVoice.setDefaultVoice("US English Female");         
             responsiveVoice.speak(text);
         } else {

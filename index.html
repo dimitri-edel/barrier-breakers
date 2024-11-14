@@ -14,8 +14,7 @@
 
     
     <div id="content">
-        <h1>ReadEase Project</h1>
-        <p>salfkjasdlfjasdölfsajöj</p>    
+        <h1>ReadEase Project</h1>        
         <button onclick="responsiveVoice.speak('Hello World')">Play</button>    
     </div>    
     <!-- fonta awasome cdn -->
@@ -27,7 +26,7 @@
     <!-- load read-easy.js from assets/js folder -->
     <script src="assets/js/read-easy.js"></script>
     <script>
-        var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: false});
+        var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: true, show_text_to_speech: true});
     </script>
 </body>
 </html>
