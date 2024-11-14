@@ -16,6 +16,7 @@ class ReadEasy {
         this.createToolbar();
         this.addToolbar();
         this.addEventListeners();
+        this.textToSpeech('Welcome to Read Easy. Click the magnifying glass to enable magnification. Click the URL field to enter a URL.');
     }
 
     createToolbar() {
@@ -53,13 +54,16 @@ class ReadEasy {
         button.addEventListener('click', this.toggleReadEasy.bind(this));
 
         var url_field = document.querySelector('#url-field');
-        url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
+        if(url_field) {
+            url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
+        }
         this.urlFieldKeyUpBound = (event) => {
             if (event.key === 'Enter') {
                 this.fetchURL(url_field.value);
             }
         };
-        url_field.addEventListener('keyup', this.urlFieldKeyUpBound);
+        if(url_field)
+            {url_field.addEventListener('keyup', this.urlFieldKeyUpBound);}
 
         // Intercept anchor clicks inside the dynamically fetched content
         var content = document.getElementById(this.content_element_id);
@@ -174,6 +178,15 @@ class ReadEasy {
         });
         // Reset the cursor to default
         document.body.style.cursor = 'default';
+    }
+
+    textToSpeech(text) {
+        if (typeof responsiveVoice !== 'undefined') {
+            responsiveVoice.setDefaultVoice("US English Female");         
+            responsiveVoice.speak(text);
+        } else {
+            console.error('ResponsiveVoice is not available.');
+        }
     }
 }
 
