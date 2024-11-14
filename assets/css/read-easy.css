@@ -40,11 +40,11 @@ main {
     padding:2em 2em 0 2em;
 }
 
-
 .intro {
-    margin: 2em 1em;
-    z-index: 98;
+    display: flex;
     position: relative;
+    margin: 2em 1em;
+    z-index: 99;
 }
 
 
@@ -58,14 +58,10 @@ main {
     position: fixed;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 98;
     top: 160px;
-    /*
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    */
+    height: 50px; 
+
 }
 
 #magnifying-glass {
