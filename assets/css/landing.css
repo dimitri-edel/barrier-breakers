@@ -25,6 +25,10 @@ h1 {
     margin: 1em auto;
 }
 
+h2,h3 {
+    font-size: 110%;
+}
+
 img {
     border: 2px solid #F96E2A;
     border-radius: 8%;
