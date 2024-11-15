@@ -12,27 +12,90 @@
 /*General Styles*/
 body {
     min-height: 100vh;
-    
+    letter-spacing: 1px;
+    line-height: 27px;
+
     /*Generic project styles*/
     background-color: #C9E6F0;
     font-family: "lexend", sans-serif;
     color: #F96E2A;
+    
 }
 
 img {
-    width: 100%;
-    height: auto;
     border: 2px solid #F96E2A;
-    border-radius: 15%;
+    border-radius: 8%;
+    margin: 1em;
+
     object-fit: cover;
-    margin: 1em 0;
+    width: 90%;
+    height: auto;
+    text-align: center;
+}
+
+h1 {
+    margin: 1em auto;
 }
 
 /*Body*/
+/*header*/
 header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+header div {
+    max-width: 50%;
+    background-color: #78B3CE;
+    color: #FBF8EF;
+    justify-content: center;
+}
+
+.landing-welcome {
+    vertical-align: middle;
+    text-align: left;
+    padding: 3.5%;
+}
+
+.landing-mockup {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    object-fit: cover;
+}
+
+
+.landing-button {
+    background-color: #F96E2A;
+    color: #FBF8EF;
+    padding: 5px 8px;
+    border: 2px solid #FBF8EF;
+    border-radius: 5px;
+    text-decoration: none;
     
 }
 
+.landing-button:hover {
+    background-color: #FBF8EF;
+    color: #F96E2A;
+    cursor: pointer;
+}
+
+
+
+#intro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/*main*/
 main {
     
 }
+
+/*Media Query*/
