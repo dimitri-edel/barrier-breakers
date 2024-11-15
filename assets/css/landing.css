@@ -59,6 +59,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    
 }
 
 header div {
@@ -72,6 +73,7 @@ header div {
     vertical-align: middle;
     text-align: left;
     padding: 3.5%;
+    flex-wrap: wrap;
 }
 
 .landing-image {
@@ -121,6 +123,17 @@ main div {
     align-items: center;
     justify-content: center;
     margin: 1em auto;
+    
+    
+    /*flex-wrap: wrap;*/
+}
+
+section>div {
+    border-bottom: 1px solid #F96E2A;
+}
+
+.text-paster {
+    border-bottom: none;
 }
 
 .landing-text {
@@ -148,3 +161,4 @@ footer {
 }
 
 /*Media Query*/
+
