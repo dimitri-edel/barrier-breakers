@@ -139,7 +139,8 @@ class ReadEasy {
 
     // fetch the url and display it in the div with id content
     fetchURL(url) {        
-        const proxyUrl = `https://readeasy-b281a909ec0b.herokuapp.com/proxy?url=${encodeURIComponent(url)}`;
+        // const proxyUrl = `https://readeasy-b281a909ec0b.herokuapp.com/proxy?url=${encodeURIComponent(url)}`;
+        const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
         fetch(proxyUrl)
             .then(response => response.text())
             .then(data => {
@@ -261,9 +262,9 @@ class ReadEasy {
 }
 
 // Define the function to handle anchor clicks
-function handleAnchorClick(url) {
+window.handleAnchorClick = function(url) {
     read_easy.fetchURL(url);
-}
+};
 
 // var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: true});
 // Apply initial event listeners

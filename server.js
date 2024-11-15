@@ -1,9 +1,29 @@
 const express = require('express');
 const fetch = require('node-fetch');
+const session = require('express-session');
+const path = require('path');
+
 const app = express();
 const port = process.env.PORT || 3000; // Use the PORT environment variable
 
+// Set up session middleware
+app.use(session({
+    secret: 'your-secret-key', // Replace with a strong secret key
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Set to true if using HTTPS
+}));
+
 app.use(express.static('public'));
+
+// Middleware to track request origins
+app.use((req, res, next) => {
+    if (!req.session.requestOrigins) {
+        req.session.requestOrigins = [];
+    }
+    req.session.requestOrigins.push(req.headers.referer || 'direct');
+    next();
+});
 
 app.get('/proxy', async (req, res) => {
     const url = req.query.url;
@@ -23,7 +43,7 @@ app.get('/proxy', async (req, res) => {
 
         // Replace anchor tags with function calls, handling additional attributes
         data = data.replace(/<a\s+([^>]*?)href="([^"]+)"([^>]*)>/g, (match, p1, p2, p3) => {
-            return `<a ${p1}href="#" onclick="handleAnchorClick('${p2}')" ${p3}>`;
+            return `<a ${p1}href="#" onclick="parent.handleAnchorClick('${p2}')" ${p3}>`;
         });
 
         res.send(data);
@@ -44,6 +64,13 @@ app.get('/proxy/*', async (req, res) => {
     } catch (error) {
         res.status(500).send('Error fetching the URL');
     }
+});
+
+// Route to display session data
+app.get('/session-data', (req, res) => {
+    res.json({
+        requestOrigins: req.session.requestOrigins
+    });
 });
 
 app.listen(port, () => {

@@ -1,7 +1,7 @@
-
 {
-  "name": "barrier-breakers",
+  "name": "proxy-server",
   "version": "1.0.0",
+  "description": "A simple proxy server",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "express-session": "^1.17.1"
   }
 }
