@@ -1,10 +1,10 @@
 #read-easy {
     display: flex;
-    position: relative;
-    top: 100px;
+    position: fixed; /* Change to fixed to ensure it stays on top */
+    top: 60px; /* Adjust top position */
     left: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 10000; /* Ensure it has a higher z-index */
     background: #fff;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
@@ -17,13 +17,18 @@
     justify-content: center;
     align-items: center;
     padding: 0;
+    margin-left: 10px;
     width: 50px;
     height: 50px;
     background-color: rgb(20, 1, 44);
     font-size: 30px;
-    color:white;
+    color: white;
 }
 
+#magnifying-glass:hover {
+    background-color: #0073aa;
+    color: white;
+}
 
 .magnify-cursor {
     cursor: url(/assets/images/magnifying-glass.png), auto;
@@ -47,4 +52,33 @@
     border: none;
     border-radius: 3px;
     font-size: 14px;
+}
+
+#text-to-speech-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background: black;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+}
+
+#text-to-speech-button:hover {
+    background-color: #0073aa;
+}
+
+#text-to-speech-button.active {
+    background-color: #0073aa;
+    color: white;
+}
+
+.active {
+    background-color: #0073aa;
+    color: white;
 }
