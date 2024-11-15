@@ -6,6 +6,9 @@ class ReadEasy {
         this.options = options;
         this.magnificationEnabled = false; // Flag to track magnification state
         this.text_to_speech_enabled = false; // Flag to track text-to-speech state
+        this.magnification_font_color = "#000000"; // the font color of the magnified text
+        this.manginfication_background_color = "#ffffff"; // the background color of the magnified text
+        this.magnification_factor = 1.2; // the factor by which the text is magnified
         this.magnifyBound = this.magnify.bind(this); // Store bound function
         this.restoreFontSizeBound = this.restoreFontSize.bind(this); // Store bound function
         this.enableMagnificationBound = this.enableMagnification.bind(this); // Store bound function
@@ -17,7 +20,7 @@ class ReadEasy {
     init() {
         this.createToolbar();
         this.addToolbar();
-        this.addEventListeners();
+        this.addEventListeners();        
     }
 
     createToolbar() {
@@ -25,10 +28,31 @@ class ReadEasy {
 
         toolbar.id = this.toolbar_element_id;
 
+        if (this.options.show_url_field) {
+            // append the input to the toolbar
+            toolbar.innerHTML += `
+                <input type="text" id="url-field" placeholder="Enter URL">
+            `;
+        }
+
         if (this.options.show_magnifying_glass) {
             // append the span to the toolbar
             toolbar.innerHTML += `
-                <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span id="magnification-panel">
+                    <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <span id="magninification-font-color-selector">Text: <input onchange="read_easy.changeMagnificationFontColor(this)" type="color" id="font-color" value="#000000"></span>
+                    <span id="magninification-background-color-selector">Background: <input onchange="read_easy.changeMagnificationBackgroundColor(this)" type="color" id="background-color" value="#ffffff"></span>
+                    <span id="magnification-factor-selector">
+                        <select id="magnification-factor" onchange="read_easy.changeMagnificationFactor(this)">
+                            <optgroup>
+                                <option value="1.2">Select Magnification Factor</option>
+                                <option value="1.3">1.3x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2">2x</option>
+                            </optgroup>
+                        </select>
+                    </span>
+                </span>
             `;
         }
         if (this.options.show_text_to_speech) {
@@ -40,12 +64,7 @@ class ReadEasy {
             `;
         }
 
-        if (this.options.show_url_field) {
-            // append the input to the toolbar
-            toolbar.innerHTML += `
-                <input type="text" id="url-field" placeholder="Enter URL">
-            `;
-        }
+        
 
         this.toolbar = toolbar;
     }
@@ -168,6 +187,18 @@ class ReadEasy {
             });
     }
 
+    changeMagnificationFactor(selectElement) {
+        this.magnification_factor = parseFloat(selectElement.value);
+    }
+
+    changeMagnificationFontColor(inputElement) {
+        this.magnification_font_color = inputElement.value;
+    }
+
+    changeMagnificationBackgroundColor(inputElement) {
+        this.manginfication_background_color = inputElement.value;
+    }
+
     enableMagnification() {
         this.textToSpeech('Magnification enabled. Hover over text to magnify.');
         const content = document.getElementById(this.content_element_id);
@@ -212,7 +243,7 @@ class ReadEasy {
     magnify(event) {
         console.log('Magnifying');
         const content = document.getElementById(this.content_element_id);
-        const magnificationFactor = 1.3;
+        const magnificationFactor = this.magnification_factor;
 
         let element;
         if (content.tagName === 'IFRAME') {
@@ -236,6 +267,8 @@ class ReadEasy {
                 }
                 element.style.transition = 'font-size 0.1s';
                 element.style.fontSize = `${parseFloat(element.dataset.originalFontSize) * magnificationFactor}px`;
+                element.style.color = this.magnification_font_color;
+                element.style.backgroundColor = this.manginfication_background_color;
             }
         }
     }
