@@ -38,6 +38,11 @@ img {
     max-height:100%;
 }
 
+li {
+    margin-top: 1em;
+    font-size: 110%;
+}
+
 
 /*Body*/
 /*header*/
@@ -60,11 +65,11 @@ header div {
     padding: 3.5%;
 }
 
-.landing-mockup {
+.landing-image {
     width: 100%;
-    height: auto;
+    height: 50%;
     justify-content: center;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 
@@ -101,15 +106,32 @@ main div {
 }
 
 .landing {
-    max-width: 50%;
+    max-width: 80%;
+    height: auto;
     flex: 33.33%;
     padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2em auto;
+    margin: 1em auto;
 }
 
+.landing-text {
+    max-width: fit-content;
+}
+
+.image-left {
+    margin-right: 10em;
+}
+
+.image-right {
+    margin-left:10em;
+}
+#button-in-section{
+    display: inline-block; 
+    margin: 20px auto;
+    width: fit-content;
+}
 
 /*Footer*/
 footer {
