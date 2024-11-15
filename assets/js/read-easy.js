@@ -17,14 +17,14 @@ class ReadEasy {
     init() {
         this.createToolbar();
         this.addToolbar();
-        this.addEventListeners();        
+        this.addEventListeners();
     }
 
     createToolbar() {
         var toolbar = document.createElement('div');
-       
+
         toolbar.id = this.toolbar_element_id;
-        
+
         if (this.options.show_magnifying_glass) {
             // append the span to the toolbar
             toolbar.innerHTML += `
@@ -57,7 +57,7 @@ class ReadEasy {
     addEventListeners() {
         // The URL field is only available if the option is enabled
         var url_field = document.querySelector('#url-field');
-        if(url_field) {
+        if (url_field) {
             url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
         }
         this.urlFieldKeyUpBound = (event) => {
@@ -65,10 +65,9 @@ class ReadEasy {
                 this.fetchURL(url_field.value);
             }
         };
-        if(url_field)
-            {url_field.addEventListener('keyup', this.urlFieldKeyUpBound);}
-        
-        
+        if (url_field) { url_field.addEventListener('keyup', this.urlFieldKeyUpBound); }
+
+
 
         // Intercept anchor clicks inside the dynamically fetched content
         var content = document.getElementById(this.content_element_id);
@@ -112,23 +111,23 @@ class ReadEasy {
         // This is necessary because the content of the iframe is a separate document
         if (content.tagName === 'IFRAME') {
             content_document = content.contentDocument || content.contentWindow.document;
-        }      
-        if (content_document !== null) {            
+        }
+        if (content_document !== null) {
             // It is an iframe
             content_document.body.removeEventListener('mouseup', this.getSelectionTextBound); // Remove existing listener
             this.getSelectionTextBound = (event) => {
                 const selectedText = this.getSelectionText(content_document);
-                if (selectedText) {                    
+                if (selectedText) {
                     this.textToSpeech(selectedText);
                 }
             };
             content_document.body.addEventListener('mouseup', this.getSelectionTextBound); // Add new listener
-        } else if(content !== null && content !== undefined && content.tagName === 'DIV') {
+        } else if (content !== null && content !== undefined && content.tagName === 'DIV') {
             // This is a div element
             content.removeEventListener('mouseup', this.getSelectionTextBound); // Remove existing listener
             this.getSelectionTextBound = (event) => {
                 const selectedText = this.getSelectionText(document); // Use the main document
-                if (selectedText) {                    
+                if (selectedText) {
                     this.textToSpeech(selectedText);
                 }
             };
@@ -139,19 +138,20 @@ class ReadEasy {
         }
     }
 
+
     getSelectionText(doc = document) {
         var text = "";
         if (doc.getSelection) {
             text = doc.getSelection().toString();
-        // for Internet Explorer 8 and below. For Blogger, you should use &amp;&amp; instead of &&.
-        } else if (doc.selection && doc.selection.type != "Control") { 
+            // for Internet Explorer 8 and below. For Blogger, you should use &amp;&amp; instead of &&.
+        } else if (doc.selection && doc.selection.type != "Control") {
             text = doc.selection.createRange().text;
         }
         return text;
     }
 
     // fetch the url and display it in the div with id content
-    fetchURL(url) {        
+    fetchURL(url) {
         const proxyUrl = `https://readeasy-b281a909ec0b.herokuapp.com/proxy?url=${encodeURIComponent(url)}`;
         // const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
         fetch(proxyUrl)
@@ -222,7 +222,7 @@ class ReadEasy {
             element = document.elementFromPoint(event.clientX, event.clientY);
         }
 
-        if (element) {            
+        if (element) {
             if (element.tagName === 'IMG') {
                 if (!element.dataset.originalWidth) {
                     element.dataset.originalWidth = element.width;
@@ -233,9 +233,9 @@ class ReadEasy {
             } else {
                 if (!element.dataset.originalFontSize) {
                     element.dataset.originalFontSize = window.getComputedStyle(element).fontSize;
-                }                
+                }
                 element.style.transition = 'font-size 0.1s';
-                element.style.fontSize = `${parseFloat(element.dataset.originalFontSize) * magnificationFactor}px`;                
+                element.style.fontSize = `${parseFloat(element.dataset.originalFontSize) * magnificationFactor}px`;
             }
         }
     }
@@ -266,19 +266,10 @@ class ReadEasy {
     textToSpeech(text) {
         if (typeof responsiveVoice !== 'undefined') {
             responsiveVoice.cancel(); // stop anything currently being spoken
-            responsiveVoice.setDefaultVoice("US English Female");         
+            responsiveVoice.setDefaultVoice("US English Female");
             responsiveVoice.speak(text);
         } else {
             console.error('ResponsiveVoice is not available.');
         }
     }
 }
-
-// Define the function to handle anchor clicks
-window.handleAnchorClick = function(url) {
-    read_easy.fetchURL(url);
-};
-
-// var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: true});
-// Apply initial event listeners
-// read_easy.addEventListeners();
