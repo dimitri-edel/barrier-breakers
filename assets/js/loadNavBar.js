@@ -7,7 +7,7 @@ function getPageName() {
 // Function for loading the navigation bar
 function loadNavBar() {
     // Create the list items for the navigation bar
-    const pages = ["index.html", "second.html", "site-viewer.html", "test.html"];
+    const pages = ["index.html", "second.html", "site-viewer.html", "test.html", "about.html"];
     // Create the unordered list and attach it to the navbar element
     const navBar = document.getElementById("navbar");
     const ul = document.createElement("ul");
@@ -16,7 +16,11 @@ function loadNavBar() {
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = page;
-        a.textContent = page.split(".")[0];
+        if(getPageNamewithoutExtension(page) == "index"){
+            a.textContent = "Home";
+        }else {
+            a.textContent = capitalizeFirstLetter(getPageNamewithoutExtension(page));
+        }
         // If the page is the current page, set the class to active
         if (page == getPageName()) {
             a.classList.add("active");
@@ -25,6 +29,16 @@ function loadNavBar() {
         ul.appendChild(li);
     }
     navBar.appendChild(ul);
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// get page name without extension
+function getPageNamewithoutExtension(page) {
+    page = page.split(".")[0];
+    return page;
 }
 // Load the navigation bar
 loadNavBar();
