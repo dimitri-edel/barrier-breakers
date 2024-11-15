@@ -17,8 +17,7 @@ class ReadEasy {
     init() {
         this.createToolbar();
         this.addToolbar();
-        this.addEventListeners();
-        this.textToSpeech('Welcome to Read Easy. Click the magnifying glass to enable magnification. Click the URL field to enter a URL.');
+        this.addEventListeners();        
     }
 
     createToolbar() {
