@@ -107,21 +107,35 @@ class ReadEasy {
         // The speech synthesis is only available if the option is enabled        
         // Add event listener for selection text on mouseup in the content
         var content = document.getElementById(this.content_element_id);
-        // the content element is an iframe
-        let content_document = content.contentDocument || content.contentWindow.document;
+        let content_document = null;
 
-        if (content_document) {
-            console.log('Adding event listener for mouseup');
+        // if content is an iframe, get the document inside the iframe        
+        // This is necessary because the content of the iframe is a separate document
+        if (content.tagName === 'IFRAME') {
+            content_document = content.contentDocument || content.contentWindow.document;
+        }      
+        if (content_document !== null) {            
+            // It is an iframe
             content_document.body.removeEventListener('mouseup', this.getSelectionTextBound); // Remove existing listener
             this.getSelectionTextBound = (event) => {
                 const selectedText = this.getSelectionText(content_document);
-                if (selectedText) {
-                    console.log('Selected text:', selectedText);
+                if (selectedText) {                    
                     this.textToSpeech(selectedText);
                 }
             };
             content_document.body.addEventListener('mouseup', this.getSelectionTextBound); // Add new listener
-        } else {
+        } else if(content !== null && content !== undefined && content.tagName === 'DIV') {
+            // This is a div element
+            content.removeEventListener('mouseup', this.getSelectionTextBound); // Remove existing listener
+            this.getSelectionTextBound = (event) => {
+                const selectedText = this.getSelectionText(document); // Use the main document
+                if (selectedText) {                    
+                    this.textToSpeech(selectedText);
+                }
+            };
+            content.addEventListener('mouseup', this.getSelectionTextBound); // Add new listener
+        }
+        else {
             console.error('Content element not found');
         }
     }
