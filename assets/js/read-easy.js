@@ -5,7 +5,7 @@ class ReadEasy {
         this.content_element_id = content_element_id;
         this.options = options;
         this.magnificationEnabled = false; // Flag to track magnification state
-        this.textToSpeechEnabled = false; // Flag to track text-to-speech state
+        this.text_to_speech_enabled = false; // Flag to track text-to-speech state
         this.magnifyBound = this.magnify.bind(this); // Store bound function
         this.restoreFontSizeBound = this.restoreFontSize.bind(this); // Store bound function
         this.enableMagnificationBound = this.enableMagnification.bind(this); // Store bound function
@@ -40,7 +40,7 @@ class ReadEasy {
             // append the input button to the toolbar
             toolbar.innerHTML += `
                 <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
-                    <i class="fa-regular fa-volume-high"></i>
+                   <i class="fa-solid fa-volume-xmark"></i>
                 </button>
             `;
         }
@@ -100,15 +100,17 @@ class ReadEasy {
 
     toggleTextToSpeech() {
         var textToSpeechButton = document.getElementById('text-to-speech-button');
-        if (this.textToSpeechEnabled) {
-            textToSpeechButton.innerHTML = '<i class="fa-regular fa-volume-mute"></i>';
-            this.textToSpeech('Text to speech enabled.');
-        } else {
-            textToSpeechButton.innerHTML = '<i class="fa-regular fa-volume-high"></i>';
+        if (this.text_to_speech_enabled) {
+            textToSpeechButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+            textToSpeechButton.classList.remove('active');
             this.textToSpeech('Text to speech disabled.');
+        } else {
+            textToSpeechButton.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+            textToSpeechButton.classList.add('active');
+            this.textToSpeech('Text to speech enabled.');
         }
         this.addToggleTextToSpeechEventListeners();
-        this.textToSpeechEnabled = !this.textToSpeechEnabled;
+        this.text_to_speech_enabled = !this.text_to_speech_enabled;
     }
 
     addToggleTextToSpeechEventListeners() {
