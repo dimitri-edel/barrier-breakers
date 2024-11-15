@@ -1,0 +1,304 @@
+/* Color Palette Variables */
+:root {
+    --primary-color: #005f7b; /* Darker Blue for navbar and footer */
+    --secondary-color: #89c1d4; /* Softer Teal Blue for accents */
+    --background-color: #f8f5f2; /* Light Beige/Neutral Background */
+    --accent-color: #ff887d; /* Soft Coral Accent */
+    --text-color: #4a4a4a; /* Softer Dark Gray for text */
+    --white-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+
+
+    /* Font Variables */
+    --font-family: Arial, sans-serif;
+    --font-size-base: 1rem;
+    --font-size-heading: 2.5rem;
+    --font-size-subheading: 2rem;
+    --font-size-small: 0.9rem;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Navbar Styling */
+#navbar {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+#navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+#navbar ul li {
+    display: inline;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: var(--secondary-color);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#navbar ul li a:hover,
+#navbar ul li a.active {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+/* Main Content */
+main.about-page {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Introduction Section */
+.intro-section {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #f8e6d1, #ffe2d0); /* Soft gradient */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.intro-section h1 {
+    color: var(--primary-color);
+    font-size: var(--font-size-heading);
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.intro-section h1::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin: 0.5rem auto;
+    border-radius: 4px;
+}
+
+.intro-section p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.intro-section h1,
+.team-section h2 {
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Section */
+.team-section h2 {
+    color: var(--primary-color);
+    font-size: var(--font-size-subheading);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Team Member Card */
+.team-member {
+    background: linear-gradient(135deg, #b1cdd6 10%, transparent 25%) 0 0,
+                linear-gradient(225deg, #b1cdd6 10%, transparent 25%) 0 0,
+                linear-gradient(315deg, #b1cdd6 10%, transparent 25%) 0 0,
+                linear-gradient(45deg, #b1cdd6 10%, transparent 25%) 0 0;
+    background-size: 4px 4px;
+   
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-member:hover {
+    box-shadow: 0 6px 12px var(--shadow-color);
+    transform: translateY(-5px);
+}
+
+
+.team-member p {
+    gap: 0.5rem;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 4px solid var(--secondary-color);
+}
+
+
+
+.team-member h3 {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 -4px 8px var(--shadow-color);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: var(--font-size-small);
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Banner Animation */
+.intro-section {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Team Card Animation */
+.team-member {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+/* Section Divider Styling */
+.about-page {
+    border-radius: 8px;
+    background-color: var(--background-color);
+    padding: 2rem;
+    margin-top: -2rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    position: relative;
+    z-index: 1;
+}
+
+.intro-section h1::after {
+    content: ' ';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+
+/* Subtle Pattern for Banner */
+.intro-section {
+    background: linear-gradient(135deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(225deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(315deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(45deg, #ffe2d0 25%, transparent 25%) 0 0;
+    background-size: 4px 4px;
+    background-color: #fbf8ef;
+}
+
+/* Call-to-Action Button Styles */
+#navbar ul li a,
+.footer-links a {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#navbar ul li a:hover,
+.footer-links a:hover {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    transform: scale(1.05);
+}
+
+/* Accessibility Enhancements */
+.intro-section p,
+.team-member p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
