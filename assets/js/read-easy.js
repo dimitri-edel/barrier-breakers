@@ -25,11 +25,7 @@ class ReadEasy {
         var toolbar = document.createElement('div');
        
         toolbar.id = this.toolbar_element_id;
-        toolbar.innerHTML = `
-            <button id="read-easy-button" title="Toggle Read Easy">
-                Toggle Toolbar
-            </button>            
-        `;
+        
         if (this.options.show_magnifying_glass) {
             // append the span to the toolbar
             toolbar.innerHTML += `
@@ -60,12 +56,6 @@ class ReadEasy {
     }
 
     addEventListeners() {
-        var read_easy_button = document.getElementById('read-easy-button');
-        read_easy_button.removeEventListener('click', this.toggleReadEasy.bind(this)); // Remove existing listener
-        read_easy_button.addEventListener('click', this.toggleReadEasy.bind(this));
-
-        
-
         // The URL field is only available if the option is enabled
         var url_field = document.querySelector('#url-field');
         if(url_field) {
@@ -133,19 +123,6 @@ class ReadEasy {
             content_document.body.addEventListener('mouseup', this.getSelectionTextBound); // Add new listener
         } else {
             console.error('Content element not found');
-        }
-    }
-
-    toggleReadEasy() {
-        let magnifying_glass = document.getElementById('magnifying-glass');
-        let url_field = document.getElementById('url-field');
-        /* hide or show the magnifying glass */
-        if (magnifying_glass) {
-            magnifying_glass.style.display = magnifying_glass.style.display === 'none' ? 'flex' : 'none';
-        }
-        /* hide or show the url field */
-        if (url_field) {
-            url_field.style.display = url_field.style.display === 'none' ? 'block' : 'none';
         }
     }
 
