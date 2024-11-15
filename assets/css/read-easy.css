@@ -1,10 +1,10 @@
 #read-easy {
     display: flex;
-    position: relative;
-    top: 100px;
+    position: fixed; /* Change to fixed to ensure it stays on top */
+    top: 60px; /* Adjust top position */
     left: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 10000; /* Ensure it has a higher z-index */
     background: #fff;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
@@ -23,7 +23,6 @@
     font-size: 30px;
     color:white;
 }
-
 
 .magnify-cursor {
     cursor: url(/assets/images/magnifying-glass.png), auto;

@@ -176,10 +176,17 @@ class ReadEasy {
     }
 
     enableMagnification() {
+        this.textToSpeech('Magnification enabled. Hover over text to magnify.');
         const content = document.getElementById(this.content_element_id);
-        content.addEventListener('mousemove', this.magnifyBound);
-        content.addEventListener('mouseleave', this.restoreFontSizeBound);
-        
+        if (content.tagName === 'IFRAME') {
+            const contentDocument = content.contentDocument || content.contentWindow.document;
+            contentDocument.addEventListener('mousemove', this.magnifyBound);
+            contentDocument.addEventListener('mouseleave', this.restoreFontSizeBound);
+        } else {
+            content.addEventListener('mousemove', this.magnifyBound);
+            content.addEventListener('mouseleave', this.restoreFontSizeBound);
+        }
+
         // Swap the event listener to enable magnification
         var magnifyingGlass = document.getElementById('magnifying-glass');
         magnifyingGlass.removeEventListener('click', this.enableMagnificationBound);
@@ -187,9 +194,16 @@ class ReadEasy {
     }
 
     disableMagnification() {
+        this.textToSpeech('Magnification disabled.');
         const content = document.getElementById(this.content_element_id);
-        content.removeEventListener('mousemove', this.magnifyBound);
-        content.removeEventListener('mouseleave', this.restoreFontSizeBound);
+        if (content.tagName === 'IFRAME') {
+            const contentDocument = content.contentDocument || content.contentWindow.document;
+            contentDocument.removeEventListener('mousemove', this.magnifyBound);
+            contentDocument.removeEventListener('mouseleave', this.restoreFontSizeBound);
+        } else {
+            content.removeEventListener('mousemove', this.magnifyBound);
+            content.removeEventListener('mouseleave', this.restoreFontSizeBound);
+        }
         this.restoreFontSize();
 
         // Swap the event listener to disable magnification
@@ -199,11 +213,19 @@ class ReadEasy {
     }
 
     magnify(event) {
+        console.log('Magnifying');
         const content = document.getElementById(this.content_element_id);
         const magnificationFactor = 1.3;
 
-        const element = document.elementFromPoint(event.clientX, event.clientY);
-        if (element && content.contains(element)) {            
+        let element;
+        if (content.tagName === 'IFRAME') {
+            const contentDocument = content.contentDocument || content.contentWindow.document;
+            element = contentDocument.elementFromPoint(event.clientX, event.clientY);
+        } else {
+            element = document.elementFromPoint(event.clientX, event.clientY);
+        }
+
+        if (element) {            
             if (element.tagName === 'IMG') {
                 if (!element.dataset.originalWidth) {
                     element.dataset.originalWidth = element.width;
@@ -214,16 +236,22 @@ class ReadEasy {
             } else {
                 if (!element.dataset.originalFontSize) {
                     element.dataset.originalFontSize = window.getComputedStyle(element).fontSize;
-                }
+                }                
                 element.style.transition = 'font-size 0.1s';
-                element.style.fontSize = `${parseFloat(element.dataset.originalFontSize) * magnificationFactor}px`;
+                element.style.fontSize = `${parseFloat(element.dataset.originalFontSize) * magnificationFactor}px`;                
             }
         }
     }
 
     restoreFontSize() {
         const content = document.getElementById(this.content_element_id);
-        const elements = content.querySelectorAll('[data-original-font-size], [data-original-width]');
+        let elements;
+        if (content.tagName === 'IFRAME') {
+            const contentDocument = content.contentDocument || content.contentWindow.document;
+            elements = contentDocument.querySelectorAll('[data-original-font-size], [data-original-width]');
+        } else {
+            elements = content.querySelectorAll('[data-original-font-size], [data-original-width]');
+        }
         elements.forEach(element => {
             if (element.tagName === 'IMG') {
                 element.style.transform = 'scale(1)';
