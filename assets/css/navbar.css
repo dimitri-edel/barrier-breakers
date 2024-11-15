@@ -1,5 +1,6 @@
+
 #navbar {
-    background-color: #DCEDE9;
+    background-color: #78B3CE;
     overflow: hidden;
     display:block;
     width:100%;
@@ -15,11 +16,11 @@
 #navbar a {
     display: block;
     padding: 20px;
-    background-color: #B4D1CA;
-    color: black;
+    background-color: #78B3CE;
+    color: rgb(64, 31, 31);
     text-decoration: none;
 }
 #navbar .active {
-    color : #B4D1CA;
-    background-color: #766259;
+    color : rgb(64, 31, 31);
+    background-color: #F96E2A;
 }
