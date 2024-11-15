@@ -1,14 +1,38 @@
+/*Google Font lexend*/
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+
+/*Wildcard selector*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 /*General Styles*/
+body {
+    min-height: 100vh;
+    
+    /*Generic project styles*/
+    background-color: #C9E6F0;
+    font-family: "lexend", sans-serif;
+    color: #F96E2A;
+}
 
+img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #F96E2A;
+    border-radius: 15%;
+    object-fit: cover;
+    margin: 1em 0;
+}
 
+/*Body*/
 header {
-    background-color: aquamarine;
+    
 }
 
 main {
-    background-color: aqua;
-}
-
-footer {
-    background-color: blue;
+    
 }
