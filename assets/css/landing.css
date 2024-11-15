@@ -27,6 +27,7 @@ h1 {
 
 h2,h3 {
     font-size: 110%;
+    margin-bottom: 1em;
 }
 
 img {
@@ -44,6 +45,10 @@ img {
 
 li {
     margin-top: 1em;
+    font-size: 110%;
+}
+
+p {
     font-size: 110%;
 }
 
