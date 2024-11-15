@@ -19,6 +19,9 @@ body {
     background-color: #C9E6F0;
     font-family: "lexend", sans-serif;
     color: #F96E2A;
+
+    margin: 0; /* Ensure there's no default margin on the body */
+    padding: 0; /* Remove any default padding */
 }
 
 h1 {
@@ -59,13 +62,39 @@ header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    
+    height: 100%;
+    width: 100%;
+    min-height: fit-content;
+
+}
+
+.landing-heading {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    min-height: fit-content;
+
 }
 
 header div {
     max-width: 50%;
     background-color: #78B3CE;
     color: #FBF8EF;
+    justify-content: center;
+} 
+
+.landing-mockup>img{
+    height: 80%;
+    width: auto;
+    object-fit: fill;
+}
+
+.landing-mockup {
+    width: 100%;  
+    height: 100%; 
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -75,6 +104,11 @@ header div {
     padding: 3.5%;
     flex-wrap: wrap;
 }
+
+.landing-mockup, .landing-welcome {
+    border-bottom: none;
+}
+
 
 .landing-image {
     width: 100%;
@@ -161,4 +195,34 @@ footer {
 }
 
 /*Media Query*/
+@media (max-width: 950px) {
+    header {
+        flex-direction: column; /* Stack the header content vertically */
+        text-align: center;
+    }
+
+    header div {
+        max-width: 100%; /* Full width on small screens */
+    }
+
+    .landing-mockup>img{
+        width: 80%;
+        object-fit: fill;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack the header content vertically */
+        text-align: center;
+    }
+
+    header div {
+        max-width: 100%; /* Full width on small screens */
+    }
+
+}
+
 
