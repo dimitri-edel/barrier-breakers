@@ -3,5 +3,6 @@ function button_click() {
 }
 
 function conflict() {
-    var x = 5;
+    var x = 40;
+
 }
