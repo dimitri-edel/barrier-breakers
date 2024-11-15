@@ -1,14 +1,12 @@
 /* Color Palette Variables */
 :root {
-    --primary-color: #005f7b; /* Darker Blue for navbar and footer */
-    --secondary-color: #89c1d4; /* Softer Teal Blue for accents */
-    --background-color: #f8f5f2; /* Light Beige/Neutral Background */
-    --accent-color: #ff887d; /* Soft Coral Accent */
-    --text-color: #4a4a4a; /* Softer Dark Gray for text */
+    --primary-color: #005f7b;
+    --secondary-color: #89c1d4; 
+    --background-color: #f8f5f2;
+    --accent-color: #ff887d; 
+    --text-color: #4a4a4a;
     --white-color: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
-
-
 
     /* Font Variables */
     --font-family: Arial, sans-serif;
@@ -42,7 +40,6 @@ body {
     padding: 1rem;
     display: flex;
     justify-content: center;
-    position: relative;
     box-shadow: 0 4px 8px var(--shadow-color);
 }
 
@@ -50,12 +47,6 @@ body {
     display: flex;
     list-style: none;
     gap: 1.5rem;
-    padding: 0;
-    margin: 0;
-}
-
-#navbar ul li {
-    display: inline;
 }
 
 #navbar ul li a {
@@ -82,9 +73,7 @@ main.about-page {
     width: 100%;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: var(--white-color);
     border-radius: 8px;
-    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 /* Introduction Section */
@@ -92,9 +81,15 @@ main.about-page {
     text-align: center;
     padding: 2rem;
     margin-bottom: 2rem;
-    background: linear-gradient(135deg, #f8e6d1, #ffe2d0); /* Soft gradient */
+    background: linear-gradient(135deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(225deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(315deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(45deg, #ffe2d0 25%, transparent 25%) 0 0;
+    background-size: 4px 4px;
+    background-color: #fbf8ef;
     border-radius: 8px;
     box-shadow: 0 4px 12px var(--shadow-color);
+    animation: fadeIn 0.6s ease-in-out;
 }
 
 .intro-section h1 {
@@ -102,16 +97,17 @@ main.about-page {
     font-size: var(--font-size-heading);
     margin-bottom: 0.5rem;
     position: relative;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
 }
 
 .intro-section h1::after {
     content: '';
     display: block;
-    width: 50px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     background-color: var(--accent-color);
-    margin: 0.5rem auto;
-    border-radius: 4px;
+    margin: 1rem auto;
+    border-radius: 5px;
 }
 
 .intro-section p {
@@ -119,11 +115,7 @@ main.about-page {
     color: var(--text-color);
     max-width: 700px;
     margin: 0 auto;
-}
-
-.intro-section h1,
-.team-section h2 {
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
 }
 
 /* Team Section */
@@ -132,6 +124,7 @@ main.about-page {
     font-size: var(--font-size-subheading);
     text-align: center;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
 }
 
 .team-grid {
@@ -147,7 +140,6 @@ main.about-page {
                 linear-gradient(315deg, #b1cdd6 10%, transparent 25%) 0 0,
                 linear-gradient(45deg, #b1cdd6 10%, transparent 25%) 0 0;
     background-size: 4px 4px;
-   
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
@@ -160,13 +152,6 @@ main.about-page {
     transform: translateY(-5px);
 }
 
-
-.team-member p {
-    gap: 0.5rem;
-    color: var(--text-color);
-    font-size: var(--font-size-base);
-}
-
 .team-member img {
     width: 100px;
     height: 100px;
@@ -176,10 +161,8 @@ main.about-page {
     border: 4px solid var(--secondary-color);
 }
 
-
-
 .team-member h3 {
-    color: var(--text-color);
+    color: var(--primary-color);
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
 }
@@ -187,7 +170,7 @@ main.about-page {
 .team-member p {
     color: var(--text-color);
     font-size: var(--font-size-base);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* Footer */
@@ -214,18 +197,19 @@ main.about-page {
     gap: 1rem;
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .footer-links a {
     color: var(--white-color);
     text-decoration: none;
     font-size: var(--font-size-small);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .footer-links a:hover {
     text-decoration: underline;
     color: var(--accent-color);
+    transform: scale(1.05);
 }
 
 /* Animations */
@@ -234,71 +218,4 @@ main.about-page {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Banner Animation */
-.intro-section {
-    animation: fadeIn 0.6s ease-in-out;
-}
-
-/* Team Card Animation */
-.team-member {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.team-member:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px var(--shadow-color);
-}
-
-/* Section Divider Styling */
-.about-page {
-    border-radius: 8px;
-    background-color: var(--background-color);
-    padding: 2rem;
-    margin-top: -2rem;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    position: relative;
-    z-index: 1;
-}
-
-.intro-section h1::after {
-    content: ' ';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-color);
-    margin: 1rem auto;
-    border-radius: 5px;
-}
-
-/* Subtle Pattern for Banner */
-.intro-section {
-    background: linear-gradient(135deg, #ffe2d0 25%, transparent 25%) 0 0,
-                linear-gradient(225deg, #ffe2d0 25%, transparent 25%) 0 0,
-                linear-gradient(315deg, #ffe2d0 25%, transparent 25%) 0 0,
-                linear-gradient(45deg, #ffe2d0 25%, transparent 25%) 0 0;
-    background-size: 4px 4px;
-    background-color: #fbf8ef;
-}
-
-/* Call-to-Action Button Styles */
-#navbar ul li a,
-.footer-links a {
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-#navbar ul li a:hover,
-.footer-links a:hover {
-    background-color: var(--accent-color);
-    color: var(--white-color);
-    transform: scale(1.05);
-}
-
-/* Accessibility Enhancements */
-.intro-section p,
-.team-member p {
-    color: var(--text-color);
-    line-height: 1.6;
-}
 
