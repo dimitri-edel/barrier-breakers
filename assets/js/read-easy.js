@@ -191,6 +191,8 @@ class ReadEasy {
 
         // Swap the event listener to enable magnification
         var magnifyingGlass = document.getElementById('magnifying-glass');
+        // Add active class to the magnifying glass
+        magnifyingGlass.classList.add('active');
         magnifyingGlass.removeEventListener('click', this.enableMagnificationBound);
         magnifyingGlass.addEventListener('click', this.disableMagnificationBound);
     }
@@ -210,6 +212,8 @@ class ReadEasy {
 
         // Swap the event listener to disable magnification
         var magnifyingGlass = document.getElementById('magnifying-glass');
+        // Remove active class from the magnifying glass
+        magnifyingGlass.classList.remove('active');
         magnifyingGlass.removeEventListener('click', this.disableMagnificationBound);
         magnifyingGlass.addEventListener('click', this.enableMagnificationBound);
     }
