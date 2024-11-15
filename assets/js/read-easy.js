@@ -39,7 +39,7 @@ class ReadEasy {
         if (this.options.show_text_to_speech) {
             // append the input button to the toolbar
             toolbar.innerHTML += `
-                <button id="text-to-speech-button" title="Toggle Text to Speech">
+                <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
                     <i class="fa-regular fa-volume-high"></i>
                 </button>
             `;
@@ -64,11 +64,7 @@ class ReadEasy {
         read_easy_button.removeEventListener('click', this.toggleReadEasy.bind(this)); // Remove existing listener
         read_easy_button.addEventListener('click', this.toggleReadEasy.bind(this));
 
-        var textToSpeechButton = document.getElementById('text-to-speech-button');
-        if (textToSpeechButton) {
-            textToSpeechButton.removeEventListener('click', this.toggleTextToSpeech.bind(this)); // Remove existing listener
-            textToSpeechButton.addEventListener('click', this.toggleTextToSpeech.bind(this));
-        }
+        
 
         // The URL field is only available if the option is enabled
         var url_field = document.querySelector('#url-field');
@@ -82,21 +78,7 @@ class ReadEasy {
         };
         if(url_field)
             {url_field.addEventListener('keyup', this.urlFieldKeyUpBound);}
-        // The speech synthesis is only available if the option is enabled        
-        // Add event listener for selection text onmoouseup in the content
-        var content = document.getElementById(this.content_element_id);
-        // if the mousup event listener is already added, remove it
-        if(content)
-            {content.removeEventListener('mouseup', this.getSelectionTextBound);}
-        this.getSelectionTextBound = (event) => {
-            const selectedText = this.getSelectionText();
-            if (selectedText) {
-                this.textToSpeech(selectedText);
-            }
-        }
-        // Add event listener for selection text onmoouseup in the content
-        if(content)
-            {content.addEventListener('mouseup', this.getSelectionTextBound);}
+        
         
 
         // Intercept anchor clicks inside the dynamically fetched content
@@ -117,7 +99,6 @@ class ReadEasy {
     }
 
     toggleTextToSpeech() {
-        this.textToSpeechEnabled = !this.textToSpeechEnabled;
         var textToSpeechButton = document.getElementById('text-to-speech-button');
         if (this.textToSpeechEnabled) {
             textToSpeechButton.innerHTML = '<i class="fa-regular fa-volume-mute"></i>';
@@ -125,6 +106,31 @@ class ReadEasy {
         } else {
             textToSpeechButton.innerHTML = '<i class="fa-regular fa-volume-high"></i>';
             this.textToSpeech('Text to speech disabled.');
+        }
+        this.addToggleTextToSpeechEventListeners();
+        this.textToSpeechEnabled = !this.textToSpeechEnabled;
+    }
+
+    addToggleTextToSpeechEventListeners() {
+        // The speech synthesis is only available if the option is enabled        
+        // Add event listener for selection text on mouseup in the content
+        var content = document.getElementById(this.content_element_id);
+        // the content element is an iframe
+        let content_document = content.contentDocument || content.contentWindow.document;
+
+        if (content_document) {
+            console.log('Adding event listener for mouseup');
+            content_document.body.removeEventListener('mouseup', this.getSelectionTextBound); // Remove existing listener
+            this.getSelectionTextBound = (event) => {
+                const selectedText = this.getSelectionText(content_document);
+                if (selectedText) {
+                    console.log('Selected text:', selectedText);
+                    this.textToSpeech(selectedText);
+                }
+            };
+            content_document.body.addEventListener('mouseup', this.getSelectionTextBound); // Add new listener
+        } else {
+            console.error('Content element not found');
         }
     }
 
@@ -141,13 +147,13 @@ class ReadEasy {
         }
     }
 
-    getSelectionText() {
+    getSelectionText(doc = document) {
         var text = "";
-        if (window.getSelection) {
-            text = window.getSelection().toString();
+        if (doc.getSelection) {
+            text = doc.getSelection().toString();
         // for Internet Explorer 8 and below. For Blogger, you should use &amp;&amp; instead of &&.
-        } else if (document.selection && document.selection.type != "Control") { 
-            text = document.selection.createRange().text;
+        } else if (doc.selection && doc.selection.type != "Control") { 
+            text = doc.selection.createRange().text;
         }
         return text;
     }
@@ -159,8 +165,9 @@ class ReadEasy {
             .then(response => response.text())
             .then(data => {
                 var content = document.getElementById(this.content_element_id);
-                content.innerHTML = data;
-
+                // the content element is an iframe
+                let content_document = content.contentDocument || content.contentWindow.document;
+                content_document.body.innerHTML = data;
                 // Re-apply event listeners to new content
                 this.addEventListeners();
             }).catch(error => {

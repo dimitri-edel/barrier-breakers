@@ -1,7 +1,7 @@
 #read-easy {
     display: flex;
-    position: fixed;
-    top: 100;
+    position: relative;
+    top: 100px;
     left: 0;
     right: 0;
     z-index: 9999;
@@ -47,8 +47,4 @@
     border: none;
     border-radius: 3px;
     font-size: 14px;
-}
-
-#content {
-    padding-top: 70px;
 }
