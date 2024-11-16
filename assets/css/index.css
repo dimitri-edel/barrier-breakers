@@ -1,220 +1,210 @@
-/*Google Font lexend*/
+/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
-/*General Styles*/
-body {
-    min-height: 100vh;
-    letter-spacing: 1px;
-    line-height: 27px;
+/* Root Variables */
+:root {
+    --font-family: 'Lexend', sans-serif;
+    --navbar-footer-bg: #78B3CE; /* Shared color for navbar and footer */
+    --accent-color: #F96E2A; /* Highlight/Accent color */
+    --text-color: #FBF8EF; /* Light text color */
+    --brown-color: #4A3F35; /* General text color */
+}
 
-    /*Generic project styles*/
-    background-color: #C9E6F0;
+/* General Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height for sticky footer */
+    margin: 0;
+    padding: 0;
     font-family: var(--font-family);
     color: var(--brown-color);
-
-    margin: 0; /* Ensure there's no default margin on the body */
-    padding: 0; /* Remove any default padding */
+    background-color: #C9E6F0; /* Light blue background */
+    letter-spacing: 1px;
+    line-height: 1.6;
 }
 
-h1 {
+h1, h2, h3 {
     margin: 1em auto;
+    text-align: center;
 }
 
-h2,h3 {
+h2, h3 {
     font-size: 130%;
     margin-bottom: 1em;
 }
 
+p, li {
+    font-size: 110%;
+    margin: 1em auto;
+}
+
 img {
-    border: 2px solid #F96E2A;
+    border: 2px solid var(--accent-color);
     border-radius: 8%;
-    margin: 1em;
-
+    margin: 1em auto;
     object-fit: cover;
-    width: 90%;
-    height: auto;
-    text-align: center;
     max-width: 100%;
-    max-height:100%;
+    max-height: 100%;
 }
 
-li {
-    margin-top: 1em;
-    font-size: 110%;
-}
-
-p {
-    font-size: 110%;
-}
-
-
-/*Body*/
-/*header*/
+/* Header */
 header {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    height: 100%;
     width: 100%;
-    min-height: fit-content;
-
-}
-
-.landing-heading {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
-    min-height: fit-content;
-
+    background-color: var(--navbar-footer-bg);
 }
 
 header div {
-    max-width: 50%;
-    background-color: #78B3CE;
-    color: var(--brown-color);
-    justify-content: center;
-} 
-
-.landing-mockup>img{
-    height: 80%;
-    width: auto;
-    object-fit: fill;
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
 }
 
+/* Landing Section */
 .landing-mockup {
     width: 100%;  
-    height: 100%; 
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.landing-mockup > img {
+    width: 90%;
+    height: auto;
 }
 
 .landing-welcome {
-    vertical-align: middle;
-    text-align: left;
-    padding: 3.5%;
-    flex-wrap: wrap;
+    text-align: center;
+    padding: 20px;
+    color: var(--brown-color);
 }
-
-.landing-mockup, .landing-welcome {
-    border-bottom: none;
-}
-
-
-.landing-image {
-    width: 100%;
-    height: 50%;
-    justify-content: center;
-    object-fit: fill;
-}
-
 
 .landing-button {
-    background-color: #F96E2A;
-    color: #FBF8EF;
-    padding: 5px 8px;
-    border: 2px solid #FBF8EF;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: 2px solid var(--text-color);
     border-radius: 5px;
     text-decoration: none;
-    text-align: center;
-    justify-content: center;
+    display: inline-block;
+    margin: 1em auto;
 }
 
 .landing-button:hover {
-    background-color: #FBF8EF;
-    color: #F96E2A;
+    background-color: var(--text-color);
+    color: var(--accent-color);
     cursor: pointer;
 }
 
-/*main*/
+/* Main Content */
 main {
+    flex: 1; /* Push footer to bottom */
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    justify-content: center;
     width: 100%;
+    padding: 20px;
 }
 
-main div {
-    max-width: 100%;
-    justify-content: center;
-}
-
-.landing {
-    max-width: 80%;
-    height: auto;
-    flex: 33.33%;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1em auto;
-    
-    
-    /*flex-wrap: wrap;*/
-}
-
-section>div {
-    border-bottom: 1px solid #F96E2A;
+section > div {
+    border-bottom: 1px solid var(--accent-color);
+    padding: 20px;
 }
 
 .text-paster {
     border-bottom: none;
 }
 
-.landing-text {
-    max-width: fit-content;
-}
-
-.image-left {
-    margin-right: 10em;
-}
-
-.image-right {
-    margin-left:10em;
-}
-
-.link{
-    margin: 20px auto;
-    width: fit-content;
-}
-
-/*Footer*/
+/* Footer */
 footer {
     width: 100%;
-    height: 150px;
-    background-color: #78B3CE;
+    background-color: var(--navbar-footer-bg);
+    color: var(--text-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
 }
 
-/*Media Query*/
+footer .content {
+    text-align: center;
+}
+
+footer .content p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--text-color);
+}
+
+/* Social Media Buttons */
+footer .social-media {
+    margin: 20px 0;
+}
+
+footer .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid #6c757d;
+    border-radius: 50%;
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    transform: scale(1.1);
+}
+
+/* Social Media Icon Sizes */
+footer .btn i {
+    font-size: 16px;
+}
+
+/* Media Queries */
 @media (max-width: 950px) {
     header {
-        flex-direction: column; /* Stack the header content vertically */
+        flex-direction: column; /* Stack header content vertically */
         text-align: center;
     }
 
     header div {
-        max-width: 100%; /* Full width on small screens */
+        max-width: 100%;
     }
 
-    .landing-mockup>img{
+    .landing-mockup > img {
         width: 80%;
-        object-fit: fill;
     }
 }
-
-
 
 @media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Stack the header content vertically */
+    footer {
         text-align: center;
     }
 
-    header div {
-        max-width: 100%; /* Full width on small screens */
+    footer .btn {
+        margin: 10px 5px;
     }
-
 }
-
-
