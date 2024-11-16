@@ -6,6 +6,10 @@ class ReadEasy {
         this.options = options;
         this.magnificationEnabled = false; // Flag to track magnification state
         this.text_to_speech_enabled = false; // Flag to track text-to-speech state
+        this.text_to_speech_voice = "US English Male"; // The voice to use for text-to-speech
+        this.magnification_font_color = "#000000"; // the font color of the magnified text
+        this.manginfication_background_color = "#ffffff"; // the background color of the magnified text
+        this.magnification_factor = 1.2; // the factor by which the text is magnified
         this.magnifyBound = this.magnify.bind(this); // Store bound function
         this.restoreFontSizeBound = this.restoreFontSize.bind(this); // Store bound function
         this.enableMagnificationBound = this.enableMagnification.bind(this); // Store bound function
@@ -17,7 +21,7 @@ class ReadEasy {
     init() {
         this.createToolbar();
         this.addToolbar();
-        this.addEventListeners();
+        this.addEventListeners();        
     }
 
     createToolbar() {
@@ -25,28 +29,57 @@ class ReadEasy {
 
         toolbar.id = this.toolbar_element_id;
 
-        if (this.options.show_magnifying_glass) {
-            // append the span to the toolbar
-            toolbar.innerHTML += `
-                <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
-            `;
-        }
-        if (this.options.show_text_to_speech) {
-            // append the input button to the toolbar
-            toolbar.innerHTML += `
-                <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
-                   <i class="fa-solid fa-volume-xmark"></i>
-                </button>
-            `;
-        }
-
         if (this.options.show_url_field) {
             // append the input to the toolbar
             toolbar.innerHTML += `
                 <input type="text" id="url-field" placeholder="Enter URL">
             `;
+        } else {
+            // If the URL field is not shown, reduce the height of the toolbar
+            let read_easy_element = document.getElementById("read-easy");
+            read_easy_element.style.height = '70px';
+            toolbar.style.height = '60px';
         }
 
+        if (this.options.show_magnifying_glass) {
+            // append the span to the toolbar
+            toolbar.innerHTML += `
+                <span id="magnification-panel">
+                    <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <span id="magninification-font-color-selector">Text: <input onchange="read_easy.changeMagnificationFontColor(this)" type="color" id="font-color" value="#000000"></span>
+                    <span id="magninification-background-color-selector">Background: <input onchange="read_easy.changeMagnificationBackgroundColor(this)" type="color" id="background-color" value="#ffffff"></span>
+                    <span id="magnification-factor-selector">
+                        <select id="magnification-factor" onchange="read_easy.changeMagnificationFactor(this)">
+                            <optgroup>
+                                <option value="1.2">Select Magnification Factor</option>
+                                <option value="1.3">1.3x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2">2x</option>
+                            </optgroup>
+                        </select>
+                    </span>
+                </span>
+            `;
+        }
+        if (this.options.show_text_to_speech) {
+            // append the input button to the toolbar
+            toolbar.innerHTML += `
+                <span id="text-to-speech-panel">
+                    <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </button>
+                    <span id="text-to-speech-voice-selector">
+                        <select id="text-to-speech-voice" onchange="read_easy.setTextToSpeechVoice(this)">
+                            <optgroup>
+                                <option value="US English Male">US English Female 1</option>
+                                <option value="US English Female">US English Female 2</option>
+                                <option value="UK English Male">UK English Male</option>
+                                <option value="UK English Female">UK English Female</option>
+                            </optgroup>
+                        </select>
+                </span>
+            `;
+        }
         this.toolbar = toolbar;
     }
 
@@ -63,7 +96,7 @@ class ReadEasy {
         this.urlFieldKeyUpBound = (event) => {
             if (event.key === 'Enter') {
                 this.fetchURL(url_field.value);
-            }
+            }           
         };
         if (url_field) { url_field.addEventListener('keyup', this.urlFieldKeyUpBound); }
 
@@ -91,11 +124,11 @@ class ReadEasy {
         if (this.text_to_speech_enabled) {
             textToSpeechButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
             textToSpeechButton.classList.remove('active');
-            this.textToSpeech('Text to speech disabled.');
+            this.textToSpeech('Text to speech deactivated.');
         } else {
             textToSpeechButton.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
             textToSpeechButton.classList.add('active');
-            this.textToSpeech('Text to speech enabled.');
+            this.textToSpeech('Text to speech activated.');
         }
         this.addToggleTextToSpeechEventListeners();
         this.text_to_speech_enabled = !this.text_to_speech_enabled;
@@ -138,6 +171,9 @@ class ReadEasy {
         }
     }
 
+    setTextToSpeechVoice(voice) {
+        this.text_to_speech_voice = voice.value;
+    }
 
     getSelectionText(doc = document) {
         var text = "";
@@ -168,8 +204,20 @@ class ReadEasy {
             });
     }
 
+    changeMagnificationFactor(selectElement) {
+        this.magnification_factor = parseFloat(selectElement.value);
+    }
+
+    changeMagnificationFontColor(inputElement) {
+        this.magnification_font_color = inputElement.value;
+    }
+
+    changeMagnificationBackgroundColor(inputElement) {
+        this.manginfication_background_color = inputElement.value;
+    }
+
     enableMagnification() {
-        this.textToSpeech('Magnification enabled. Hover over text to magnify.');
+        this.textToSpeech('Magnification activated. Hover over text to magnify.');        
         const content = document.getElementById(this.content_element_id);
         if (content.tagName === 'IFRAME') {
             const contentDocument = content.contentDocument || content.contentWindow.document;
@@ -189,7 +237,7 @@ class ReadEasy {
     }
 
     disableMagnification() {
-        this.textToSpeech('Magnification disabled.');
+        this.textToSpeech('Magnification deactivated.');
         const content = document.getElementById(this.content_element_id);
         if (content.tagName === 'IFRAME') {
             const contentDocument = content.contentDocument || content.contentWindow.document;
@@ -206,13 +254,13 @@ class ReadEasy {
         // Remove active class from the magnifying glass
         magnifyingGlass.classList.remove('active');
         magnifyingGlass.removeEventListener('click', this.disableMagnificationBound);
-        magnifyingGlass.addEventListener('click', this.enableMagnificationBound);
+        magnifyingGlass.addEventListener('click', this.enableMagnificationBound);        
     }
 
     magnify(event) {
         console.log('Magnifying');
         const content = document.getElementById(this.content_element_id);
-        const magnificationFactor = 1.3;
+        const magnificationFactor = this.magnification_factor;
 
         let element;
         if (content.tagName === 'IFRAME') {
@@ -236,6 +284,8 @@ class ReadEasy {
                 }
                 element.style.transition = 'font-size 0.1s';
                 element.style.fontSize = `${parseFloat(element.dataset.originalFontSize) * magnificationFactor}px`;
+                element.style.color = this.magnification_font_color;
+                element.style.backgroundColor = this.manginfication_background_color;
             }
         }
     }
@@ -266,7 +316,7 @@ class ReadEasy {
     textToSpeech(text) {
         if (typeof responsiveVoice !== 'undefined') {
             responsiveVoice.cancel(); // stop anything currently being spoken
-            responsiveVoice.setDefaultVoice("US English Female");
+            responsiveVoice.setDefaultVoice(this.text_to_speech_voice);
             responsiveVoice.speak(text);
         } else {
             console.error('ResponsiveVoice is not available.');
