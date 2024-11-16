@@ -37,8 +37,8 @@ class ReadEasy {
         } else {
             // If the URL field is not shown, reduce the height of the toolbar
             let read_easy_element = document.getElementById("read-easy");
-            read_easy_element.style.height = '100px';
-            toolbar.style.height = '100px';
+            read_easy_element.style.height = 'auto';
+            toolbar.style.height = 'auto';
         }
 
         if (this.options.show_magnifying_glass) {
@@ -76,10 +76,10 @@ class ReadEasy {
                     <span id="text-to-speech-voice-selector">
                         <select id="text-to-speech-voice" onchange="read_easy.setTextToSpeechVoice(this)">
                             <optgroup>
-                                <option value="US English Male">US English Female 1</option>
-                                <option value="US English Female">US English Female 2</option>
-                                <option value="UK English Male">UK English Male</option>
-                                <option value="UK English Female">UK English Female</option>
+                                <option value="US English Male">US English 1</option>
+                                <option value="US English Female">US English 2</option>
+                                <option value="UK English Male">UK English 1</option>
+                                <option value="UK English Female">UK English 2</option>
                             </optgroup>
                         </select>
                 </fieldset>
@@ -97,14 +97,25 @@ class ReadEasy {
         // The URL field is only available if the option is enabled
         var url_field = document.querySelector('#url-field');
         if (url_field) {
+            // Keyboard on a PC or laptop
             url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
+            // Keyboard on a mobile device
+            url_field.removeEventListener('blur', this.urlFieldBlurBound); // Remove existing listener
         }
         this.urlFieldKeyUpBound = (event) => {
             if (event.key === 'Enter') {
                 this.fetchURL(url_field.value);
             }           
         };
-        if (url_field) { url_field.addEventListener('keyup', this.urlFieldKeyUpBound); }
+        this.urlFieldBlurBound = (event) => {
+            this.fetchURL(url_field.value);
+        };
+        if (url_field) { 
+            // Keyboard on a PC or laptop
+            url_field.addEventListener('keyup', this.urlFieldKeyUpBound);
+           // Keyboard on a mobile device
+            url_field.addEventListener('blur', this.urlFieldBlurBound);
+        }
 
 
 
@@ -142,7 +153,7 @@ class ReadEasy {
 
     addToggleTextToSpeechEventListeners() {
         // The speech synthesis is only available if the option is enabled        
-        // Add event listener for selection text on mouseup in the content
+        // Add event listener for selection text on mouseup and touchend in the content
         var content = document.getElementById(this.content_element_id);
         let content_document = null;
 
@@ -153,24 +164,36 @@ class ReadEasy {
         }
         if (content_document !== null) {
             // It is an iframe
+            // Keyboard on a PC or laptop
             content_document.body.removeEventListener('mouseup', this.getSelectionTextBound); // Remove existing listener
+            // Keyboard on a mobile device
+            content_document.body.removeEventListener('touchend', this.getSelectionTextBound); // Remove existing listener
             this.getSelectionTextBound = (event) => {
                 const selectedText = this.getSelectionText(content_document);
                 if (selectedText) {
                     this.textToSpeech(selectedText);
                 }
             };
+            // Keyboard on a PC or laptop
             content_document.body.addEventListener('mouseup', this.getSelectionTextBound); // Add new listener
+            // Keyboard on a mobile device
+            content_document.body.addEventListener('touchend', this.getSelectionTextBound); // Add new listener
         } else if (content !== null && content !== undefined && content.tagName === 'DIV') {
             // This is a div element
+            // Keyboard on a PC or laptop
             content.removeEventListener('mouseup', this.getSelectionTextBound); // Remove existing listener
+            // Keyboard on a mobile device
+            content.removeEventListener('touchend', this.getSelectionTextBound); // Remove existing listener
             this.getSelectionTextBound = (event) => {
                 const selectedText = this.getSelectionText(document); // Use the main document
                 if (selectedText) {
                     this.textToSpeech(selectedText);
                 }
             };
+            // Keyboard on a PC or laptop
             content.addEventListener('mouseup', this.getSelectionTextBound); // Add new listener
+            // Keyboard on a mobile device
+            content.addEventListener('touchend', this.getSelectionTextBound); // Add new listener
         }
         else {
             console.error('Content element not found');
@@ -329,3 +352,12 @@ class ReadEasy {
         }
     }
 }
+
+// Define the function to handle anchor clicks
+window.handleAnchorClick = function(url) {
+    read_easy.fetchURL(url);
+};
+
+// var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: true});
+// Apply initial event listeners
+// read_easy.addEventListeners();
