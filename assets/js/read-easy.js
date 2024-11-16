@@ -91,14 +91,12 @@ class ReadEasy {
         // The URL field is only available if the option is enabled
         var url_field = document.querySelector('#url-field');
         if (url_field) {
-            url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
+            url_field.removeEventListener('change', this.urlFieldChangedBound); // Remove existing listener
         }
-        this.urlFieldKeyUpBound = (event) => {
-            if (event.key === 'Enter') {
-                this.fetchURL(url_field.value);
-            }
+        this.urlFieldChangedBound = (event) => {
+            this.fetchURL(url_field.value);
         };
-        if (url_field) { url_field.addEventListener('keyup', this.urlFieldKeyUpBound); }
+        if (url_field) { url_field.addEventListener('change', this.urlFieldChangedBound); }
 
 
 
@@ -124,11 +122,11 @@ class ReadEasy {
         if (this.text_to_speech_enabled) {
             textToSpeechButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
             textToSpeechButton.classList.remove('active');
-            this.textToSpeech('Text to speech disabled.');
+            this.textToSpeech('Text to speech deactivated.');
         } else {
             textToSpeechButton.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
             textToSpeechButton.classList.add('active');
-            this.textToSpeech('Text to speech enabled.');
+            this.textToSpeech('Text to speech activated.');
         }
         this.addToggleTextToSpeechEventListeners();
         this.text_to_speech_enabled = !this.text_to_speech_enabled;
@@ -217,7 +215,7 @@ class ReadEasy {
     }
 
     enableMagnification() {
-        this.textToSpeech('Magnification enabled. Hover over text to magnify.');
+        this.textToSpeech('Magnification activated. Hover over text to magnify.');        
         const content = document.getElementById(this.content_element_id);
         if (content.tagName === 'IFRAME') {
             const contentDocument = content.contentDocument || content.contentWindow.document;
@@ -237,7 +235,7 @@ class ReadEasy {
     }
 
     disableMagnification() {
-        this.textToSpeech('Magnification disabled.');
+        this.textToSpeech('Magnification deactivated.');
         const content = document.getElementById(this.content_element_id);
         if (content.tagName === 'IFRAME') {
             const contentDocument = content.contentDocument || content.contentWindow.document;
@@ -254,7 +252,7 @@ class ReadEasy {
         // Remove active class from the magnifying glass
         magnifyingGlass.classList.remove('active');
         magnifyingGlass.removeEventListener('click', this.disableMagnificationBound);
-        magnifyingGlass.addEventListener('click', this.enableMagnificationBound);
+        magnifyingGlass.addEventListener('click', this.enableMagnificationBound);        
     }
 
     magnify(event) {
