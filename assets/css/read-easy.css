@@ -1,22 +1,27 @@
 /* Toolbar container background */
 #read-easy {
     display: flex;
-
-    flex-wrap: nowrap; /* Align items horizontally */
-    justify-content: space-between; /* Spread items evenly */
-    align-items: center;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: stretch; /* Ensure children take full width */
     position: fixed;
     top: 100px;
     left: 10px;
     right: 10px;
-    z-index: 10000;
-    background: #e8f6f7; /* Subtle teal background */
+    z-index: 10;
+    background: #e8f6f7;
     padding: 10px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Slightly rounded bottom corners */
-    border: 2px  solid #006d77;
-   
+    border-radius: 10px;
+    border: 2px solid #006d77;
+}
 
+/* Container for fieldsets */
+.fieldsets-container {
+    display: flex;
+    flex-direction: row; /* Align fieldsets horizontally */
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-top: 10px; /* Add margin to separate from URL field */
 }
 
 /* Fieldset container styling */
@@ -25,11 +30,14 @@ fieldset {
     align-items: center;
     justify-content: center;
     padding: 10px 15px;
-    margin: 0 10px;
+    margin: 10px 0; /* Add margin to separate fieldsets */
     border: none;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Allow fieldsets to take equal space */
+    min-width: 200px; /* Minimum width for fieldsets */
+    max-height: 90px;
 }
 
 /* Legends for each section */
@@ -66,14 +74,14 @@ legend {
 /* Active state for magnifier and speaker */
 #magnifying-glass.active,
 #text-to-speech-button.active {
-    background-color: #52b788; /* Brighter green when active */
-    box-shadow: 0 0 10px rgba(82, 183, 136, 0.8); /* Glow effect */
+    background-color: #52b788;
+    box-shadow: 0 0 10px rgba(82, 183, 136, 0.8);
 }
 
 /* Input fields */
 #url-field {
-    width: 400px;
-    max-width: 50%;
+    width: 100%; /* Take full width */
+    display: block;
     height: 40px;
     padding: 5px 15px;
     border: 1px solid #ccc;
@@ -82,6 +90,7 @@ legend {
     background-color: #ffffff;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s;
+    margin-bottom: 10px; /* Add margin to separate from fieldsets */
 }
 
 /* Focus state for the URL field */
@@ -113,55 +122,32 @@ select:focus {
     padding: 10px;
 }
 
+#content {
+    margin-top: 230px;
+}
 
-/* Media query for mobile screens */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     #read-easy {
-        flex-wrap: nowrap; /* Keep items in one line */
-        justify-content: space-between; /* Spread items evenly */
-        padding: 10px 10px;
-        height: auto; /* Minimize the height */
+        flex-direction: column;
+        top: 80px;
+        left: 5px;
+        right: 5px;
     }
 
-    /* Hide unnecessary elements */
-    #magninification-font-color-selector,
-    #magninification-background-color-selector,
-    #text-to-speech-panel legend,
-    #text-to-speech-voice {
-        display: none; /* Hide text and background selectors */
-    }
-
-    /* Magnifier, input field, speaker, and size dropdown in one line */
-    #magnifying-glass,
-    #url-field,
-    #text-to-speech-button,
-    #magnification-factor-selector {
-        margin: 0 5px; /* Adjust spacing between elements */
+    .fieldsets-container {
+        flex-direction: column; /* Stack fieldsets vertically */
     }
 
     #url-field {
-        width: 150px; /* Adjust size to fit in one line */
-        height: 35px;
+        width: 100%;
+        max-width: 100%;
     }
 
     #magnifying-glass,
     #text-to-speech-button {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        margin: 10px 0;
     }
-
-    #magnification-factor-selector select {
-        font-size: 0.9rem;
-    }
-
-    /* Adjust buttons for better alignment */
-    fieldset {
-        flex-direction: row; /* Align elements in a single line */
-        padding: 5px;
-        margin: 0;
-        border: none;
-        background: none;
-        box-shadow: none;
+    #content {
+        margin-top: 350px;
     }
 }

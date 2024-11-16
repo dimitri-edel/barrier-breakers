@@ -3,7 +3,7 @@
     #navbar {
         flex-direction: column; /* Stack logo and links */
         align-items: flex-start; /* Align to the left */
-        padding: 1rem;
+        padding: 1rem;        
     }
 
     #navbar ul {
@@ -22,6 +22,7 @@
     background-color: var(--primary-color); /* Use the primary color */
     box-shadow: 0 4px 8px var(--shadow-color); /* Add shadow */
     font-family: var(--font-family); /* Use Lexend font */
+    z-index: 1000; /* Ensure it is above other elements */
 }
 
 .navbar-brand img {
