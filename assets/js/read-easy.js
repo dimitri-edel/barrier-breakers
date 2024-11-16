@@ -91,12 +91,14 @@ class ReadEasy {
         // The URL field is only available if the option is enabled
         var url_field = document.querySelector('#url-field');
         if (url_field) {
-            url_field.removeEventListener('change', this.urlFieldChangedBound); // Remove existing listener
+            url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
         }
-        this.urlFieldChangedBound = (event) => {
-            this.fetchURL(url_field.value);
+        this.urlFieldKeyUpBound = (event) => {
+            if (event.key === 'Enter') {
+                this.fetchURL(url_field.value);
+            }           
         };
-        if (url_field) { url_field.addEventListener('change', this.urlFieldChangedBound); }
+        if (url_field) { url_field.addEventListener('keyup', this.urlFieldKeyUpBound); }
 
 
 
