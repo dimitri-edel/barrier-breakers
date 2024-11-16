@@ -16,7 +16,7 @@
 
 #navbar ul li a {
     text-decoration: none;
-    color: #04144e;
+    color: var(--brown-color);
     font-size: var(--font-size-base);
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -27,6 +27,7 @@
 #navbar ul li a:hover,
 #navbar ul li a.active {
     background-color: var(--accent-color);
-    color: var(--white-color);
+    color: var(--brown-color);
+    font-weight: bold;
     transform: scale(1.05);
 }
