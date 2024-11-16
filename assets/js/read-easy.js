@@ -33,6 +33,11 @@ class ReadEasy {
             toolbar.innerHTML += `
                 <input type="text" id="url-field" placeholder="Enter URL">
             `;
+        } else {
+            // If the URL field is not shown, reduce the height of the toolbar
+            let read_easy_element = document.getElementById("read-easy");
+            read_easy_element.style.height = '70px';
+            toolbar.style.height = '60px';
         }
 
         if (this.options.show_magnifying_glass) {
