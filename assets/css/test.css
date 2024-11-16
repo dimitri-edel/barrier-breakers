@@ -7,3 +7,21 @@ button:hover {
     background-color: var(--secondary-color);
     color: var(--complementary-color);
 }
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    height: 80vh;
+}
+
+textarea {
+    width: 50%;
+    height: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid var(--complementary-color);
+    border-radius: 4px;
+}
