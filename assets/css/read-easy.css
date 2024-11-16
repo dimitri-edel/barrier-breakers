@@ -5,7 +5,7 @@
     top: 80px; /* Adjust top position */
     left: 0;
     right: 0;
-    height: 10px;
+    height: auto;
     z-index: 10000; /* Ensure it has a higher z-index */
     background: var(--background-color);
     border-bottom: 1px solid var(--shadow-color);

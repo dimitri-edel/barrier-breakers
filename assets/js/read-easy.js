@@ -37,8 +37,8 @@ class ReadEasy {
         } else {
             // If the URL field is not shown, reduce the height of the toolbar
             let read_easy_element = document.getElementById("read-easy");
-            read_easy_element.style.height = '100px';
-            toolbar.style.height = '100px';
+            read_easy_element.style.height = 'auto';
+            toolbar.style.height = 'auto';
         }
 
         if (this.options.show_magnifying_glass) {
