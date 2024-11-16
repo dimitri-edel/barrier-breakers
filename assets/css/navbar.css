@@ -1,25 +1,31 @@
+/* Navbar Styling */
 #navbar {
-    background-color: #DCEDE9;
-    overflow: hidden;
-    display:block;
-    width:100%;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
+
 #navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
 }
-#navbar li {
-    float: left;
-}
-#navbar a {
-    display: block;
-    padding: 20px;
-    background-color: #B4D1CA;
-    color: black;
+
+#navbar ul li a {
     text-decoration: none;
+    font-size: var(--font-size-base);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: var(--secondary-color);
+    transition: background-color 0.3s, transform 0.2s;
 }
-#navbar .active {
-    color : #B4D1CA;
-    background-color: #766259;
+
+#navbar ul li a:hover,
+#navbar ul li a.active {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    font-weight: bold;
+    transform: scale(1.05);
 }
