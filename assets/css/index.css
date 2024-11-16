@@ -154,10 +154,16 @@ section > div {
 
 .landing-text {
     text-align: left;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .url-fetch {
-    margin-left:5em;
+    margin-left:4em;
 }
 
 /* Footer */
