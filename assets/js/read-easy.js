@@ -37,8 +37,8 @@ class ReadEasy {
         } else {
             // If the URL field is not shown, reduce the height of the toolbar
             let read_easy_element = document.getElementById("read-easy");
-            read_easy_element.style.height = '100px';
-            toolbar.style.height = '100px';
+            read_easy_element.style.height = 'auto';
+            toolbar.style.height = 'auto';
         }
 
         if (this.options.show_magnifying_glass) {
@@ -98,13 +98,20 @@ class ReadEasy {
         var url_field = document.querySelector('#url-field');
         if (url_field) {
             url_field.removeEventListener('keyup', this.urlFieldKeyUpBound); // Remove existing listener
+            url_field.removeEventListener('blur', this.urlFieldBlurBound); // Remove existing listener
         }
         this.urlFieldKeyUpBound = (event) => {
             if (event.key === 'Enter') {
                 this.fetchURL(url_field.value);
             }           
         };
-        if (url_field) { url_field.addEventListener('keyup', this.urlFieldKeyUpBound); }
+        this.urlFieldBlurBound = (event) => {
+            this.fetchURL(url_field.value);
+        };
+        if (url_field) { 
+            url_field.addEventListener('keyup', this.urlFieldKeyUpBound);
+            url_field.addEventListener('blur', this.urlFieldBlurBound);
+        }
 
 
 
@@ -329,3 +336,12 @@ class ReadEasy {
         }
     }
 }
+
+// Define the function to handle anchor clicks
+window.handleAnchorClick = function(url) {
+    read_easy.fetchURL(url);
+};
+
+// var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: true, show_url_field: true});
+// Apply initial event listeners
+// read_easy.addEventListeners();
