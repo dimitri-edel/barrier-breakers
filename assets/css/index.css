@@ -135,7 +135,8 @@ section > div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 0 2em;
+    padding: 0 5em;
 }
 
 .landing-image {
@@ -144,11 +145,19 @@ section > div {
 }
 
 .image-right {
-    margin-left: 5em;
+    margin: 0 5em;
+}
+
+.image-left {
+    margin: 0 5em;
 }
 
 .landing-text {
     text-align: left;
+}
+
+.url-fetch {
+    margin-left:5em;
 }
 
 /* Footer */
