@@ -6,6 +6,7 @@ class ReadEasy {
         this.options = options;
         this.magnificationEnabled = false; // Flag to track magnification state
         this.text_to_speech_enabled = false; // Flag to track text-to-speech state
+        this.text_to_speech_voice = "US English Male"; // The voice to use for text-to-speech
         this.magnification_font_color = "#000000"; // the font color of the magnified text
         this.manginfication_background_color = "#ffffff"; // the background color of the magnified text
         this.magnification_factor = 1.2; // the factor by which the text is magnified
@@ -63,14 +64,22 @@ class ReadEasy {
         if (this.options.show_text_to_speech) {
             // append the input button to the toolbar
             toolbar.innerHTML += `
-                <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
-                   <i class="fa-solid fa-volume-xmark"></i>
-                </button>
+                <span id="text-to-speech-panel">
+                    <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </button>
+                    <span id="text-to-speech-voice-selector">
+                        <select id="text-to-speech-voice" onchange="read_easy.setTextToSpeechVoice(this)">
+                            <optgroup>
+                                <option value="US English Male">US English Female 1</option>
+                                <option value="US English Female">US English Female 2</option>
+                                <option value="UK English Male">UK English Male</option>
+                                <option value="UK English Female">UK English Female</option>
+                            </optgroup>
+                        </select>
+                </span>
             `;
         }
-
-        
-
         this.toolbar = toolbar;
     }
 
@@ -162,6 +171,9 @@ class ReadEasy {
         }
     }
 
+    setTextToSpeechVoice(voice) {
+        this.text_to_speech_voice = voice.value;
+    }
 
     getSelectionText(doc = document) {
         var text = "";
@@ -304,7 +316,7 @@ class ReadEasy {
     textToSpeech(text) {
         if (typeof responsiveVoice !== 'undefined') {
             responsiveVoice.cancel(); // stop anything currently being spoken
-            responsiveVoice.setDefaultVoice("US English Female");
+            responsiveVoice.setDefaultVoice(this.text_to_speech_voice);
             responsiveVoice.speak(text);
         } else {
             console.error('ResponsiveVoice is not available.');

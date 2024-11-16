@@ -110,6 +110,7 @@ optgroup {
     border-radius: 3px;
     font-size: 14px;
     margin: 0 10px;
+    border: solid 1px var(--complementary-color);
 }
 
 #text-to-speech-button {
