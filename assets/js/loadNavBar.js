@@ -7,7 +7,7 @@ function getPageName() {
 // Function for loading the navigation bar
 function loadNavBar() {
     // Create the list items for the navigation bar
-    const pages = ["index.html", "landing.html","second.html", "site-viewer.html", "test.html", "about.html"];
+    const pages = ["index.html", "home.html","second.html", "site-viewer.html", "test.html", "about.html"];
     // Create the unordered list and attach it to the navbar element
     const navBar = document.getElementById("navbar");
     const ul = document.createElement("ul");
@@ -16,7 +16,7 @@ function loadNavBar() {
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = page;
-        if(getPageNamewithoutExtension(page) == "index"){
+        if(getPageNamewithoutExtension(page) == "home"){
             a.textContent = "Home";
         }else {
             a.textContent = capitalizeFirstLetter(getPageNamewithoutExtension(page));
