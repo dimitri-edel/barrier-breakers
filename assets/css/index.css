@@ -1,14 +1,6 @@
 /*Google Font lexend*/
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
-
-/*Wildcard selector*/
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 /*General Styles*/
 body {
     min-height: 100vh;
