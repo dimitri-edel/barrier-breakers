@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     box-shadow: 0 4px 8px var(--shadow-color);
+    font-family: var(--font-family);
 }
 
 #navbar ul {
@@ -27,6 +28,5 @@
 #navbar ul li a.active {
     background-color: var(--accent-color);
     color: var(--white-color);
-    font-weight: bold;
     transform: scale(1.05);
 }
