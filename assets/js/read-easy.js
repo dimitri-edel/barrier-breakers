@@ -135,7 +135,7 @@ class ReadEasy {
         magnifyingGlass.removeEventListener('click', this.enableMagnificationBound); // Remove existing listener
         magnifyingGlass.addEventListener('click', this.enableMagnificationBound);
     }
-
+    
     toggleTextToSpeech() {
         var textToSpeechButton = document.getElementById('text-to-speech-button');
         if (this.text_to_speech_enabled) {

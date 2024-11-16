@@ -1,55 +1,3 @@
-/* Navbar Styling */
-#navbar {
-    background-color: var(--primary-color); /* Use the primary color */
-    padding: 1rem 2rem; /* Add responsive padding */
-    display: flex;
-    justify-content: space-between; /* Align logo and links */
-    align-items: center; /* Center align */
-    box-shadow: 0 4px 8px var(--shadow-color); /* Add shadow */
-    font-family: var(--font-family); /* Use Lexend font */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* Logo Styling */
-#navbar .navbar-logo img {
-    height: 50px; /* Logo height */
-    width: auto; /* Maintain aspect ratio */
-    transition: transform 0.3s ease-in-out; /* Smooth hover animation */
-}
-
-#navbar .navbar-logo img:hover {
-    transform: scale(1.1); /* Enlarge logo slightly */
-}
-
-/* Navigation Links */
-#navbar ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem; /* Space between links */
-    margin: 0;
-    padding: 0;
-}
-
-#navbar ul li a {
-    text-decoration: none;
-    color: var(--brown-color); /* Brown text color */
-    font-size: var(--font-size-base); /* Base font size */
-    padding: 0.5rem 1rem; /* Add padding for clickable area */
-    border-radius: 4px; /* Rounded corners */
-    background-color: var(--secondary-color); /* Default link background */
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-}
-
-#navbar ul li a:hover,
-#navbar ul li a.active {
-    background-color: var(--accent-color); /* Highlight hover/active links */
-    color: var(--white-color); /* White text for contrast */
-    font-weight: bold; /* Emphasize active link */
-    transform: scale(1.1); /* Slightly enlarge */
-}
-
 /* Responsive Navbar */
 @media (max-width: 768px) {
     #navbar {
@@ -67,4 +15,42 @@
         width: 100%; /* Full-width links */
         text-align: left;
     }
+}
+
+/* Custom Navbar Styling */
+.navbar {
+    background-color: var(--primary-color); /* Use the primary color */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Add shadow */
+    font-family: var(--font-family); /* Use Lexend font */
+}
+
+.navbar-brand img {
+    height: 50px; /* Logo height */
+    width: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Smooth hover animation */
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1); /* Enlarge logo slightly */
+}
+
+.nav-link {
+    color: var(--brown-color) !important; /* Brown text color */
+    font-size: var(--font-size-base); /* Base font size */
+    padding: 0.5rem 1rem; /* Add padding for clickable area */
+    border-radius: 4px; /* Rounded corners */
+    background-color: var(--secondary-color); /* Default link background */
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    margin: 10px;
+    max-width: 90%;
+    min-width: 200px;
+    text-align: center;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--accent-color) !important; /* Highlight hover/active links */
+    color: var(--white-color) !important; /* White text for contrast */
+    font-weight: bold; /* Emphasize active link */
+    transform: scale(1.1); /* Slightly enlarge */
 }
