@@ -4,17 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/read-easy.css">
+    <link rel="stylesheet" href="assets/css/index.css">    
     <title>Document</title>
+
 </head>
 
 <body>
     <!--Header-->
-    <div id="navbar"></div>
-    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/logo.webp" alt="ReadEase Logo" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="site-viewer.html">Site Viewer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="text-viewer.html">Text Viewer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Main-->
+    <main>
         <section class="landing-heading">
             <div class="landing-welcome">
                 <h1>Welcome to ReadEase</h1>
@@ -26,17 +52,14 @@
                 <a class="landing-button" href="home.html" aria-label="Go to ReadEase Homepage to find out more">Get
                     Started</a>
             </div>
-            <div class="landing-mockup">
+            <div class="landing-mockup landing-image">
                 <img src="assets/images/landing-page/website-mockup-example-wikipediahome.jpg"
                     alt="image of site on different devices">
             </div>
         </section>
-    </header>
 
-    <!--Main-->
-    <main>
+
         <section class="landing-divs">
-
             <div class="features-list landing">
                 <div class="landing-image image-left">
                     <img src="assets/images/landing-page/pexels-pavel-danilyuk-7055135.jpg"
@@ -50,11 +73,14 @@
                         <li>Allow <strong>customizable text sizes </strong>for optimal comfort</li>
                         <li>Enable <strong>easy content fetching</strong> for quick access to information</li>
                     </ul>
+                    <br>
+                    <a class="landing-button button-in-section" href="home.html"
+                    aria-label="Go to ReadEase Homepage to find out more">Try ReadEase for Free!</a>
                 </div>
             </div>
 
             <div class="url-paster landing">
-                <div>
+                <div class="landing-text url-fetch">
                     <h3>URL Fetching</h3>
                     <p>
                         The URL input field allows users to enter a URL to dynamically fetch and display that webpage.
@@ -63,6 +89,8 @@
                         make the browsing experience more accessible for individuals with visual impairments or reading
                         difficulties.
                     </p>
+                    <br>
+                    <a class="landing-button button-in-section" href="site-viewer.html" aria-label="Go to Site-Viewer page to try it out">Try out Site-Viewer!</a>
                 </div>
                 <div class="landing-image image-right">
                     <img src="assets/images/landing-page/pexels-kampus-7983602.jpg"
@@ -75,7 +103,7 @@
                     <img src="assets/images/landing-page/pexels-tima-miroshnichenko-5303515.jpg"
                         alt="image of a child studying">
                 </div>
-                <div>
+                <div class="landing-text">
                     <h3>Drag and Drop Text-to-Speech</h3>
                     <p>
                         Users can select and drag text from any part of a webpage into a designated area.
@@ -85,11 +113,10 @@
                         This feature is helpful for users with visual impairments or those who prefer auditory learning.
                     </p>
 
+                    <br>
+                    <a class="landing-button button-in-section" href="text-viewer.html" aria-label="Go to Text-viewer page to try it out">Try out Text-Viewer!</a>
+
                 </div>
-            </div>
-            <div class="link">
-                <a class="landing-button" id="button-in-section" href="home.html"
-                    aria-label="Go to ReadEase Homepage to find out more">Try ReadEase for Free!</a>
             </div>
         </section>
     </main>
@@ -103,18 +130,12 @@
     <script src="https://kit.fontawesome.com/73429b2bf2.js" crossorigin="anonymous"></script>
     <!-- Include responsiveVoice.js -->
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=915aQqOM"></script>
-    <!-- load loadNavBar.js -->
-    <script src="assets/js/loadNavBar.js"></script>
-    <!-- load read-easy.js from assets/js folder -->
-    <script src="assets/js/read-easy.js"></script>
-    <!-- Footer Script -->
-    <script src="assets/js/loadFooter.js"></script>
 
-    <!--
-<script>
-        var read_easy = new ReadEasy('read-easy', "content", {show_magnifying_glass: false, show_url_field: false, show_text_to_speech: false});
-    </script>
-    -->
+    
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
