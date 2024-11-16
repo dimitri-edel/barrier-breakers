@@ -26,16 +26,6 @@ fieldset {
     font-weight: bold;
 }
 
-/* #magnification-panel {
-    display: flex;
-    align-items: center;
-    background-color: #e1dedc;
-    padding: 0 10px;
-    margin-left: 10px;
-    width: 600px;
-    height: 100px;
-} */
-
 #magnifying-glass {
     display: flex;
     /* show the contents centered */
