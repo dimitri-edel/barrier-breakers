@@ -23,6 +23,7 @@ fieldset {
     border: solid 1px var(--accent-color);
     border-radius: 5px;
     font-size: large;
+    font-weight: bold;
 }
 
 /* #magnification-panel {
@@ -96,6 +97,7 @@ fieldset {
 /* optgroup is used for fontsize inside the select element of the magnification factor */
 optgroup {
     font-size: 20px;
+    /* font-weight: bold; */
 }
 
 .magnify-cursor {
