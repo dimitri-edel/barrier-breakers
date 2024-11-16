@@ -10,7 +10,7 @@ body {
     /*Generic project styles*/
     background-color: #C9E6F0;
     font-family: var(--font-family);
-    color: #F96E2A;
+    color: var(--brown-color);
 
     margin: 0; /* Ensure there's no default margin on the body */
     padding: 0; /* Remove any default padding */

@@ -1,33 +1,70 @@
 /* Navbar Styling */
 #navbar {
-    background-color: var(--primary-color);
-    padding: 1rem;
+    background-color: var(--primary-color); /* Use the primary color */
+    padding: 1rem 2rem; /* Add responsive padding */
     display: flex;
-    justify-content: center;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    font-family: var(--font-family);
+    justify-content: space-between; /* Align logo and links */
+    align-items: center; /* Center align */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Add shadow */
+    font-family: var(--font-family); /* Use Lexend font */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* Logo Styling */
+#navbar .navbar-logo img {
+    height: 50px; /* Logo height */
+    width: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Smooth hover animation */
+}
+
+#navbar .navbar-logo img:hover {
+    transform: scale(1.1); /* Enlarge logo slightly */
+}
+
+/* Navigation Links */
 #navbar ul {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Space between links */
+    margin: 0;
+    padding: 0;
 }
 
 #navbar ul li a {
     text-decoration: none;
-    color: var(--brown-color);
-    font-size: var(--font-size-base);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    background-color: var(--secondary-color);
-    transition: background-color 0.3s, transform 0.2s;
+    color: var(--brown-color); /* Brown text color */
+    font-size: var(--font-size-base); /* Base font size */
+    padding: 0.5rem 1rem; /* Add padding for clickable area */
+    border-radius: 4px; /* Rounded corners */
+    background-color: var(--secondary-color); /* Default link background */
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
 #navbar ul li a:hover,
 #navbar ul li a.active {
-    background-color: var(--accent-color);
-    color: var(--brown-color);
-    font-weight: bold;
-    transform: scale(1.05);
+    background-color: var(--accent-color); /* Highlight hover/active links */
+    color: var(--white-color); /* White text for contrast */
+    font-weight: bold; /* Emphasize active link */
+    transform: scale(1.1); /* Slightly enlarge */
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column; /* Stack logo and links */
+        align-items: flex-start; /* Align to the left */
+        padding: 1rem;
+    }
+
+    #navbar ul {
+        flex-direction: column; /* Stack links vertically */
+        gap: 1rem;
+    }
+
+    #navbar ul li a {
+        width: 100%; /* Full-width links */
+        text-align: left;
+    }
 }
