@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     position: fixed; /* Change to fixed to ensure it stays on top */
-    top: 60px; /* Adjust top position */
+    top: 80px; /* Adjust top position */
     left: 0;
     right: 0;
     height: 120px;
