@@ -1,14 +1,6 @@
 /*Google Font lexend*/
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
-
-/*Wildcard selector*/
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 /*General Styles*/
 body {
     min-height: 100vh;
@@ -17,8 +9,8 @@ body {
 
     /*Generic project styles*/
     background-color: #C9E6F0;
-    font-family: "lexend", sans-serif;
-    color: #F96E2A;
+    font-family: var(--font-family);
+    color: var(--brown-color);
 
     margin: 0; /* Ensure there's no default margin on the body */
     padding: 0; /* Remove any default padding */
@@ -80,7 +72,7 @@ header {
 header div {
     max-width: 50%;
     background-color: #78B3CE;
-    color: #FBF8EF;
+    color: var(--brown-color);
     justify-content: center;
 } 
 

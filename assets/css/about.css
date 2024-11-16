@@ -1,8 +1,11 @@
+/*Google Font lexend*/
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: Lexend, sans-serif;
 }
 
 h1 {

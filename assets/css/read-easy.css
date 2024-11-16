@@ -5,7 +5,7 @@
     top: 80px; /* Adjust top position */
     left: 0;
     right: 0;
-    height: 120px;
+    height: 10px;
     z-index: 10000; /* Ensure it has a higher z-index */
     background: var(--background-color);
     border-bottom: 1px solid var(--shadow-color);
@@ -13,14 +13,17 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#magnification-panel {
+fieldset {
     display: flex;
     align-items: center;
-    background-color: var(--background-color);
-    padding: 0 10px;
+    padding: 5px 10px;
+    height: 80px;
+    margin-top: 10px;
     margin-left: 10px;
-    width: 600px;
-    height: 70px;
+    border: solid 1px var(--accent-color);
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
 }
 
 #magnifying-glass {
@@ -84,6 +87,7 @@
 /* optgroup is used for fontsize inside the select element of the magnification factor */
 optgroup {
     font-size: 20px;
+    /* font-weight: bold; */
 }
 
 .magnify-cursor {

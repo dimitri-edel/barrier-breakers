@@ -37,34 +37,39 @@ class ReadEasy {
         } else {
             // If the URL field is not shown, reduce the height of the toolbar
             let read_easy_element = document.getElementById("read-easy");
-            read_easy_element.style.height = '70px';
-            toolbar.style.height = '60px';
+            read_easy_element.style.height = '100px';
+            toolbar.style.height = '100px';
         }
 
         if (this.options.show_magnifying_glass) {
             // append the span to the toolbar
             toolbar.innerHTML += `
-                <span id="magnification-panel">
+            <sapn id="magnification-panel">
+                <fieldset>
+                    <legend>Magnification</legend>
                     <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <span id="magninification-font-color-selector">Text: <input onchange="read_easy.changeMagnificationFontColor(this)" type="color" id="font-color" value="#000000"></span>
-                    <span id="magninification-background-color-selector">Background: <input onchange="read_easy.changeMagnificationBackgroundColor(this)" type="color" id="background-color" value="#ffffff"></span>
+                    <span id="magninification-font-color-selector">Text &nbsp &nbsp <input onchange="read_easy.changeMagnificationFontColor(this)" type="color" id="font-color" value="#000000"></span>
+                    <span id="magninification-background-color-selector">Background &nbsp &nbsp <input onchange="read_easy.changeMagnificationBackgroundColor(this)" type="color" id="background-color" value="#ffffff"></span>
                     <span id="magnification-factor-selector">
                         <select id="magnification-factor" onchange="read_easy.changeMagnificationFactor(this)">
                             <optgroup>
-                                <option value="1.2">Select Magnification Factor</option>
+                                <option value="1.2">1.2x</option>
                                 <option value="1.3">1.3x</option>
                                 <option value="1.5">1.5x</option>
                                 <option value="2">2x</option>
                             </optgroup>
                         </select>
                     </span>
-                </span>
+                </fieldset>
+            </sapn>
             `;
         }
         if (this.options.show_text_to_speech) {
             // append the input button to the toolbar
             toolbar.innerHTML += `
                 <span id="text-to-speech-panel">
+                <fieldset>
+                    <legend>Text to Speech</legend>
                     <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
                         <i class="fa-solid fa-volume-xmark"></i>
                     </button>
@@ -77,6 +82,7 @@ class ReadEasy {
                                 <option value="UK English Female">UK English Female</option>
                             </optgroup>
                         </select>
+                </fieldset>
                 </span>
             `;
         }
