@@ -15,6 +15,7 @@
 
 #navbar ul li a {
     text-decoration: none;
+    color: #04144e;
     font-size: var(--font-size-base);
     padding: 0.5rem 1rem;
     border-radius: 4px;
