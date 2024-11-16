@@ -110,3 +110,58 @@ select:focus {
 #magnification-panel {
     padding: 10px;
 }
+
+
+/* Media query for mobile screens */
+@media (max-width: 480px) {
+    #read-easy {
+        flex-wrap: nowrap; /* Keep items in one line */
+        justify-content: space-between; /* Spread items evenly */
+        padding: 10px 10px;
+        height: auto; /* Minimize the height */
+    }
+
+    /* Hide unnecessary elements */
+    #magninification-font-color-selector,
+    #magninification-background-color-selector,
+    #text-to-speech-panel legend,
+    #text-to-speech-voice {
+        display: none; /* Hide text and background selectors */
+    }
+
+    /* Magnifier, input field, speaker, and size dropdown in one line */
+    #magnifying-glass,
+    #url-field,
+    #text-to-speech-button,
+    #magnification-factor-selector {
+        margin: 0 5px; /* Adjust spacing between elements */
+    }
+
+    #url-field {
+        width: 150px; /* Adjust size to fit in one line */
+        height: 35px;
+    }
+
+    #magnifying-glass,
+    #text-to-speech-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    #magnification-factor-selector select {
+        font-size: 0.9rem;
+    }
+
+    /* Adjust buttons for better alignment */
+    fieldset {
+        flex-direction: row; /* Align elements in a single line */
+        padding: 5px;
+        margin: 0;
+        border: none;
+        background: none;
+        box-shadow: none;
+    }
+}
+
+
