@@ -1,137 +1,112 @@
+/* Toolbar container background */
 #read-easy {
     display: flex;
-    flex-wrap: wrap;
-    position: fixed; /* Change to fixed to ensure it stays on top */
-    top: 80px; /* Adjust top position */
-    left: 0;
-    right: 0;
-    height: 10px;
-    z-index: 10000; /* Ensure it has a higher z-index */
-    background: var(--background-color);
-    border-bottom: 1px solid var(--shadow-color);
-    padding: 10px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: nowrap; /* Align items horizontally */
+    justify-content: space-between; /* Spread items evenly */
+    align-items: center;
+    position: fixed;
+    top: 100px;
+    left: 10px;
+    right: 10px;
+    z-index: 10000;
+    background: #e8f6f7; /* Subtle teal background */
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Slightly rounded bottom corners */
+    border: 2px  solid #006d77;
+   
 }
 
+/* Fieldset container styling */
 fieldset {
     display: flex;
     align-items: center;
-    padding: 5px 10px;
-    height: 80px;
-    margin-top: 10px;
-    margin-left: 10px;
-    border: solid 1px var(--accent-color);
-    border-radius: 5px;
-    font-size: large;
-    font-weight: bold;
-}
-
-#magnifying-glass {
-    display: flex;
-    /* show the contents centered */
     justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin-left: 10px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-color);
-    font-size: 30px;
-    color: var(--white-color);
-    border-radius: 5px;
-}
-
-#magnifying-glass.active {
-    background-color: var(--accent-color);
-    color: white;
-}
-
-#magnifying-glass:hover {
-    background-color: var(--accent-color);
-    color: white;
-}
-
-#magninification-font-color-selector {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    height: 50px;
-    margin-left: 10px;
-    border: solid 1px var(--accent-color);
-    border-radius: 5px;
-    font-size: large;
-}
-
-#magninification-background-color-selector {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    height: 50px;
-    margin-left: 10px;
-    border: solid 1px var(--accent-color);
-    border-radius: 5px;
-    font-size: large;
-}
-
-#magnification-factor-selector {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    height: 50px;
-    margin-left: 10px;
-    border: solid 1px var(--accent-color);
-    border-radius: 5px;
-    font-size: large;
-}
-
-/* optgroup is used for fontsize inside the select element of the magnification factor */
-optgroup {
-    font-size: 20px;
-    /* font-weight: bold; */
-}
-
-.magnify-cursor {
-    cursor: url(/assets/images/magnifying-glass.png), auto;
-}
-
-#url-field {
-    display: block;
-    width: 100%;
-    height: 30px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    font-size: 14px;
+    padding: 10px 15px;
     margin: 0 10px;
-    border: solid 1px var(--accent-color);
-}
-
-#text-to-speech-button {
-    display: inline-block;
-    padding: 10px 10px;
-    background: var(--primary-color);
-    color: var(--white-color);
     border: none;
-    border-radius: 3px;
-    cursor: pointer;  
-    margin-top: 10px;  
-    margin-left: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Legends for each section */
+legend {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 600;
     margin-right: 10px;
-    height: 50px;
-    width: 50px;
-    font-size: 25px;
 }
 
+/* Magnifier and speaker buttons */
+#magnifying-glass,
+#text-to-speech-button {
+    width: 45px;
+    height: 45px;
+    background-color: #006d77;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin: 0 10px;
+}
+
+/* Hover effect for buttons */
+#magnifying-glass:hover,
 #text-to-speech-button:hover {
-    background-color: var(--accent-color);
+    transform: scale(1.1);
 }
 
+/* Active state for magnifier and speaker */
+#magnifying-glass.active,
 #text-to-speech-button.active {
-    background-color: var(--accent-color);
-    color: white;
+    background-color: #52b788; /* Brighter green when active */
+    box-shadow: 0 0 10px rgba(82, 183, 136, 0.8); /* Glow effect */
 }
 
-.active {
-    background-color: var(--accent-color);
-    color: white;
+/* Input fields */
+#url-field {
+    width: 400px;
+    max-width: 50%;
+    height: 40px;
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+/* Focus state for the URL field */
+#url-field:focus {
+    border-color: #006d77;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 109, 119, 0.6);
+}
+
+/* Select dropdowns inside magnification and text-to-speech */
+select {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #006d77;
+    box-shadow: 0 0 4px rgba(0, 109, 119, 0.5);
+}
+
+/* Adjust container padding for better spacing */
+#text-to-speech-panel,
+#magnification-panel {
+    padding: 10px;
 }
