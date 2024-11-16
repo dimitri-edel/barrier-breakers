@@ -76,10 +76,10 @@ class ReadEasy {
                     <span id="text-to-speech-voice-selector">
                         <select id="text-to-speech-voice" onchange="read_easy.setTextToSpeechVoice(this)">
                             <optgroup>
-                                <option value="US English Male">US English Female 1</option>
-                                <option value="US English Female">US English Female 2</option>
-                                <option value="UK English Male">UK English Male</option>
-                                <option value="UK English Female">UK English Female</option>
+                                <option value="US English Male">US English 1</option>
+                                <option value="US English Female">US English 2</option>
+                                <option value="UK English Male">UK English 1</option>
+                                <option value="UK English Female">UK English 2</option>
                             </optgroup>
                         </select>
                 </fieldset>
