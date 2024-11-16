@@ -7,7 +7,7 @@ function getPageName() {
 // Function for loading the navigation bar
 function loadNavBar() {
     // Create the list items for the navigation bar
-    const pages = ["index.html", "landing.html","second.html", "site-viewer.html", "test.html", "about.html"];
+    const pages = ["index.html", "site-viewer.html", "text-viewer.html", "about.html"];
     // Create the unordered list and attach it to the navbar element
     const navBar = document.getElementById("navbar");
     const ul = document.createElement("ul");
