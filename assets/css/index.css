@@ -17,7 +17,7 @@ body {
 
     /*Generic project styles*/
     background-color: #C9E6F0;
-    font-family: "lexend", sans-serif;
+    font-family: var(--font-family);
     color: #F96E2A;
 
     margin: 0; /* Ensure there's no default margin on the body */
@@ -80,7 +80,7 @@ header {
 header div {
     max-width: 50%;
     background-color: #78B3CE;
-    color: #FBF8EF;
+    color: var(--brown-color);
     justify-content: center;
 } 
 
