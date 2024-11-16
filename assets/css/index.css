@@ -84,15 +84,16 @@ header div {
 }
 
 /* Landing Section */
-.landing-mockup {
-    width: 100%;  
+.landing-image {
+    width: 42%;
+    height: auto;  
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.landing-mockup > img {
-    width: 90%;
+.landing-image > img {
+    width: 100%;
     height: auto;
 }
 
@@ -253,7 +254,7 @@ footer .btn i {
         max-width: 100%;
     }
 
-    .landing-mockup > img {
+    .landing-image > img {
         width: 80%;
     }
 }
