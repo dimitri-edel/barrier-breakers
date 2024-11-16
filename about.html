@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="assets/css/about-me.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div id="navbar"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/logo.webp" alt="ReadEase Logo" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="site-viewer.html">Site Viewer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="text-viewer.html">Text Viewer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <main class="about-page">
         
         <section class="intro-section">
@@ -24,7 +48,7 @@
             <h2>Meet Our Team</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="assets/images/Danut-picture.jpg" alt="Dimitri Edel">
+                    <img src="assets/images/" alt="Dimitri Edel">
                     <h3>Dimitri Edel</h3>
                     <p><i class="fas fa-tasks"></i> Task description to be added later.</p>
                 </div>
@@ -44,17 +68,17 @@
                     <p><i class="fas fa-tasks"></i> Task description to be added later.</p>
                 </div>
                 <div class="team-member">
-                    <img src="assets/images/team5.jpg" alt="Noah">
+                    <img src="assets/images/Noah-picture.jpg" alt="Noah">
                     <h3>Noah</h3>
                     <p><i class="fas fa-tasks"></i> Task description to be added later.</p>
                 </div>
                 <div class="team-member">
-                    <img src="assets/images/team6.jpg" alt="Danut">
+                    <img src="assets/images/Danut-picture.jpg" alt="Danut">
                     <h3>Danut</h3>
                     <p><i class="fas fa-tasks"></i> Task description to be added later.</p>
                 </div>
                 <div class="team-member">
-                    <img src="assets/images/Danut-picture.jpg" alt="Josh">
+                    <img src="assets/images" alt="Josh">
                     <h3>Josh</h3>
                     <p><i class="fas fa-tasks"></i> Task description to be added later.</p>
                 </div>
@@ -73,6 +97,9 @@
         </div>
     </footer>
 
-    <script src="assets/js/loadNavBar.js"></script>
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

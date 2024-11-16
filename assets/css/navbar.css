@@ -1,33 +1,56 @@
-/* Navbar Styling */
-#navbar {
-    background-color: var(--primary-color);
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    font-family: var(--font-family);
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column; /* Stack logo and links */
+        align-items: flex-start; /* Align to the left */
+        padding: 1rem;
+    }
+
+    #navbar ul {
+        flex-direction: column; /* Stack links vertically */
+        gap: 1rem;
+    }
+
+    #navbar ul li a {
+        width: 100%; /* Full-width links */
+        text-align: left;
+    }
 }
 
-#navbar ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
+/* Custom Navbar Styling */
+.navbar {
+    background-color: var(--primary-color); /* Use the primary color */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Add shadow */
+    font-family: var(--font-family); /* Use Lexend font */
 }
 
-#navbar ul li a {
-    text-decoration: none;
-    color: var(--brown-color);
-    font-size: var(--font-size-base);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    background-color: var(--secondary-color);
-    transition: background-color 0.3s, transform 0.2s;
+.navbar-brand img {
+    height: 50px; /* Logo height */
+    width: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Smooth hover animation */
 }
 
-#navbar ul li a:hover,
-#navbar ul li a.active {
-    background-color: var(--accent-color);
-    color: var(--brown-color);
-    font-weight: bold;
-    transform: scale(1.05);
+.navbar-brand img:hover {
+    transform: scale(1.1); /* Enlarge logo slightly */
+}
+
+.nav-link {
+    color: var(--brown-color) !important; /* Brown text color */
+    font-size: var(--font-size-base); /* Base font size */
+    padding: 0.5rem 1rem; /* Add padding for clickable area */
+    border-radius: 4px; /* Rounded corners */
+    background-color: var(--secondary-color); /* Default link background */
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    margin: 10px;
+    max-width: 90%;
+    min-width: 200px;
+    text-align: center;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--accent-color) !important; /* Highlight hover/active links */
+    color: var(--white-color) !important; /* White text for contrast */
+    font-weight: bold; /* Emphasize active link */
+    transform: scale(1.1); /* Slightly enlarge */
 }
