@@ -7,8 +7,8 @@
     right: 0;
     height: 120px;
     z-index: 10000; /* Ensure it has a higher z-index */
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+    background: var(--background-color);
+    border-bottom: 1px solid var(--shadow-color);
     padding: 10px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -16,7 +16,7 @@
 #magnification-panel {
     display: flex;
     align-items: center;
-    background-color: #d7e4ea;
+    background-color: var(--background-color);
     padding: 0 10px;
     margin-left: 10px;
     width: 600px;
@@ -32,19 +32,19 @@
     margin-left: 10px;
     width: 50px;
     height: 50px;
-    background-color: rgb(20, 1, 44);
+    background-color: var(--primary-color);
     font-size: 30px;
-    color: white;
+    color: var(--white-color);
     border-radius: 5px;
 }
 
 #magnifying-glass.active {
-    background-color: #0073aa;
+    background-color: var(--accent-color);
     color: white;
 }
 
 #magnifying-glass:hover {
-    background-color: #0073aa;
+    background-color: var(--accent-color);
     color: white;
 }
 
@@ -54,7 +54,7 @@
     padding: 5px 10px;
     height: 50px;
     margin-left: 10px;
-    border: solid 1px var(--complementary-color);
+    border: solid 1px var(--accent-color);
     border-radius: 5px;
     font-size: large;
 }
@@ -65,7 +65,7 @@
     padding: 5px 10px;
     height: 50px;
     margin-left: 10px;
-    border: solid 1px var(--complementary-color);
+    border: solid 1px var(--accent-color);
     border-radius: 5px;
     font-size: large;
 }
@@ -76,7 +76,7 @@
     padding: 5px 10px;
     height: 50px;
     margin-left: 10px;
-    border: solid 1px var(--complementary-color);
+    border: solid 1px var(--accent-color);
     border-radius: 5px;
     font-size: large;
 }
@@ -90,17 +90,6 @@ optgroup {
     cursor: url(/assets/images/magnifying-glass.png), auto;
 }
 
-#read-easy-button {
-    display: inline-block;
-    padding: 5px 10px;
-    background: #0073aa;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
 #url-field {
     display: block;
     width: 100%;
@@ -110,14 +99,14 @@ optgroup {
     border-radius: 3px;
     font-size: 14px;
     margin: 0 10px;
-    border: solid 1px var(--complementary-color);
+    border: solid 1px var(--accent-color);
 }
 
 #text-to-speech-button {
     display: inline-block;
     padding: 10px 10px;
-    background: black;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--white-color);
     border: none;
     border-radius: 3px;
     cursor: pointer;  
@@ -130,15 +119,15 @@ optgroup {
 }
 
 #text-to-speech-button:hover {
-    background-color: #0073aa;
+    background-color: var(--accent-color);
 }
 
 #text-to-speech-button.active {
-    background-color: #0073aa;
+    background-color: var(--accent-color);
     color: white;
 }
 
 .active {
-    background-color: #0073aa;
+    background-color: var(--accent-color);
     color: white;
 }
