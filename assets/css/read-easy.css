@@ -8,12 +8,13 @@
     left: 10px;
     right: 10px;
     z-index: 10;
-    background: #e8f6f7; /* Light teal background */
+    background: linear-gradient(to bottom, #78B3CE, #5C9ABB); /* Subtle gradient for depth */
     padding: 15px 20px; /* Slightly larger padding for spacing */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     border-radius: 10px; /* Rounded corners */
     border: 2px solid #006d77; /* Teal border for consistency */
     transition: all 0.3s ease; /* Smooth transition for changes */
+    margin-top: 20px;
 }
 
 /* Container for fieldsets */
@@ -21,6 +22,7 @@
     display: flex;
     flex-direction: row; /* Align fieldsets horizontally */
     justify-content: space-between;
+  align-items: center;
     gap: 20px; /* Add space between fieldsets */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
     margin-top: 10px; /* Add margin to separate from URL field */
@@ -29,132 +31,166 @@
 /* Fieldset container styling */
 fieldset {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 15px;
+    align-items: center; /* Center-align content vertically */
+    justify-content: space-around; /* Distribute content evenly */
+    padding: 15px 20px;
     margin: 10px 0; /* Add margin to separate fieldsets */
-    border: none; /* Remove default fieldset border */
     background: #ffffff; /* White background for clarity */
     border-radius: 10px; /* Rounded corners for consistency */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     flex: 1; /* Allow fieldsets to take equal space */
-    min-width: 200px; /* Minimum width for fieldsets */
-    max-height: 90px; /* Limit height for better layout */
+    min-width: 250px; /* Minimum width for fieldsets */
+ 
 }
 
 /* Legends for each section */
 legend {
-    font-size: 1rem; /* Standard text size */
-    color: var(--text-color); /* Use shared text color */
-    font-weight: 600; /* Slightly bolder for emphasis */
-    margin-right: 10px; /* Add spacing between legend and content */
+    font-size: 1.1rem; /* Slightly larger for emphasis */
+    font-weight: 600; /* Bold for better visibility */
+    margin-bottom: 10px; /* Add spacing below */
+    color: #000; /* Dark gray text color */
+    padding-bottom: 30px;
+}
+
+/* Elements inside fieldsets aligned horizontally */
+fieldset > div {
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    align-items: center; /* Center-align items vertically */
+    justify-content: center; /* Center-align within the fieldset */
+    gap: 15px; /* Add space between elements */
+    flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 /* Magnifier and speaker buttons */
 #magnifying-glass,
 #text-to-speech-button {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     background-color: #006d77; /* Teal background */
     color: #ffffff; /* White icon color */
     border-radius: 50%; /* Circular buttons */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem; /* Icon size */
+    font-size: 1.2rem; /* Icon size */
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s; /* Smooth hover and active effects */
-    margin: 0 10px; /* Add spacing between buttons */
 }
 
 /* Hover effect for buttons */
 #magnifying-glass:hover,
 #text-to-speech-button:hover {
     transform: scale(1.1); /* Slightly enlarge on hover */
-    background-color: #007a89; /* Darker teal for hover state */
-}
-
-/* Active state for magnifier and speaker */
-#magnifying-glass.active,
-#text-to-speech-button.active {
-    background-color: #52b788; /* Light green for active state */
-    box-shadow: 0 0 10px rgba(82, 183, 136, 0.8); /* Glow effect */
+    background-color: var(--accent-color); /* Darker teal for hover state */
 }
 
 /* Input fields */
-#url-field {
-    width: 100%; /* Take full width */
-    display: block;
-    height: 40px; /* Standard height */
-    padding: 5px 15px; /* Inner spacing for readability */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 8px; /* Rounded corners */
-    font-size: 1rem; /* Standard text size */
-    background-color: #ffffff; /* White background */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inset shadow */
-    transition: border-color 0.3s; /* Smooth border transition */
-    margin-bottom: 10px; /* Separate from fieldsets */
-}
-
-/* Focus state for the URL field */
-#url-field:focus {
-    border-color: #006d77; /* Teal border on focus */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 6px rgba(0, 109, 119, 0.6); /* Glow effect */
-}
-
-/* Select dropdowns inside magnification and text-to-speech */
-select {
-    font-size: 0.9rem; /* Slightly smaller text size */
+#url-field,
+select,
+input[type="color"] {
+    height: 40px; /* Consistent height */
     padding: 5px 10px; /* Inner spacing */
     border: 1px solid #ccc; /* Light gray border */
     border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Standard text size */
     background: #ffffff; /* White background */
-    cursor: pointer; /* Pointer cursor for interactivity */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: border-color 0.3s; /* Smooth border transition */
 }
 
-select:focus {
+/* Focus state for inputs */
+#url-field:focus,
+select:focus,
+input[type="color"]:focus {
     border-color: #006d77; /* Teal border on focus */
-    box-shadow: 0 0 4px rgba(0, 109, 119, 0.5); /* Subtle glow */
-}
-
-/* Adjust container padding for better spacing */
-#text-to-speech-panel,
-#magnification-panel {
-    padding: 10px; /* Add spacing inside panels */
-}
-
-/* Main content spacing */
-#content {
-    margin-top: 230px; /* Create space for the toolbar */
+    box-shadow: 0 0 6px rgba(0, 109, 119, 0.6); /* Subtle glow */
 }
 
 /* Responsive Styles for Smaller Screens */
 @media (max-width: 768px) {
-    #read-easy {
-        flex-direction: column; /* Stack vertically */
-        top: 80px; /* Adjust positioning */
-        left: 5px;
-        right: 5px;
-    }
-
     .fieldsets-container {
         flex-direction: column; /* Stack fieldsets vertically */
-        gap: 10px; /* Reduce gap for smaller screens */
+        align-items: center; /* Center-align for smaller screens */
+        gap: 15px; /* Increase spacing for readability */
     }
 
-    #url-field {
-        width: 100%; /* Full width for input field */
-        max-width: 100%; /* Prevent overflow */
+    fieldset {
+        min-width: 90%; /* Adjust width for small screens */
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background: #f8f9f8;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 95px;
+    box-shadow: 0 -4px 8px var(--shadow-color);
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Limit width */
+    margin: 0 auto; /* Center the content */
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: left;
+    color:#3A3A3A;;
+}
+
+.footer-brand {
+    text-align: center;
+}
+
+.footer-brand img {
+    margin: 0 auto;
+    display: block;
+}
+
+.footer-brand img:hover {
+    transform: scale(1.2);
+}
+
+.social-media {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.social-icon {
+    color: #3A3A3A;;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
     }
 
-    #magnifying-glass,
-    #text-to-speech-button {
-        margin: 10px 0; /* Separate buttons vertically */
+    .footer-text {
+        margin-bottom: 1rem;
+        text-align: center;
     }
 
-    #content {
-        margin-top: 350px; /* Additional space for toolbar */
+    .social-media {
+        justify-content: center;
+        gap: 0.5rem; /* Reduce spacing between icons */
     }
 }

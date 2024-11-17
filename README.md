@@ -1,8 +1,5 @@
 # ReadEase
 
-## CREDITS
-images from www.cleanpng.com
-=======
 Welcome to ReadEase; a web tool designed to improve the readability of online content, making it more accessible for users with various reading challenges, such as dyslexia, visual impairments, or those who simply prefer a more customizable reading experience.
         
 With features like magnification, adjustable text sizes, and the ability to fetch and display content from any URL, ReadEase helps users read web pages with greater comfort and ease. The simple toolbar provides quick access to these features, allowing for a smoother, more personalized reading experience. 
@@ -189,17 +186,6 @@ General Content Handling: The class works with both content inside iframes and d
 
 ---
 
-## Technologies Used
-
-- HTML: used to create the basis of the website.
-- CSS: used to style and edit the layout of the website.
-- JavaScript: used to create scripts for the functionality of the website. 
-- Balsamiq: used to create wireframes of what the website was envisioned to look like.
-- Git: used for version control.
-- Github: used to host the website.
-
----
-
 ## Manual Testing
 
 ### Index Page
@@ -281,6 +267,23 @@ Note: Since the Site Viewer operates through a proxy server, the JavaScript on t
 
 ---
 
+## Technologies Used
+
+- HTML: used to create the basis of the website.
+- CSS: used to style and edit the layout of the website.
+- JavaScript: used to create scripts for the functionality of the website. 
+- Balsamiq: used to create wireframes of what the website was envisioned to look like.
+- Git: used for version control.
+- Github: used to host the website.
+- GitHub-Copilot
+- VS Code
+- Gitpod
+- Bootstrap
+- node.js
+- Github Workspace
+- ResponsiveVoice
+
+---
 
 ## Deployment
  
@@ -294,6 +297,7 @@ ReadEase < https://dimitri-edel.github.io/barrier-breakers/ >
 
 
 ## Credits 
+- [ResponsiveVoice API] (https://responsivevoice.org)
 
 ### Content
 
