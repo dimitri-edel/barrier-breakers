@@ -186,17 +186,6 @@ General Content Handling: The class works with both content inside iframes and d
 
 ---
 
-## Technologies Used
-
-- HTML: used to create the basis of the website.
-- CSS: used to style and edit the layout of the website.
-- JavaScript: used to create scripts for the functionality of the website. 
-- Balsamiq: used to create wireframes of what the website was envisioned to look like.
-- Git: used for version control.
-- Github: used to host the website.
-
----
-
 ## Manual Testing
 
 ### Index Page
@@ -278,6 +267,22 @@ Note: Since the Site Viewer operates through a proxy server, the JavaScript on t
 
 ---
 
+## Technologies Used
+
+- HTML: used to create the basis of the website.
+- CSS: used to style and edit the layout of the website.
+- JavaScript: used to create scripts for the functionality of the website. 
+- Balsamiq: used to create wireframes of what the website was envisioned to look like.
+- Git: used for version control.
+- Github: used to host the website.
+- GitHub-Copilot
+- VS Code
+- Gitpod
+- Bootstrap
+- node.js
+- Github Workspace
+
+---
 
 ## Deployment
  
