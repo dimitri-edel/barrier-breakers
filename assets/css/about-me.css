@@ -36,7 +36,7 @@ main.about-page {
 }
 
 .intro-section h1 {
-    color: var(--primary-color);
+    color: #000;
     font-size: var(--font-size-heading);
     margin-bottom: 0.5rem;
     position: relative;
@@ -55,7 +55,7 @@ main.about-page {
 
 .intro-section p {
     font-size: 1.2rem;
-    color: var(--text-color);
+    color: #242423;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.8;
@@ -63,7 +63,7 @@ main.about-page {
 
 /* Team Section */
 .team-section h2 {
-    color: var(--primary-color);
+    color: #000;
     font-size: var(--font-size-subheading);
     text-align: center;
     margin-bottom: 2rem;
@@ -105,13 +105,13 @@ main.about-page {
 }
 
 .team-member h3 {
-    color: var(--primary-color);
+    color: #000;
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
 }
 
 .team-member p {
-    color: var(--text-color);
+    color: #242423;
     font-size: var(--font-size-base);
     line-height: 1.6;
 }
@@ -121,7 +121,7 @@ main.about-page {
     margin-right: 25px;
     margin-left: 25px;
     margin-top: 20px;
-    color: var(--primary-color);
+    color: #242423;
 }
 
 
