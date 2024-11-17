@@ -28,8 +28,9 @@
     align-items: center; /* Center align logo and links vertically */
     padding: 0.5rem 1rem; /* Add some padding */
     z-index: 1000; /* Ensure it is above other elements */
+    position: sticky;
+    top: 0; /* Make the navbar sticky at the top */
 }
-
 .navbar-brand img {
     height: 60px; /* Adjusted logo height */
     width: auto; /* Maintain aspect ratio */
@@ -56,26 +57,30 @@
     padding: 0;
 }
 
+/* Navbar Link Styling */
 .nav-link {
-    color: var(--brown-color) !important; /* Brown text color */
-    font-size: var(--font-size-base); /* Base font size */
-    padding: 0.5rem 1rem; /* Add padding for clickable area */
-    border-radius: 4px; /* Rounded corners */
-    background-color: var(--secondary-color); /* Default link background */
+    color: black !important; /* White text color */
+    font-size: 1.05rem; /* Standard font size */
+    padding: 0.5rem 1.5rem; /* Add padding for clickable area */
+    border-radius: 8px; /* Rounded corners */
+    background: linear-gradient(to right, #78B3CE, #5C9ABB); /* Gradient background */
     text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out; /* Smooth hover and transform effects */
     margin: 10px;
     text-align: center; /* Center align link text */
     min-width: 120px; /* Ensure links have a minimum width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
 .nav-link:hover,
 .nav-link.active {
-    background-color: var(--accent-color) !important; /* Highlight hover/active links */
+    background: var(accents-color); /* Accent color on hover */
     color: var(--white-color) !important; /* White text for contrast */
     font-weight: bold; /* Emphasize active link */
     transform: scale(1.1); /* Slightly enlarge */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
+
 
 /* Logo and Navbar Spacing */
 .navbar-brand {
@@ -84,7 +89,7 @@
     margin-right: auto; /* Push links to the right */
 }
 
-/* Adjust Navbar for Smaller Screens */
+/* Adjust Navbar for Medium Screens */
 @media (max-width: 1024px) {
     .navbar ul {
         gap: 0.5rem; /* Reduce spacing for smaller screens */
@@ -92,7 +97,7 @@
 
     .navbar ul li a {
         font-size: 0.9rem; /* Reduce font size slightly */
-        padding: 0.5rem; /* Adjust padding */
+        padding: 0.5rem 1rem; /* Adjust padding */
     }
 
     .navbar-brand img {
@@ -100,6 +105,7 @@
     }
 }
 
+/* Adjust Navbar for Small Screens */
 @media (max-width: 480px) {
     .navbar ul {
         flex-direction: column; /* Stack links vertically */
