@@ -84,6 +84,9 @@ header div {
     justify-content: center;
     justify-items: center;
     background: linear-gradient(to bottom, #78B3CE, #5C9ABB); /* Subtle gradient for depth */
+    margin-top: 80px;
+    height: 600px;
+    
 }
 
 .landing-image {
@@ -97,6 +100,7 @@ header div {
 .landing-image > img {
     width: 80%;
     height: auto;
+    width: 75%;
 }
 
 .landing-welcome {
@@ -110,7 +114,11 @@ header div {
 
 .landing-welcome p {
     margin-bottom: 20px; /* Add spacing below the paragraph */
+    font-size: 1.2rem;
+    line-height: 1.8; /* Improved readability */
+    margin-bottom: 30px; /* Consistent spacing */
 }
+
 
 .landing-welcome, .landing-image {
     border-bottom: none;
@@ -155,6 +163,7 @@ header div {
     text-align: center;
     transition: all 0.3s ease;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
   
 }
 

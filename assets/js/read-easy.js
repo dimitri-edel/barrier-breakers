@@ -1,6 +1,7 @@
 // class that creates a toolbar and adds it to the document
 class ReadEasy {
     constructor(toolbar_element_id, content_element_id, options) {
+        this.proxy_url = 'https://readeasy-b281a909ec0b.herokuapp.com/proxy?url='; // The proxy URL to use for fetching content
         this.toolbar_element_id = toolbar_element_id;
         this.content_element_id = content_element_id;
         this.options = options;
@@ -228,7 +229,7 @@ class ReadEasy {
 
     // fetch the url and display it in the div with id content
     fetchURL(url) {
-        const proxyUrl = `https://readeasy-b281a909ec0b.herokuapp.com/proxy?url=${encodeURIComponent(url)}`;
+        const proxyUrl = `${this.proxy_url}${encodeURIComponent(url)}`;
         // const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
         fetch(proxyUrl)
             .then(response => response.text())

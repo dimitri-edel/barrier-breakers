@@ -2,18 +2,19 @@
 @media (max-width: 768px) {
     #navbar {
         flex-direction: column; /* Stack logo and links */
-        align-items: flex-start; /* Align to the left */
+        align-items: flex-start; /* Align items to the left */
         padding: 1rem;        
     }
 
     #navbar ul {
         flex-direction: column; /* Stack links vertically */
-        gap: 1rem;
+        gap: 1rem; /* Add spacing between links */
     }
 
     #navbar ul li a {
         width: 100%; /* Full-width links */
-        text-align: left;
+        text-align: left; /* Align text to the left */
+        padding: 0.8rem 1rem; /* Increase padding for better clickability */
     }
 }
 
@@ -22,36 +23,102 @@
     background-color: var(--primary-color); /* Use the primary color */
     box-shadow: 0 4px 8px var(--shadow-color); /* Add shadow */
     font-family: var(--font-family); /* Use Lexend font */
+    display: flex;
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Center align logo and links vertically */
+    padding: 0.5rem 1rem; /* Add some padding */
     z-index: 1000; /* Ensure it is above other elements */
+    position: sticky;
+    top: 0; /* Make the navbar sticky at the top */
 }
-
 .navbar-brand img {
-    height: 50px; /* Logo height */
+    height: 60px; /* Adjusted logo height */
     width: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Indicate clickable logo */
     transition: transform 0.3s ease-in-out; /* Smooth hover animation */
+    border: none; /* Remove any default borders */
 }
 
 .navbar-brand img:hover {
     transform: scale(1.1); /* Enlarge logo slightly */
 }
 
+/* Navbar Links */
+.navbar ul {
+    list-style: none; /* Remove bullets */
+    display: flex; /* Align links horizontally */
+    gap: 1rem; /* Add spacing between links */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0; /* Remove default margins */
+    padding: 0;
+}
+
+/* Navbar Link Styling */
 .nav-link {
-    color: var(--brown-color) !important; /* Brown text color */
-    font-size: var(--font-size-base); /* Base font size */
-    padding: 0.5rem 1rem; /* Add padding for clickable area */
-    border-radius: 4px; /* Rounded corners */
-    background-color: var(--secondary-color); /* Default link background */
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    color: black !important; /* White text color */
+    font-size: 1.05rem; /* Standard font size */
+    padding: 0.5rem 1.5rem; /* Add padding for clickable area */
+    border-radius: 8px; /* Rounded corners */
+    background: linear-gradient(to right, #78B3CE, #5C9ABB); /* Gradient background */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease-in-out; /* Smooth hover and transform effects */
     margin: 10px;
-    max-width: 90%;
-    min-width: 200px;
-    text-align: center;
+    text-align: center; /* Center align link text */
+    min-width: 120px; /* Ensure links have a minimum width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
 .nav-link:hover,
 .nav-link.active {
-    background-color: var(--accent-color) !important; /* Highlight hover/active links */
+    background: var(accents-color); /* Accent color on hover */
     color: var(--white-color) !important; /* White text for contrast */
     font-weight: bold; /* Emphasize active link */
     transform: scale(1.1); /* Slightly enlarge */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+
+/* Logo and Navbar Spacing */
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Center align logo */
+    margin-right: auto; /* Push links to the right */
+}
+
+/* Adjust Navbar for Medium Screens */
+@media (max-width: 1024px) {
+    .navbar ul {
+        gap: 0.5rem; /* Reduce spacing for smaller screens */
+    }
+
+    .navbar ul li a {
+        font-size: 0.9rem; /* Reduce font size slightly */
+        padding: 0.5rem 1rem; /* Adjust padding */
+    }
+
+    .navbar-brand img {
+        height: 50px; /* Slightly smaller logo */
+    }
+}
+
+/* Adjust Navbar for Small Screens */
+@media (max-width: 480px) {
+    .navbar ul {
+        flex-direction: column; /* Stack links vertically */
+        align-items: flex-start; /* Align links to the left */
+    }
+
+    .nav-link {
+        text-align: left; /* Left-align text for mobile */
+        width: 100%; /* Full width for links */
+        margin: 0.5rem 0; /* Adjust spacing */
+    }
+
+    .navbar-brand img {
+        height: 40px; /* Smaller logo for very small screens */
+    }
 }

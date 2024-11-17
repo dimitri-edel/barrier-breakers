@@ -1,6 +1,16 @@
-iframe  {
-    position: relative;
-    margin-top: 150px; /* Adjust margin-top to ensure it does not overlap with the toolbar */
-    width: 100%;
-    height: 500px;
+/* Iframe Styles */
+iframe {
+    position: relative; /* Position relative for further positioning adjustments */
+    margin-top: 150px; /* Ensure it doesn't overlap with the toolbar */
+    width: 100%; /* Full width of its parent container */
+    height: 500px; /* Fixed height, adjust as needed for your layout */
+    border: none; /* Remove any default border around the iframe */
+    border-radius: 8px; /* Optional: rounded corners for the iframe */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow */
+    transition: transform 0.3s ease; /* Optional: smooth transformation on hover */
+}
+
+/* Optional Hover Effect */
+iframe:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
 }
