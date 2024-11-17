@@ -232,6 +232,27 @@ Below are the details of manual tests conducted to ensure the functionality of t
 | **Content Loading in iFrame**      | Enter a URL and verify content loads in the iFrame | The webpage content loads in the iFrame     | **SUCCESS** |
 | **Magnification Function**         | Use magnification function to zoom in and change colors | The webpage content is zoomed in and colors change | **SUCCESS** |
 
+### Text Viewer Page
+
+Below are the details of manual tests conducted to ensure the functionality of the Site Viewer page:
+
+| TEST                             | ACTION                                                       | EXPECTATION                                    | RESULT      |
+|----------------------------------|--------------------------------------------------------------|------------------------------------------------|-------------|
+| **Home Link**                    | User clicks on the **Home** link                             | The **home** page opens                        | **SUCCESS** |
+| **Site Viewer Link**             | User clicks on the **Site Viewer** link                      | The **site-viewer** page opens                 | **SUCCESS** |
+| **Text Viewer Link**             | User clicks on the **Text Viewer** link                      | The **text-viewer** page opens                 | **SUCCESS** |
+| **Instructions Link**            | User clicks on the **Instructions** link                     | The **instructions** page opens                | **SUCCESS** |
+| **About Link**                   | User clicks on the **About** link                            | The **about** page opens                       | **SUCCESS** |
+| **Paste of text to Text Viewer** | User pastes clipboard text in **Text Viewer**                | Clipboard text appears    in **Text Viewer**   | **SUCCESS** |
+| **Magnifier**                    | User clicks on the **magnifier icon**                        | **Magnification function** is activated        | **SUCCESS** |
+| **Text Button**                  | User selects **text color** when magnification is on         | Pasted text changes to selected **text color** | **SUCCESS** |
+| **Background Button**            | User selects **background color** when magnification is on   | **Background color** changes to selected color | **SUCCESS** |
+| **Magnification Drop-down List** | User selects **magnification ratio**                         | Desired **magnification ratio** is selected    | **SUCCESS** | 
+| **Magnification Function**       | User hovers over text for **magnification**                  | The pasted text is magnified                   | **SUCCESS** |
+| **Speech**                       | User clicks on the **speech icon**                           | **Text-to-speech function** is activated       | **SUCCESS** |
+| **Text-to-speech option select** | User selects a **speech option**: male/female, UK/US English | **Speech function** changes to selected option | **SUCCESS** |
+| **Text-to-speech Function**      | User selects text to be **read**                             | Selected text is **read** by the device        | **SUCCESS** | 
+
 ### Proxy Server Limitations
 
 Note: Since the Site Viewer operates through a proxy server, the JavaScript on the active URL's site may not function correctly, and it may not be possible to navigate the website through the Site Viewer.
