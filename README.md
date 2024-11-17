@@ -96,7 +96,7 @@ Toggle Text-to-Speech: Users can enable or disable text-to-speech via a button i
 
 **Text Selection for Text-to-Speech:** When text-to-speech is enabled, the class listens for text selection events (e.g., mouseup and touchend) in the content area to read the selected text aloud.
 
-### Embedding the toolbar with the capability to load external pages:
+### Embedding the toolbar with the capability to load external pages
 
 #### Proxy Server
 This feature will only work with a proxy-server. Embedding other websites in your own, opens up the gates for DOS-Attacks ,via Click-Attacks, on the targeted host. Therefore a direct embedding of an external website is forbidden.
