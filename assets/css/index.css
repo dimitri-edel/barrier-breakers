@@ -49,28 +49,14 @@ p, li {
 }
 
 img {
+    border: 2px solid var(--primary-color);
+    border-radius: 8%;
+    /*margin: 1em auto;*/
     object-fit: cover;
     max-width: 100%;
     max-height: 100%;
     border-radius: 10px; /* Match button border-radius */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
-}
-
-/* Specific Logo Styling */
-.logo {
-    width: 150px; /* Adjust the size of the logo */
-    height: auto;
-    cursor: pointer; /* Show pointer for clickable logo */
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-}
-
-.home-page .logo,
-.instructions-page .logo {
-    border: none; /* Remove the border for specific pages */
 }
 
 /* Header */
@@ -296,6 +282,37 @@ footer a:hover {
     color: var(--text-color);
 }
 
+/* Social Media Buttons */
+footer .social-media {
+    margin: 20px 0;
+}
+
+footer .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid #6c757d;
+    border-radius: 50%;
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    transform: scale(1.1);
+}
+
+/* Social Media Icon Sizes */
+footer .btn i {
+    font-size: 16px;
+}
+
 /* Media Queries */
 @media (max-width: 950px) {
     header {
@@ -340,6 +357,7 @@ footer a:hover {
 
     .landing-welcome p {
         font-size: 1rem;
+        margin-bottom: 30px;
     }
 
     .landing-mockup img {
@@ -392,19 +410,7 @@ footer a:hover {
     }
 }
 
-/* Button adjustments */
-.landing-button {
-    font-size: 1rem;
-    padding: 12px 20px;
-    border-radius: 5px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
 
-.landing-button:hover {
-    background-color: var(--accent-color);
-    color: white;
-}
 
 /* Hero Section (Desktop) */
 .landing-heading {
@@ -540,17 +546,13 @@ footer a:hover {
 
 /* Button Styling for Consistency */
 .landing-button {
-    font-size: 1rem; /* Standard button font size */
     padding: 12px 24px; /* Balanced padding */
     border-radius: 8px; /* Match section border radius */
     text-align: center;
     transition: all 0.3s ease;
 }
 
-.landing-button:hover {
-    background-color: #006d77; /* Match icon hover color */
-    color: #ffffff; /* Text becomes white on hover */
-}
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
