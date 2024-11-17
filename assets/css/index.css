@@ -27,8 +27,8 @@ body {
 /* Typography */
 h1 {
     font-size: 3rem; /* Larger and bold heading */
-    color: var(--brown-color);
     margin-bottom: 20px;
+    color: #3A3A3A;
 }
 
 h2, h3 {
@@ -80,10 +80,10 @@ header div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: var(--navbar-footer-bg);
     text-align: center;
     justify-content: center;
     justify-items: center;
+    background: linear-gradient(to bottom, #78B3CE, #5C9ABB); /* Subtle gradient for depth */
 }
 
 .landing-image {
@@ -104,26 +104,76 @@ header div {
     padding: 20px;
     color: var(--brown-color);
     width: 50%;
+    line-height: 1.8; /* Improved line height for readability */
+    letter-spacing: 0.5px; /* Adjusted letter spacing for better spacing */
+}
+
+.landing-welcome p {
+    margin-bottom: 20px; /* Add spacing below the paragraph */
 }
 
 .landing-welcome, .landing-image {
     border-bottom: none;
 }
 
-.landing-button {
+.landing-button-hero {
+    margin-top: 20px;
     background-color: var(--accent-color);
     color: var(--text-color);
+    padding: 11px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none; /* Remove underline */
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Ensure hover effects transition smoothly */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: inline-block; /* Prevent margin auto from affecting alignment */
+    text-transform: uppercase;
+}
+
+.landing-button-hero:hover {
+    background-color: #006d77; /* Change background color on hover */
+    color: var(--text-color); /* Ensure text color contrasts */
+    box-shadow: 0px 8px 16px rgba(249, 110, 42, 0.5); /* Enhanced shadow on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+
+
+
+.landing-button {
+    margin-top: 30px;
+    background-color: var(--accent-color);
+    color: var(--white-color);
     padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none; /* Remove underline */
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  
+}
+
+.landing-button:hover {
+    background-color: #006d77; /* Change background color on hover */
+    color: var(--text-color); /* Ensure text color contrasts */
+    box-shadow: 0px 8px 16px rgba(249, 110, 42, 0.5); /* Enhanced shadow on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    text-decoration: none; /* Remove underline on hover */
+}
+    
    /* URL Fetching Section */
 .url-paster {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px;
-    margin-bottom: 40px; /* Add spacing between sections */
-    background: #edf6f9; /* Light teal background */
-    border-radius: 12px; /* Consistent rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 40px; 
+    border-radius: 12px; 
 }
 
 .url-fetch ul {
@@ -159,27 +209,6 @@ header div {
     margin-bottom: 20px;
 }
 
-.url-fetch .landing-button {
-    margin-top: 20px;
-}
-
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 400;
-    text-decoration: none; /* Remove underline */
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.landing-button:hover {
-    background-color: #ffffff; /* Invert colors on hover */
-    color: #f96e2a; /* Use orange for text on hover */
-    border-color: #f96e2a; /* Keep the border consistent */
-    box-shadow: 0px 8px 16px rgba(249, 110, 42, 0.5); /* Enhanced shadow on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-    text-decoration: none; /* Remove underline on hover */
-}
 
 /* Main Content */
 main {
@@ -216,6 +245,7 @@ section > div {
     align-items: center;
     justify-content: center;
     padding: 0 3em;
+    color: #3A3A3A;
 }
 
 /* Footer */
@@ -327,6 +357,7 @@ footer .btn i {
 
     .landing-welcome p {
         font-size: 1rem;
+        margin-bottom: 30px;
     }
 
     .landing-mockup img {
@@ -379,19 +410,7 @@ footer .btn i {
     }
 }
 
-/* Button adjustments */
-.landing-button {
-    font-size: 1rem;
-    padding: 12px 20px;
-    border-radius: 5px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
 
-.landing-button:hover {
-    background-color: var(--accent-color);
-    color: white;
-}
 
 /* Hero Section (Desktop) */
 .landing-heading {
@@ -527,17 +546,13 @@ footer .btn i {
 
 /* Button Styling for Consistency */
 .landing-button {
-    font-size: 1rem; /* Standard button font size */
     padding: 12px 24px; /* Balanced padding */
     border-radius: 8px; /* Match section border radius */
     text-align: center;
     transition: all 0.3s ease;
 }
 
-.landing-button:hover {
-    background-color: #006d77; /* Match icon hover color */
-    color: #ffffff; /* Text becomes white on hover */
-}
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
