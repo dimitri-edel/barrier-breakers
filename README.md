@@ -8,10 +8,9 @@ Welcome to ReadEase; a web tool designed to improve the readability of online co
 With features like magnification, adjustable text sizes, and the ability to fetch and display content from any URL, ReadEase helps users read web pages with greater comfort and ease. The simple toolbar provides quick access to these features, allowing for a smoother, more personalized reading experience. 
 
 
-
 ### Live link:
 
- ReadEase <  >
+ ReadEase < https://dimitri-edel.github.io/barrier-breakers/ >
 
 ![Website mockup]()
 
@@ -34,7 +33,16 @@ With features like magnification, adjustable text sizes, and the ability to fetc
 
 ## Design
 
+![Color Palette](/assets/images/color-palette-readease.jpg)
+    - the palette was chosen due to certain color combinations can significantly improve readability for people with dyslexia.
+    - the **soft contrast** between text and background is less straining on the eyes, and avoiding stark combinations like black-on-white or white-on-black.
+    - the contrast between text and the background ensures readability without causing visual discomfort.
+    - some studies suggest that certain colors, such as blue or yellow, can help reduce visual stress and improve reading speed and accuracy. 
 
+![Font] - Lexend
+    - In addition to color, using clear, sans-serif fonts like Arial or Verdana, and ensuring proper spacing between lines and letters can also enhance readability.
+    - The Lexend font is a font designed for people with dyslexia and struggling readers.
+    - If the font does not load, the back-up font is sans-serif.
 
 ---
 
@@ -42,6 +50,7 @@ With features like magnification, adjustable text sizes, and the ability to fetc
 
 - HTML: used to create the basis of the website.
 - CSS: used to style and edit the layout of the website.
+- JavaScript: used to create scripts for the functionality of the website. 
 - Balsamiq: used to create wireframes of what the website was envisioned to look like.
 - Git: used for version control.
 - Github: used to host the website.
@@ -79,7 +88,7 @@ With features like magnification, adjustable text sizes, and the ability to fetc
 
 ### Live link:
 
-ReadEase <  >
+ReadEase < https://dimitri-edel.github.io/barrier-breakers/ >
 
 ---
 
@@ -100,5 +109,3 @@ ReadEase <  >
 
 ### Media 
 
-### test commit noah
-### second test 
