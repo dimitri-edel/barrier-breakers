@@ -200,13 +200,43 @@ General Content Handling: The class works with both content inside iframes and d
 
 ---
 
+## Manual Testing
 
-# Manual Tests
+### Index Page
 
-## Homepage
-**TEST** | **ACTION** | **EXPECTATION** | **RESULT** 
-----------|----------|----------|----------
-**Get started** Link | User clicks on the **Get started** link | The  **site-viewer** page opens | **SUCCESS** |
+Below are the details of manual tests conducted to ensure the functionality of the Index page:
+
+| TEST                   | ACTION                                | EXPECTATION                              | RESULT    |
+|------------------------|---------------------------------------|------------------------------------------|-----------|
+| **Get started Link**   | User clicks on the **Get started** link | The **text-viewer** page opens            | **SUCCESS** |
+| **Home Link**          | User clicks on the **Home** link      | The **home** page opens                   | **SUCCESS** |
+| **Site Viewer Link**   | User clicks on the **Site Viewer** link | The **site-viewer** page opens            | **SUCCESS** |
+| **Text Viewer Link**   | User clicks on the **Text Viewer** link | The **text-viewer** page opens            | **SUCCESS** |
+| **About Link**         | User clicks on the **About** link     | The **about** page opens                  | **SUCCESS** |
+| **Try ReadEase for Free Button** | User clicks on the **Try ReadEase for Free!** button | The **home** page opens                   | **SUCCESS** |
+| **Try out Site-Viewer Button**   | User clicks on the **Try out Site-Viewer!** button | The **site-viewer** page opens            | **SUCCESS** |
+| **Try out Text-Viewer Button**   | User clicks on the **Try out Text-Viewer!** button | The **text-viewer** page opens            | **SUCCESS** |
+
+### Site Viewer Page
+
+Below are the details of manual tests conducted to ensure the functionality of the Site Viewer page:
+
+| TEST                               | ACTION                                     | EXPECTATION                                  | RESULT      |
+|------------------------------------|--------------------------------------------|----------------------------------------------|-------------|
+| **Home Link**                      | User clicks on the **Home** link           | The **home** page opens                      | **SUCCESS** |
+| **Site Viewer Link**               | User clicks on the **Site Viewer** link    | The **site-viewer** page opens               | **SUCCESS** |
+| **Text Viewer Link**               | User clicks on the **Text Viewer** link    | The **text-viewer** page opens               | **SUCCESS** |
+| **Instructions Link**              | User clicks on the **Instructions** link   | The **instructions** page opens              | **SUCCESS** |
+| **About Link**                     | User clicks on the **About** link          | The **about** page opens                     | **SUCCESS** |
+| **ResponsiveVoice.js Functionality** | Check if the text-to-speech functionality works | Text is read aloud when selected            | **SUCCESS** |
+| **Content Loading in iFrame**      | Enter a URL and verify content loads in the iFrame | The webpage content loads in the iFrame     | **SUCCESS** |
+| **Magnification Function**         | Use magnification function to zoom in and change colors | The webpage content is zoomed in and colors change | **SUCCESS** |
+
+### Proxy Server Limitations
+
+Note: Since the Site Viewer operates through a proxy server, the JavaScript on the active URL's site may not function correctly, and it may not be possible to navigate the website through the Site Viewer.
+
+
 
 
 ### W3C HTML Validation
