@@ -39,6 +39,10 @@ p, li {
     margin: 1em auto;
 }
 
+p {
+    text-align: center;
+}
+
 img {
     border: 2px solid var(--accent-color);
     border-radius: 8%;
