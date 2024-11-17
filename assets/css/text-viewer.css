@@ -13,8 +13,8 @@
 /* Textarea Styling */
 textarea {
     width: 90%; /* Adjusted for responsiveness */
-    max-width: 800px; /* Set a max width to prevent it from getting too wide */
-    height: 300px; /* Increased height for visibility */
+    max-width: 1200px; /* Set a max width to prevent it from getting too wide */
+    height: 400px; /* Increased height for visibility */
     padding: 12px 15px; /* Comfortable padding inside the textarea */
     margin: 16px 0; /* Add margin for spacing */
     box-sizing: border-box;

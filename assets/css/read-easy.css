@@ -40,7 +40,7 @@ fieldset {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     flex: 1; /* Allow fieldsets to take equal space */
     min-width: 250px; /* Minimum width for fieldsets */
- 
+    
 }
 
 /* Legends for each section */

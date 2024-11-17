@@ -2,6 +2,8 @@
 class ReadEasy {
     constructor(toolbar_element_id, content_element_id, options) {
         this.proxy_url = 'https://readeasy-b281a909ec0b.herokuapp.com/proxy?url='; // The proxy URL to use for fetching content
+        // for security reasons, the deployed URL should be used to prevent the app loading itself in an iframe
+        this.deployed_url = 'https://dimitri-edel.github.io/barrier-breakers/'; // The URL where the app is deployed
         this.toolbar_element_id = toolbar_element_id;
         this.content_element_id = content_element_id;
         this.options = options;
@@ -229,6 +231,14 @@ class ReadEasy {
 
     // fetch the url and display it in the div with id content
     fetchURL(url) {
+        console.log('Fetching URL:', url);
+        // Check if the URL is the deployed URL
+        if (url === this.deployed_url+'site-viewer.html') {
+            console.error('The deployed URL cannot be loaded in an iframe.');
+            alert('Loading the page inside itself is not allowed!');
+            return;
+        }
+
         const proxyUrl = `${this.proxy_url}${encodeURIComponent(url)}`;
         // const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
         fetch(proxyUrl)
