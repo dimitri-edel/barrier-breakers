@@ -4,24 +4,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh; /* Takes 80% of the viewport height */
+    min-height: 80vh; /* Ensure it adapts with content */
     padding: 20px; /* Add padding for inner spacing */
     box-sizing: border-box; /* Include padding in height/width calculation */
+    margin-top: 20px; /* Add a top margin to align properly */
 }
 
 /* Textarea Styling */
 textarea {
-    width: 80%; /* Make the textarea responsive */
-    max-width: 600px; /* Set a max width to prevent it from getting too wide */
-    height: 200px; /* Fixed height for better control */
-    padding: 12px 20px; /* Comfortable padding inside the textarea */
-    margin: 8px 0;
+    width: 90%; /* Adjusted for responsiveness */
+    max-width: 800px; /* Set a max width to prevent it from getting too wide */
+    height: 300px; /* Increased height for visibility */
+    padding: 12px 15px; /* Comfortable padding inside the textarea */
+    margin: 16px 0; /* Add margin for spacing */
     box-sizing: border-box;
     border: 2px solid var(--primary-color); /* Using primary color for the border */
     border-radius: 8px; /* Rounded corners */
     font-family: var(--font-family); /* Ensure consistent font */
-    font-size: var(--font-size-base); /* Consistent font size */
-    resize: vertical; /* Allow vertical resizing */
+    font-size: 1rem; /* Set a readable font size */
+    resize: none; /* Disable resizing for consistency */
+    overflow-y: auto; /* Add scrolling for content overflow */
+    background-color: #ffffff; /* Ensure readability with a white background */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on focus */
 }
 
@@ -29,5 +33,5 @@ textarea {
 textarea:focus {
     outline: none; /* Remove default outline */
     border-color: var(--accent-color); /* Change border color on focus */
-    box-shadow: 0 0 8px rgba(249, 110, 42, 0.4); /* Subtle glow effect */
+    box-shadow: 0 0 10px rgba(249, 110, 42, 0.4); /* Subtle glow effect */
 }
