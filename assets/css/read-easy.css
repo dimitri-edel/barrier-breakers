@@ -8,11 +8,12 @@
     left: 10px;
     right: 10px;
     z-index: 10;
-    background: #e8f6f7;
-    padding: 10px 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: 2px solid #006d77;
+    background: #e8f6f7; /* Light teal background */
+    padding: 15px 20px; /* Slightly larger padding for spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #006d77; /* Teal border for consistency */
+    transition: all 0.3s ease; /* Smooth transition for changes */
 }
 
 /* Container for fieldsets */
@@ -32,21 +33,21 @@ fieldset {
     justify-content: center;
     padding: 10px 15px;
     margin: 10px 0; /* Add margin to separate fieldsets */
-    border: none;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none; /* Remove default fieldset border */
+    background: #ffffff; /* White background for clarity */
+    border-radius: 10px; /* Rounded corners for consistency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     flex: 1; /* Allow fieldsets to take equal space */
     min-width: 200px; /* Minimum width for fieldsets */
-    max-height: 90px;
+    max-height: 90px; /* Limit height for better layout */
 }
 
 /* Legends for each section */
 legend {
-    font-size: 1rem;
-    color: var(--text-color);
-    font-weight: 600;
-    margin-right: 10px;
+    font-size: 1rem; /* Standard text size */
+    color: var(--text-color); /* Use shared text color */
+    font-weight: 600; /* Slightly bolder for emphasis */
+    margin-right: 10px; /* Add spacing between legend and content */
 }
 
 /* Magnifier and speaker buttons */
@@ -54,101 +55,106 @@ legend {
 #text-to-speech-button {
     width: 45px;
     height: 45px;
-    background-color: #006d77;
-    color: #ffffff;
-    border-radius: 50%;
+    background-color: #006d77; /* Teal background */
+    color: #ffffff; /* White icon color */
+    border-radius: 50%; /* Circular buttons */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Icon size */
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
-    margin: 0 10px;
+    transition: transform 0.3s, background-color 0.3s; /* Smooth hover and active effects */
+    margin: 0 10px; /* Add spacing between buttons */
 }
 
 /* Hover effect for buttons */
 #magnifying-glass:hover,
 #text-to-speech-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    background-color: #007a89; /* Darker teal for hover state */
 }
 
 /* Active state for magnifier and speaker */
 #magnifying-glass.active,
 #text-to-speech-button.active {
-    background-color: #52b788;
-    box-shadow: 0 0 10px rgba(82, 183, 136, 0.8);
+    background-color: #52b788; /* Light green for active state */
+    box-shadow: 0 0 10px rgba(82, 183, 136, 0.8); /* Glow effect */
 }
 
 /* Input fields */
 #url-field {
     width: 100%; /* Take full width */
     display: block;
-    height: 40px;
-    padding: 5px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #ffffff;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s;
-    margin-bottom: 10px; /* Add margin to separate from fieldsets */
+    height: 40px; /* Standard height */
+    padding: 5px 15px; /* Inner spacing for readability */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Standard text size */
+    background-color: #ffffff; /* White background */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inset shadow */
+    transition: border-color 0.3s; /* Smooth border transition */
+    margin-bottom: 10px; /* Separate from fieldsets */
 }
 
 /* Focus state for the URL field */
 #url-field:focus {
-    border-color: #006d77;
-    outline: none;
-    box-shadow: 0 0 6px rgba(0, 109, 119, 0.6);
+    border-color: #006d77; /* Teal border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 6px rgba(0, 109, 119, 0.6); /* Glow effect */
 }
 
 /* Select dropdowns inside magnification and text-to-speech */
 select {
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #ffffff;
-    cursor: pointer;
-    transition: border-color 0.3s;
+    font-size: 0.9rem; /* Slightly smaller text size */
+    padding: 5px 10px; /* Inner spacing */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    background: #ffffff; /* White background */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: border-color 0.3s; /* Smooth border transition */
 }
 
 select:focus {
-    border-color: #006d77;
-    box-shadow: 0 0 4px rgba(0, 109, 119, 0.5);
+    border-color: #006d77; /* Teal border on focus */
+    box-shadow: 0 0 4px rgba(0, 109, 119, 0.5); /* Subtle glow */
 }
 
 /* Adjust container padding for better spacing */
 #text-to-speech-panel,
 #magnification-panel {
-    padding: 10px;
+    padding: 10px; /* Add spacing inside panels */
 }
 
+/* Main content spacing */
 #content {
-    margin-top: 230px;
+    margin-top: 230px; /* Create space for the toolbar */
 }
 
+/* Responsive Styles for Smaller Screens */
 @media (max-width: 768px) {
     #read-easy {
-        flex-direction: column;
-        top: 80px;
+        flex-direction: column; /* Stack vertically */
+        top: 80px; /* Adjust positioning */
         left: 5px;
         right: 5px;
     }
 
     .fieldsets-container {
         flex-direction: column; /* Stack fieldsets vertically */
+        gap: 10px; /* Reduce gap for smaller screens */
     }
 
     #url-field {
-        width: 100%;
-        max-width: 100%;
+        width: 100%; /* Full width for input field */
+        max-width: 100%; /* Prevent overflow */
     }
 
     #magnifying-glass,
     #text-to-speech-button {
-        margin: 10px 0;
+        margin: 10px 0; /* Separate buttons vertically */
     }
+
     #content {
-        margin-top: 350px;
+        margin-top: 350px; /* Additional space for toolbar */
     }
 }
