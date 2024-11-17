@@ -1,8 +1,5 @@
 # ReadEase
 
-## CREDITS
-images from www.cleanpng.com
-=======
 Welcome to ReadEase; a web tool designed to improve the readability of online content, making it more accessible for users with various reading challenges, such as dyslexia, visual impairments, or those who simply prefer a more customizable reading experience.
         
 With features like magnification, adjustable text sizes, and the ability to fetch and display content from any URL, ReadEase helps users read web pages with greater comfort and ease. The simple toolbar provides quick access to these features, allowing for a smoother, more personalized reading experience. 
