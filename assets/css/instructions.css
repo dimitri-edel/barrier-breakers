@@ -74,6 +74,44 @@ main {
     padding: 0;
 }
 
+.instr-welcome {
+    padding: 0 2em;
+}
+
+.viewer-inst {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.vwr-inst {
+    width: 42%;
+    margin: 2em;
+    text-align: left;
+}
+
+.features-inst {
+    padding: 2em;
+}
+
+.sub-feature {
+    text-align: left;
+    padding: 0 15%;
+}
+
+.light-div-with-shadow {
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    margin-bottom: 40px; /* Add spacing between sections */
+    background: #edf6f9; /* Light teal background */
+    border-radius: 12px; /* Consistent rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
 
 /* Footer */
 footer {
