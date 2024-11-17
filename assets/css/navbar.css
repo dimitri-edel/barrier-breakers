@@ -60,7 +60,7 @@
 /* Navbar Link Styling */
 .nav-link {
     color: black !important; /* White text color */
-    font-size: 1.05rem; /* Standard font size */
+    font-size: 1.rem; /* Standard font size */
     padding: 0.5rem 1.5rem; /* Add padding for clickable area */
     border-radius: 8px; /* Rounded corners */
     background: linear-gradient(to right, #78B3CE, #5C9ABB); /* Gradient background */
@@ -74,7 +74,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-    background: var(accents-color); /* Accent color on hover */
+    background:  linear-gradient(to right, #5C9ABB, #78B3CE); /* Gradient background */
     color: var(--white-color) !important; /* White text for contrast */
     font-weight: bold; /* Emphasize active link */
     transform: scale(1.1); /* Slightly enlarge */
@@ -89,36 +89,61 @@
     margin-right: auto; /* Push links to the right */
 }
 
-/* Adjust Navbar for Medium Screens */
+/* Adjust Navbar Links for All Screens */
+.nav-link {
+    color: black !important; /* Ensure text color is visible */
+    font-size: 1.1rem; /* Slightly larger text for readability */
+    padding: 0.8rem 1.5rem; /* Increase padding for better spacing */
+    border-radius: 8px; /* Smooth corners */
+    background: linear-gradient(to right, #78B3CE, #5C9ABB); /* Gradient background */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease-in-out; /* Smooth hover and transform effects */
+    margin: 10px auto; /* Center align links and add spacing */
+    text-align: center; /* Center text inside buttons */
+    min-width: 150px; /* Ensure a consistent minimum width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+
+/* Adjust for Medium Screens */
 @media (max-width: 1024px) {
-    .navbar ul {
-        gap: 0.5rem; /* Reduce spacing for smaller screens */
-    }
-
-    .navbar ul li a {
-        font-size: 0.9rem; /* Reduce font size slightly */
-        padding: 0.5rem 1rem; /* Adjust padding */
-    }
-
-    .navbar-brand img {
-        height: 50px; /* Slightly smaller logo */
+    .nav-link {
+        font-size: 1rem; /* Slightly smaller font size for medium screens */
+        padding: 0.6rem 1rem; /* Adjust padding */
     }
 }
 
-/* Adjust Navbar for Small Screens */
-@media (max-width: 480px) {
-    .navbar ul {
+/* Adjust for Small Screens */
+@media (max-width: 768px) {
+    #navbar ul {
         flex-direction: column; /* Stack links vertically */
-        align-items: flex-start; /* Align links to the left */
+        align-items: center; /* Center align links */
+        gap: 1rem; /* Add spacing between links */
+    }
+
+    #navbar ul li {
+        width: 100%; /* Full-width links for small screens */
     }
 
     .nav-link {
-        text-align: left; /* Left-align text for mobile */
-        width: 100%; /* Full width for links */
-        margin: 0.5rem 0; /* Adjust spacing */
+        font-size: 1rem; /* Smaller font size for mobile */
+        padding: 0.8rem 1rem; /* Add spacing inside buttons */
+        text-align: center; /* Center-align text */
+        width: 90%; /* Full-width buttons for consistency */
+        margin: 0.5rem 0; /* Add spacing between buttons */
+    }
+}
+
+/* Adjust for Extra Small Screens */
+@media (max-width: 480px) {
+    .nav-link {
+        font-size: 0.9rem; /* Reduce text size slightly */
+        padding: 0.7rem 1rem; /* Adjust padding */
+        width: 100%; /* Make links span the full width */
     }
 
-    .navbar-brand img {
-        height: 40px; /* Smaller logo for very small screens */
+    .navbar ul {
+        gap: 0.5rem; /* Reduce spacing between items */
     }
 }
