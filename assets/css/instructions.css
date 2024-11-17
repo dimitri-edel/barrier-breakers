@@ -1,132 +1,174 @@
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
-
-/* Root Variables */
-:root {
-    --font-family: 'Lexend', sans-serif;
-    --navbar-footer-bg: #78B3CE; /* Shared color for navbar and footer */
-    --accent-color: #F96E2A; /* Highlight/Accent color */
-    --text-color: #FBF8EF; /* Light text color */
-    --brown-color: #4A3F35; /* General text color */
-}
-
-/* General Styles */
+/* General Page Styles */
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full viewport height for sticky footer */
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    font-family: var(--font-family);
-    color: var(--brown-color);
-    background-color: #C9E6F0; /* Light blue background */
-    letter-spacing: 1px;
-    line-height: 1.6;
+    background-color: #fff; /* Light neutral background */
+    color: #333533; /* Neutral text color */
+    line-height: 1.8; /* Improved line spacing for readability */
+    letter-spacing: 0.5px; /* Consistent spacing for better aesthetics */
 }
 
-h1, h2, h3 {
-    margin: 1em auto;
-    text-align: center;
-}
-
-h2, h3 {
-    font-size: 130%;
-    margin-bottom: 1em;
-}
-
-p, li {
-    font-size: 110%;
-    margin: 1em auto;
-}
-
-p {
-    text-align: center;
-}
-
-img {
-    border-radius: 8%;
-    /*margin: 1em auto;*/
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-/* LOGO STYLING */
-.logo {
-    width: 150px; /* Adjust size of the logo */
-    height: auto;
-    cursor: pointer; /* Indicate clickable */
-    border: none; /* No border for logo on homepage and instructions page */
-    margin: 10px auto; /* Center logo vertically */
-}
-
-.logo:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover for better UX */
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Header */
-header {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    background-color: var(--navbar-footer-bg);
-}
-
-header div {
-    flex: 1;
-    padding: 20px;
-    text-align: center;
-    color: var(--text-color);
-}
-
-/* Main Content */
+/* Main Content Styles */
 main {
-    flex: 1; /* Push footer to bottom */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-}
-
-.instr-welcome {
-    padding: 0 2em;
-}
-
-.viewer-inst {
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex: 1;
+    padding: 2em 5%;
     text-align: center;
+}
+
+/* Welcome Section */
+.instr-welcome {
+    background: linear-gradient(135deg, #b1cdd6 10%, transparent 25%) 0 0,
+                linear-gradient(225deg, #b1cdd6 10%, transparent 25%) 0 0,
+                linear-gradient(315deg, #b1cdd6 10%, transparent 25%) 0 0,
+                linear-gradient(45deg, #b1cdd6 10%, transparent 25%) 0 0;
+    background-size: 4px 4px;
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+    margin-top: 80px;
+}
+
+.instr-welcome h1 {
+    font-size: 2.5rem;
+    color: #000; /* Black titles */
+    margin-bottom: 1em;
+    text-align: center; /* Centered titles */
+}
+
+.instr-welcome p {
+    font-size: 1.2rem;
+    color: #242423; /* Slightly darker for contrast */
+    text-align: left; /* Left-align paragraphs */
+}
+
+/* Instruction Cards */
+.viewer-inst {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    justify-items: center;
+    gap: 2rem;
+    margin-bottom: 2em;
 }
 
 .vwr-inst {
-    width: 42%;
-    margin: 2em;
-    text-align: left;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(225deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(315deg, #ffe2d0 25%, transparent 25%) 0 0,
+                linear-gradient(45deg, #ffe2d0 25%, transparent 25%) 0 0;
+    background-size: 4px 4px;
+    background-color: #fbf8ef;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    animation: fadeIn 0.6s ease-in-out;
 }
 
+.vwr-inst:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.vwr-inst h2 {
+    font-size: 1.8rem;
+    color: #000; /* Black titles */
+    margin-bottom: 1em;
+    text-align: center; /* Centered titles */
+}
+
+.vwr-inst p,
+.vwr-inst ol {
+    font-size: 1rem;
+    color: #242423;
+    margin: 0.5em 0;
+    text-align: left; /* Left-align paragraphs and lists */
+}
+
+.vwr-inst ol {
+    padding-left: 1.5em;
+}
+
+.vwr-inst ol li {
+    margin-bottom: 0.5em;
+}
+
+/* Features Section */
 .features-inst {
-    padding: 2em;
+    margin-top: 3em;
+    padding: 2em 5%;
+    border-radius: 15px;
+    color: #242423;
+    text-align: left; /* Left-align content */
+}
+
+.features-inst h2 {
+    font-size: 1.8rem;
+    color: #000; /* Black titles */
+    margin-bottom: 1em;
+    text-align: center; /* Centered titles */
 }
 
 .sub-feature {
-    text-align: left;
-    padding: 0 15%;
+    margin: 2em 0;
+    padding: 2em;
+    background: linear-gradient(135deg, #ffe2d0 25%, transparent 25%) 0 0,
+    linear-gradient(225deg, #ffe2d0 25%, transparent 25%) 0 0,
+    linear-gradient(315deg, #ffe2d0 25%, transparent 25%) 0 0,
+    linear-gradient(45deg, #ffe2d0 25%, transparent 25%) 0 0;
+    background-size: 4px 4px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 80px;
+    text-align: left; /* Left-align content */
 }
 
-.light-div-with-shadow {
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
-    margin-bottom: 40px; /* Add spacing between sections */
-    background: #edf6f9; /* Light teal background */
-    border-radius: 12px; /* Consistent rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.sub-feature-2 {
+    margin: 2em 0;
+    padding: 2em;
+    background: linear-gradient(135deg, #b1cdd6 10%, transparent 25%) 0 0,
+    linear-gradient(225deg, #b1cdd6 10%, transparent 25%) 0 0,
+    linear-gradient(315deg, #b1cdd6 10%, transparent 25%) 0 0,
+    linear-gradient(45deg, #b1cdd6 10%, transparent 25%) 0 0;
+    background-size: 4px 4px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Left-align content */
+}
+
+.sub-feature h2 {
+    font-size: 1.5rem;
+    color: #000; /* Black titles */
+    margin-bottom: 1em;
+    text-align: center; /* Centered titles */
+}
+
+.sub-feature p,
+.sub-feature ol,
+.sub-feature ul {
+    font-size: 1.1rem;
+    color: #333533;
+    text-align: left; /* Left-align paragraphs and lists */
+}
+
+.sub-feature ol,
+.sub-feature ul {
+    margin-left: 1.5em;
+}
+
+/* Title Banner */
+.title-banner {
+    background: linear-gradient(135deg, #b1cdd6 10%, transparent 25%) 0 0,
+    linear-gradient(225deg, #b1cdd6 10%, transparent 25%) 0 0,
+    linear-gradient(315deg, #b1cdd6 10%, transparent 25%) 0 0,
+    linear-gradient(45deg, #b1cdd6 10%, transparent 25%) 0 0;
+    background-size: 4px 4px;
+    border-radius: 8px;
+    height: 200px;
+    padding: 20px;
+    margin-bottom: 60px;
 }
 
 /* Footer Styles */
@@ -155,7 +197,7 @@ main {
     font-size: 0.9rem;
     margin: 0;
     text-align: left;
-    color:#3A3A3A;;
+    color: #3A3A3A;
 }
 
 .footer-brand {
@@ -178,7 +220,7 @@ main {
 }
 
 .social-icon {
-    color: #3A3A3A;;
+    color: #3A3A3A;
     font-size: 1.5rem;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -200,34 +242,5 @@ main {
     }
 
     .social-media {
-        justify-content: center;
-        gap: 0.5rem; /* Reduce spacing between icons */
-    }
-}
-
-/* Media Queries */
-
-/* Small Screen Adjustments */
-@media (max-width: 768px) {
-    header div {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .vwr-inst {
-        width: 100%;
-        margin: 1em 0;
-    }
-
-    .instr-welcome {
-        padding: 0 1em;
-    }
-
-    .features-inst, .sub-feature {
-        padding: 1em;
-    }
-
-    .logo {
-        width: 120px; /* Reduce size slightly for mobile screens */
     }
 }
