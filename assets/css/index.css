@@ -24,14 +24,23 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3 {
-    margin: 1em auto;
-    text-align: center;
+/* Typography */
+h1 {
+    font-size: 3rem; /* Larger and bold heading */
+    color: var(--brown-color);
+    margin-bottom: 20px;
 }
 
 h2, h3 {
-    font-size: 130%;
-    margin-bottom: 1em;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--brown-color);
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8; /* Increase line spacing for readability */
+    color: var(--brown-color);
 }
 
 p, li {
@@ -46,6 +55,8 @@ img {
     object-fit: cover;
     max-width: 100%;
     max-height: 100%;
+    border-radius: 10px; /* Match button border-radius */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
 }
 
 
@@ -53,6 +64,13 @@ img {
     width: 40%;
     height: auto;
     text-align: center;
+}
+
+/* Update Border Styling */
+.landing-image img {
+    border: 2px solid #006d77; /* Elegant teal border */
+    border-radius: 12px; /* Subtle rounded corners for a modern look */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a soft shadow */
 }
 
 .landing-text {
@@ -81,6 +99,9 @@ header div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 60px 20px; /* More padding for breathing space */
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Landing Section */
@@ -110,18 +131,24 @@ header div {
 .landing-button {
     background-color: var(--accent-color);
     color: var(--text-color);
-    padding: 10px 20px;
+    padding: 15px 30px;
     border: 2px solid var(--text-color);
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-    margin: 1em auto;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none; /* Remove underline */
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .landing-button:hover {
-    background-color: var(--text-color);
-    color: var(--accent-color);
-    cursor: pointer;
+    background-color: #ffffff; /* Invert colors on hover */
+    color: #f96e2a; /* Use orange for text on hover */
+    border-color: #f96e2a; /* Keep the border consistent */
+    box-shadow: 0px 8px 16px rgba(249, 110, 42, 0.5); /* Enhanced shadow on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+    text-decoration: none; /* Remove underline on hover */
 }
 
 /* Main Content */
@@ -266,5 +293,251 @@ footer .btn i {
 
     footer .btn {
         margin: 10px 5px;
+    }
+}
+
+
+/* Adjust hero section for mobile */
+@media (max-width: 768px) {
+    .landing-heading {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .landing-welcome {
+        padding: 10px;
+    }
+
+    .landing-welcome h1 {
+        font-size: 1.8rem;
+    }
+
+    .landing-welcome p {
+        font-size: 1rem;
+    }
+
+    .landing-mockup img {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .landing-button {
+        width: 80%;
+        margin: 10px auto;
+    }
+}
+
+/* Adjust sections for mobile */
+@media (max-width: 768px) {
+    .landing-divs {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .landing {
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    .landing-image {
+        width: 100%;
+        padding: 0;
+    }
+
+    .landing-text {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .landing-text ul {
+        padding-left: 0;
+        list-style-position: inside;
+    }
+
+    .image-left, .image-right {
+        margin: 0 auto;
+    }
+}
+
+/* Button adjustments */
+.landing-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.landing-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Hero Section (Desktop) */
+.landing-heading {
+    padding: 50px 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Improve section alignment */
+.landing-divs {
+    padding: 60px 20px;
+}
+
+.features-list, .url-paster, .text-paster {
+    border-radius: 12px; /* Match border radius of images */
+    border: 1px solid #52b788; /* Softer greenish tone for borders */
+    padding: 30px;
+    background: #ffffff; /* Add subtle white background for distinction */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 80px; /* Add spacing between sections */
+}
+
+.features-list .landing-text, 
+.url-paster .landing-text, 
+.text-paster .landing-text {
+    max-width: 45%;
+    text-align: left; /* Maintain left alignment for readability */
+    padding: 20px;
+}
+
+.features-list .landing-text, 
+.url-paster .landing-text, 
+.text-paster .landing-text {
+    max-width: 50%;
+    padding: 20px;
+}
+
+/* Footer adjustments for mobile */
+@media (max-width: 768px) {
+    footer {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .landing-heading {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 10px;
+    }
+
+    .landing-button {
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    .features-list, .url-paster, .text-paster {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .landing-image, .landing-text {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    img {
+        width: 90%;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* List Styling with Icons - Improved */
+.landing-text ul {
+    list-style: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove extra padding */
+    margin: 0; /* Remove default margin */
+    text-align: left; /* Align text to the left */
+}
+
+.landing-text ul li {
+    display: flex; /* Flexbox for icon and text alignment */
+    align-items: center; /* Center align icon and text */
+    margin-bottom: 20px; /* Spacing between list items */
+    font-size: 1.1rem; /* Adjust font size */
+    color: var(--brown-color); /* Set text color */
+}
+
+.landing-text ul li i {
+    font-size: 1.5rem; /* Icon size */
+    color: #006d77; /* New teal color for icons */
+    margin-right: 15px; /* Space between icon and text */
+    transition: color 0.3s ease, transform 0.3s ease-in-out; /* Smooth color and hover effect */
+}
+
+.landing-text ul li i:hover {
+    transform: scale(1.2); /* Zoom icon on hover */
+    color: #52b788; /* Brighter green on hover */
+}
+
+.landing-text ul li strong {
+    color: var(--brown-color); /* Same color as the text */
+    font-weight: 600; /* Medium bold for a subtle effect */
+    background: none; /* Remove white background */
+    padding: 0; /* Remove unnecessary padding */
+}
+
+/* Section Background and Padding */
+.landing-text {
+    padding: 30px; /* Increase padding inside the text container */
+    border-radius: 12px; /* Smooth corner radius for the section */
+    background-color: #edf6f9; /* Light teal background for better contrast */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Button Styling for Consistency */
+.landing-button {
+    font-size: 1rem; /* Standard button font size */
+    padding: 12px 24px; /* Balanced padding */
+    border-radius: 8px; /* Match section border radius */
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.landing-button:hover {
+    background-color: #006d77; /* Match icon hover color */
+    color: #ffffff; /* Text becomes white on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .landing-text ul li {
+        margin-bottom: 15px; /* Slightly tighter spacing for mobile */
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+    .landing-text ul li i {
+        font-size: 1.2rem; /* Smaller icon size for mobile */
+    }
+
+    .landing-text {
+        padding: 20px; /* Reduce padding for smaller screens */
     }
 }
