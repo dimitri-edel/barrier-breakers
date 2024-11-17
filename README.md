@@ -57,13 +57,22 @@ With features like magnification, adjustable text sizes, and the ability to fetc
 
 ---
 
+# Manual Testing
 
-# Manual Tests
+Below are the details of manual tests conducted to ensure the functionality of the website:
 
-## Homepage
-**TEST** | **ACTION** | **EXPECTATION** | **RESULT** 
-----------|----------|----------|----------
-**Get started** Link | User clicks on the **Get started** link | The  **site-viewer** page opens | **SUCCESS** |
+| TEST                   | ACTION                                | EXPECTATION                              | RESULT    |
+|------------------------|---------------------------------------|------------------------------------------|-----------|
+| **Get started Link**   | User clicks on the **Get started** link | The **text-viewer** page opens            | **SUCCESS** |
+| **Home Link**          | User clicks on the **Home** link      | The **home** page opens                   | **SUCCESS** |
+| **Site Viewer Link**   | User clicks on the **Site Viewer** link | The **site-viewer** page opens            | **SUCCESS** |
+| **Text Viewer Link**   | User clicks on the **Text Viewer** link | The **text-viewer** page opens            | **SUCCESS** |
+| **About Link**         | User clicks on the **About** link     | The **about** page opens                  | **SUCCESS** |
+| **Try ReadEase for Free Button** | User clicks on the **Try ReadEase for Free!** button | The **home** page opens                   | **SUCCESS** |
+| **Try out Site-Viewer Button**   | User clicks on the **Try out Site-Viewer!** button | The **site-viewer** page opens            | **SUCCESS** |
+| **Try out Text-Viewer Button**   | User clicks on the **Try out Text-Viewer!** button | The **text-viewer** page opens            | **SUCCESS** |
+
+
 
 
 ### W3C HTML Validation
