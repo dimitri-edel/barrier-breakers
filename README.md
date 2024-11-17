@@ -49,7 +49,13 @@ With features like magnification, adjustable text sizes, and the ability to fetc
 ---
 
 
-## Testing
+# Manual Tests
+
+## Homepage
+**TEST** | **ACTION** | **EXPECTATION** | **RESULT** 
+----------|----------|----------|----------
+**Get started** Link | User clicks on the **Get started** link | The  **site-viewer** page opens | **SUCCESS** |
+
 
 ### W3C HTML Validation
 
