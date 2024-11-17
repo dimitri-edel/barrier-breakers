@@ -48,6 +48,20 @@ img {
     max-height: 100%;
 }
 
+/* LOGO STYLING */
+.logo {
+    width: 150px; /* Adjust size of the logo */
+    height: auto;
+    cursor: pointer; /* Indicate clickable */
+    border: none; /* No border for logo on homepage and instructions page */
+    margin: 10px auto; /* Center logo vertically */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover for better UX */
+    transition: transform 0.3s ease-in-out;
+}
+
 /* Header */
 header {
     display: flex;
@@ -62,7 +76,6 @@ header div {
     text-align: center;
     color: var(--text-color);
 }
-
 
 /* Main Content */
 main {
@@ -180,3 +193,27 @@ footer .btn i {
 
 /* Media Queries */
 
+/* Small Screen Adjustments */
+@media (max-width: 768px) {
+    header div {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .vwr-inst {
+        width: 100%;
+        margin: 1em 0;
+    }
+
+    .instr-welcome {
+        padding: 0 1em;
+    }
+
+    .features-inst, .sub-feature {
+        padding: 1em;
+    }
+
+    .logo {
+        width: 120px; /* Reduce size slightly for mobile screens */
+    }
+}
