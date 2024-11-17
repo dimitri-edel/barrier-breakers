@@ -34,7 +34,7 @@ h1 {
 h2, h3 {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #3A3A3A;;
+    color: #3A3A3A;
 }
 
 p {
@@ -641,6 +641,12 @@ footer .btn i {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+
+    .features-list .landing-text, .url-paster .landing-text, .text-paster .landing-text {
+        max-width: 100%;
+        padding: 20px;
+    }
+
     .landing-text ul li {
         margin-bottom: 15px; /* Slightly tighter spacing for mobile */
         font-size: 1rem; /* Adjust font size for smaller screens */
