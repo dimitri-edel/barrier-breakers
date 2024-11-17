@@ -1,28 +1,88 @@
-/*Google Font lexend*/
+/* Google Font Lexend */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 /* Color Palette Variables */
 :root {
-    --primary-color: #005f7b;
-    --secondary-color:#89c1d4; 
-    --background-color: #f8f5f2;
-    --accent-color: #F96E2A; 
-    --text-color: #4a4a4a;
-    --white-color: #ffffff;
-    --brown-color: #311102;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --primary-color: #005f7b; /* Dark Blue */
+    --secondary-color: #89c1d4; /* Light Blue */
+    --background-color: #f8f5f2; /* Light Beige */
+    --accent-color: #F96E2A; /* Orange Accent */
+    --text-color: #4a4a4a; /* Dark Gray */
+    --white-color: #ffffff; /* White */
+    --brown-color: #311102; /* Dark Brown */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Light Shadow */
 
     /* Font Variables */
     --font-family: Lexend, sans-serif;
-    --font-size-base: 1rem;
-    --font-size-heading: 2.5rem;
-    --font-size-subheading: 2rem;
-    --font-size-small: 0.9rem;
+    --font-size-base: 1rem; /* Base font size */
+    --font-size-heading: 2.5rem; /* Heading font size */
+    --font-size-subheading: 2rem; /* Subheading font size */
+    --font-size-small: 0.9rem; /* Smaller font size */
 }
 
 /* General Reset */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6; /* Default line height for readability */
+    color: var(--text-color);
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Global link styling */
+a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent, helpful for links in dark/light themes */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Additional Styling for Accessibility */
+button,
+input,
+textarea {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+}
+
+/* General Container */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Flexbox Centering (for elements inside container) */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
