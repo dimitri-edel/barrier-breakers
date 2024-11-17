@@ -50,9 +50,10 @@ class ReadEasy {
                 <fieldset>
                     <legend>Magnification</legend>
                     <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <span id="magninification-font-color-selector">Text &nbsp &nbsp <input onchange="read_easy.changeMagnificationFontColor(this)" type="color" id="font-color" value="#000000"></span>
-                    <span id="magninification-background-color-selector">Background &nbsp &nbsp <input onchange="read_easy.changeMagnificationBackgroundColor(this)" type="color" id="background-color" value="#ffffff"></span>
+                    <span id="magninification-font-color-selector">Text &nbsp <input onchange="read_easy.changeMagnificationFontColor(this)" type="color" id="font-color" value="#000000">&nbsp</span>
+                    <span id="magninification-background-color-selector">Background &nbsp <input onchange="read_easy.changeMagnificationBackgroundColor(this)" type="color" id="background-color" value="#ffffff"></span>
                     <span id="magnification-factor-selector">
+                        &nbsp Magnification &nbsp
                         <select id="magnification-factor" onchange="read_easy.changeMagnificationFactor(this)">
                             <optgroup>
                                 <option value="1.2">1.2x</option>
