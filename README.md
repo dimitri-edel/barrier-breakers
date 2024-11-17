@@ -226,7 +226,6 @@ Below are the details of manual tests conducted to ensure the functionality of t
 |----------------------------------|--------------------------------------------------------------|------------------------------------------------|-------------|
 | **Home Link**                    | User clicks on the **Home** link                             | The **home** page opens                        | **SUCCESS** |
 | **Site Viewer Link**             | User clicks on the **Site Viewer** link                      | The **site-viewer** page opens                 | **SUCCESS** |
-| **Text Viewer Link**             | User clicks on the **Text Viewer** link                      | The **text-viewer** page opens                 | **SUCCESS** |
 | **Instructions Link**            | User clicks on the **Instructions** link                     | The **instructions** page opens                | **SUCCESS** |
 | **About Link**                   | User clicks on the **About** link                            | The **about** page opens                       | **SUCCESS** |
 | **Paste of text to Text Viewer** | User pastes clipboard text in **Text Viewer**                | Clipboard text appears    in **Text Viewer**   | **SUCCESS** |
@@ -238,6 +237,31 @@ Below are the details of manual tests conducted to ensure the functionality of t
 | **Speech**                       | User clicks on the **speech icon**                           | **Text-to-speech function** is activated       | **SUCCESS** |
 | **Text-to-speech option select** | User selects a **speech option**: male/female, UK/US English | **Speech function** changes to selected option | **SUCCESS** |
 | **Text-to-speech Function**      | User selects text to be **read**                             | Selected text is **read** by the device        | **SUCCESS** | 
+
+### About Page
+
+Below are the details of manual tests conducted to ensure the functionality of the About page:
+
+
+| TEST                       | ACTION                                   | EXPECTATION                                                         | RESULT      |
+|----------------------------|------------------------------------------|---------------------------------------------------------------------|-------------|
+| **Home Link**              | User clicks on the **Home** link         | The **home** page opens                                             | **SUCCESS** |
+| **Site Viewer Link**       | User clicks on the **Site Viewer** link  | The **site-viewer** page opens                                      | **SUCCESS** |
+| **Text Viewer Link**       | User clicks on the **Text Viewer** link  | The **text-viewer** page opens                                      | **SUCCESS** |
+| **Instructions Link**      | User clicks on the **Instructions** link | The **Instructions** page opens                                     | **SUCCESS** |
+| **GitHub Profile Links**   | User clicks on the **GitHub icon**       | **GitHub Profile** page of the developer loads on a separate page   | **SUCCESS** |
+| **LinkedIn Profile Links** | User clicks on the **LinkedIn icon**     | **LinkedIn Profile** page of the developer loads on a separate page | **SUCCESS** |
+
+### Footer
+
+Below are the details of manual tests conducted to ensure the functionality of the Footer:
+
+| TEST              | ACTION                                | EXPECTATION              | RESULT      |
+|-------------------|---------------------------------------|--------------------------|-------------|
+| **Facebook Link** | User clicks on the **Facebook** icon  | **Facebook** page opens  | **SUCCESS** |
+| **Twitter Link**  | User clicks on the **Twitter** icon   | **Facebook** page opens  | **SUCCESS** |
+| **Instagram Link** | User clicks on the **Instagram** icon | **Instagram** page opens | **SUCCESS** |
+| **LinkedIn Link** | User clicks on the **LinkedIn** icon  | **LinkedIn** page opens  | **SUCCESS** |
 
 ### Proxy Server Limitations
 
