@@ -118,6 +118,14 @@ main.about-page {
     line-height: 1.6;
 }
 
+.social-media {
+    font-size: 1.5rem;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 20px;
+    color: var(--primary-color);
+}
+
 /* Footer */
 .footer {
     background-color: var(--primary-color);
