@@ -1,0 +1,145 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+/* Root Variables */
+:root {
+    --font-family: 'Lexend', sans-serif;
+    --navbar-footer-bg: #78B3CE; /* Shared color for navbar and footer */
+    --accent-color: #F96E2A; /* Highlight/Accent color */
+    --text-color: #FBF8EF; /* Light text color */
+    --brown-color: #4A3F35; /* General text color */
+}
+
+/* General Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height for sticky footer */
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    color: var(--brown-color);
+    background-color: #C9E6F0; /* Light blue background */
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin: 1em auto;
+    text-align: center;
+}
+
+h2, h3 {
+    font-size: 130%;
+    margin-bottom: 1em;
+}
+
+p, li {
+    font-size: 110%;
+    margin: 1em auto;
+}
+
+img {
+    border: 2px solid var(--accent-color);
+    border-radius: 8%;
+    /*margin: 1em auto;*/
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: var(--navbar-footer-bg);
+}
+
+header div {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+
+
+/* Main Content */
+main {
+    flex: 1; /* Push footer to bottom */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+}
+
+
+/* Footer */
+footer {
+    width: 100%;
+    background-color: var(--navbar-footer-bg);
+    color: var(--text-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+}
+
+footer .content {
+    text-align: center;
+}
+
+footer .content p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--text-color);
+}
+
+/* Social Media Buttons */
+footer .social-media {
+    margin: 20px 0;
+}
+
+footer .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid #6c757d;
+    border-radius: 50%;
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    transform: scale(1.1);
+}
+
+/* Social Media Icon Sizes */
+footer .btn i {
+    font-size: 16px;
+}
+
+/* Media Queries */
+
