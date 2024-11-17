@@ -281,6 +281,7 @@ Note: Since the Site Viewer operates through a proxy server, the JavaScript on t
 - Bootstrap
 - node.js
 - Github Workspace
+- ResponsiveVoice
 
 ---
 
@@ -296,6 +297,7 @@ ReadEase < https://dimitri-edel.github.io/barrier-breakers/ >
 
 
 ## Credits 
+- [ResponsiveVoice API] (https://responsivevoice.org)
 
 ### Content
 
