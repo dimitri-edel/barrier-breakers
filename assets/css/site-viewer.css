@@ -1,13 +1,20 @@
 /* Iframe Styles */
 iframe {
     position: relative; /* Position relative for further positioning adjustments */
-    margin-top: 150px; /* Ensure it doesn't overlap with the toolbar */
+    margin-top: 300px; /* Ensure it doesn't overlap with the toolbar */
     width: 100%; /* Full width of its parent container */
     height: 750px; /* Fixed height, adjust as needed for your layout */
     border: none; /* Remove any default border around the iframe */
     border-radius: 8px; /* Optional: rounded corners for the iframe */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow */
     transition: transform 0.3s ease; /* Optional: smooth transformation on hover */
+}
+
+@media (max-width: 768px) {
+    iframe {
+        margin-top: 500px; /* Adjusted margin for smaller screens */
+        height: 500px; /* Adjusted height for smaller screens */
+    }
 }
 
 
