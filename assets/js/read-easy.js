@@ -41,10 +41,12 @@ class ReadEasy {
             toolbar.style.height = 'auto';
         }
 
+        var fieldsetsContainer = document.createElement('div');
+        fieldsetsContainer.className = 'fieldsets-container';
+
         if (this.options.show_magnifying_glass) {
             // append the span to the toolbar
-            toolbar.innerHTML += `
-            <sapn id="magnification-panel">
+            fieldsetsContainer.innerHTML += `
                 <fieldset>
                     <legend>Magnification</legend>
                     <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
@@ -61,13 +63,11 @@ class ReadEasy {
                         </select>
                     </span>
                 </fieldset>
-            </sapn>
             `;
         }
         if (this.options.show_text_to_speech) {
             // append the input button to the toolbar
-            toolbar.innerHTML += `
-                <span id="text-to-speech-panel">
+            fieldsetsContainer.innerHTML += `
                 <fieldset>
                     <legend>Text to Speech</legend>
                     <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
@@ -82,10 +82,12 @@ class ReadEasy {
                                 <option value="UK English Female">UK English 2</option>
                             </optgroup>
                         </select>
+                    </span>
                 </fieldset>
-                </span>
             `;
         }
+
+        toolbar.appendChild(fieldsetsContainer);
         this.toolbar = toolbar;
     }
 
