@@ -5,7 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: var(--background-color);
+    background-color: var(--);
     color: var(--text-color);
 }
 
@@ -124,43 +124,81 @@ main.about-page {
     color: var(--primary-color);
 }
 
-/* Footer */
+
+/* Footer Styles */
 .footer {
-    background-color: var(--primary-color);
-    color: var(--white-color);
+    background: #f8f9f8;
+    color: white;
     padding: 1rem;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 95px;
     box-shadow: 0 -4px 8px var(--shadow-color);
 }
 
-.footer-content {
+.footer-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Limit width */
+    margin: 0 auto; /* Center the content */
 }
 
-.footer-content p {
-    margin-bottom: 0.5rem;
+.footer-text {
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: left;
+    color:#3A3A3A;;
 }
 
-.footer-links {
+.footer-brand {
+    text-align: center;
+}
+
+.footer-brand img {
+    margin: 0 auto;
+    display: block;
+}
+
+.footer-brand img:hover {
+    transform: scale(1.2);
+}
+
+.social-media {
     display: flex;
     gap: 1rem;
-    list-style: none;
-    padding: 0;
+    justify-content: flex-end;
 }
 
-.footer-links a {
-    color: var(--white-color);
-    text-decoration: none;
-    font-size: var(--font-size-small);
-    transition: background-color 0.3s, transform 0.3s;
+.social-icon {
+    color: #3A3A3A;;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
+.social-icon:hover {
     color: var(--accent-color);
-    transform: scale(1.05);
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-text {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .social-media {
+        justify-content: center;
+        gap: 0.5rem; /* Reduce spacing between icons */
+    }
 }
 
 /* Animations */
