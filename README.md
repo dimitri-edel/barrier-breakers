@@ -34,12 +34,14 @@ With features like magnification, adjustable text sizes, and the ability to fetc
 ## Design
 
 ![Color Palette](/assets/images/color-palette-readease.jpg)
+
     - the palette was chosen due to certain color combinations can significantly improve readability for people with dyslexia.
     - the **soft contrast** between text and background is less straining on the eyes, and avoiding stark combinations like black-on-white or white-on-black.
     - the contrast between text and the background ensures readability without causing visual discomfort.
     - some studies suggest that certain colors, such as blue or yellow, can help reduce visual stress and improve reading speed and accuracy. 
 
 ![Font] - Lexend
+
     - In addition to color, using clear, sans-serif fonts like Arial or Verdana, and ensuring proper spacing between lines and letters can also enhance readability.
     - The Lexend font is a font designed for people with dyslexia and struggling readers.
     - If the font does not load, the back-up font is sans-serif.
