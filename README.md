@@ -9,7 +9,7 @@ With features like magnification, adjustable text sizes, and the ability to fetc
 
  ReadEase < https://dimitri-edel.github.io/barrier-breakers/ >
 
-![Website mockup]()
+![Website mockup](/assets/images/readease-mockup.jpg)
 
 ---
 
