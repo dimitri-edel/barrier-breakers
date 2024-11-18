@@ -89,8 +89,6 @@
     margin-right: auto; /* Push links to the right */
 }
 
-
-
 /* Adjust for Medium Screens */
 @media (max-width: 1024px) {
     .nav-link {
