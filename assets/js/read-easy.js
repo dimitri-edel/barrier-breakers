@@ -2,6 +2,8 @@
 class ReadEasy {
     constructor(toolbar_element_id, content_element_id, options) {
         this.proxy_url = 'https://readeasy-b281a909ec0b.herokuapp.com/proxy?url='; // The proxy URL to use for fetching content
+        // for security reasons, the deployed URL should be used to prevent the app loading itself in an iframe
+        this.deployed_url = 'https://dimitri-edel.github.io/barrier-breakers/'; // The URL where the app is deployed
         this.toolbar_element_id = toolbar_element_id;
         this.content_element_id = content_element_id;
         this.options = options;
@@ -48,8 +50,7 @@ class ReadEasy {
         if (this.options.show_magnifying_glass) {
             // append the span to the toolbar
             fieldsetsContainer.innerHTML += `
-                <fieldset>
-                    <legend>Magnification</legend>
+                <div class="fieldset">
                     <span id="magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <span id="magninification-font-color-selector">Text &nbsp <input onchange="read_easy.changeMagnificationFontColor(this)" type="color" id="font-color" value="#000000">&nbsp</span>
                     <span id="magninification-background-color-selector">Background &nbsp <input onchange="read_easy.changeMagnificationBackgroundColor(this)" type="color" id="background-color" value="#ffffff"></span>
@@ -64,14 +65,13 @@ class ReadEasy {
                             </optgroup>
                         </select>
                     </span>
-                </fieldset>
+                </div>
             `;
         }
         if (this.options.show_text_to_speech) {
             // append the input button to the toolbar
             fieldsetsContainer.innerHTML += `
-                <fieldset>
-                    <legend>Text to Speech</legend>
+                <div class="fieldset">                    
                     <button id="text-to-speech-button" title="Toggle Text to Speech" onclick="read_easy.toggleTextToSpeech()">
                         <i class="fa-solid fa-volume-xmark"></i>
                     </button>
@@ -85,7 +85,7 @@ class ReadEasy {
                             </optgroup>
                         </select>
                     </span>
-                </fieldset>
+                </div>
             `;
         }
 
@@ -229,6 +229,14 @@ class ReadEasy {
 
     // fetch the url and display it in the div with id content
     fetchURL(url) {
+        console.log('Fetching URL:', url);
+        // Check if the URL is the deployed URL
+        if (url === this.deployed_url+'site-viewer.html') {
+            console.error('The deployed URL cannot be loaded in an iframe.');
+            alert('Loading the page inside itself is not allowed!');
+            return;
+        }
+
         const proxyUrl = `${this.proxy_url}${encodeURIComponent(url)}`;
         // const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
         fetch(proxyUrl)

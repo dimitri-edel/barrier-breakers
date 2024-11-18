@@ -22,10 +22,26 @@
     display: flex;
     flex-direction: row; /* Align fieldsets horizontally */
     justify-content: space-between;
-  align-items: center;
+    align-items: center;
     gap: 20px; /* Add space between fieldsets */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
     margin-top: 10px; /* Add margin to separate from URL field */
+    border: 1px solid #006d77; /* Teal border for consistency */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.fieldset {
+    display: flex;
+    align-items: center; /* Center-align content vertically */
+    justify-content: space-around; /* Distribute content evenly */
+    padding: 15px 20px;
+    margin: 10px 0; /* Add margin to separate fieldsets */
+    background: #ffffff; /* White background for clarity */
+    border-radius: 10px; /* Rounded corners for consistency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex: 1; /* Allow fieldsets to take equal space */
+    min-width: 250px; /* Minimum width for fieldsets */
+    vertical-align: middle;
 }
 
 /* Fieldset container styling */
@@ -40,7 +56,8 @@ fieldset {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     flex: 1; /* Allow fieldsets to take equal space */
     min-width: 250px; /* Minimum width for fieldsets */
- 
+    vertical-align: middle;
+    
 }
 
 /* Legends for each section */
@@ -64,7 +81,7 @@ fieldset > div {
 
 /* Magnifier and speaker buttons */
 #magnifying-glass,
-#text-to-speech-button {
+#text-to-speech-button {    
     width: 50px;
     height: 50px;
     background-color: #006d77; /* Teal background */
@@ -83,6 +100,15 @@ fieldset > div {
 #text-to-speech-button:hover {
     transform: scale(1.1); /* Slightly enlarge on hover */
     background-color: var(--accent-color); /* Darker teal for hover state */
+}
+
+#magnifying-glass.active, 
+#text-to-speech-button.active {
+    background-color: var(--accent-color); /* Darker teal for active state */
+}
+
+.active {
+    background-color: var(--accent-color); /* Darker teal for active state */
 }
 
 /* Input fields */

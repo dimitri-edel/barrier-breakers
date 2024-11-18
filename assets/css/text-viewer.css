@@ -3,18 +3,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 80vh; /* Ensure it adapts with content */
+    justify-content: stretch;
+    max-height: 70vh; /* Ensure it adapts with content */
     padding: 20px; /* Add padding for inner spacing */
     box-sizing: border-box; /* Include padding in height/width calculation */
-    margin-top: 20px; /* Add a top margin to align properly */
+    margin-top: 200px; /* Add a top margin to align properly */
+    width: 100%; /* Full width of the viewport */
 }
 
 /* Textarea Styling */
 textarea {
     width: 90%; /* Adjusted for responsiveness */
-    max-width: 800px; /* Set a max width to prevent it from getting too wide */
-    height: 300px; /* Increased height for visibility */
+    
+    min-height: 60vh; /* Increased height for visibility */    
     padding: 12px 15px; /* Comfortable padding inside the textarea */
     margin: 16px 0; /* Add margin for spacing */
     box-sizing: border-box;
@@ -35,3 +36,15 @@ textarea:focus {
     border-color: var(--accent-color); /* Change border color on focus */
     box-shadow: 0 0 10px rgba(249, 110, 42, 0.4); /* Subtle glow effect */
 }
+
+@media (max-width: 768px) {
+    #content {
+        margin-top: 300px; /* Adjusted margin for smaller screens */
+        max-height: 50vh; /* Adjusted height for smaller screens */
+    }
+
+    textarea {
+        min-height: 40vh; /* Adjusted height for smaller screens */
+    }
+}
+

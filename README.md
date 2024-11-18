@@ -9,7 +9,7 @@ With features like magnification, adjustable text sizes, and the ability to fetc
 
  ReadEase < https://dimitri-edel.github.io/barrier-breakers/ >
 
-![Website mockup]()
+![Website mockup](/assets/images/readease-mockup.jpg)
 
 ---
 
@@ -272,22 +272,23 @@ Note: Since the Site Viewer operates through a proxy server, the JavaScript on t
 
 ### W3C HTML Validation
 
+The HTML was generally valid apart from a few extra sections and empty spaces, 1 validation is provided as an example
+
+![HTML Validation](/assets/images/readme/HTML-valid-hacka.png)
 
 ### W3C CSS Validation
 
+The CSS was valid on all pages apart from 1 which had a few syntax errors that has been resolved, 1 validation is provided as an example
+
+![CSS Validation](/assets/images/readme/css-valid-hacka.png)
 
 ### Lighthouse
 
----
+Lighthouse scores were impressive across all pages. Usability generally hovered around 88, except for the more complex site-viewer page, which scored a 78 in usability.
 
-## Responsiveness
+![Lighthouse 1](/assets/images/readme/lighthouse-index-hacka.png)
 
-
----
-
-
-## Bugs 
-
+![Lighthouse 2](/assets/images/readme/lightouse-viewer-hacka.png)
 
 ---
 
@@ -306,6 +307,8 @@ Note: Since the Site Viewer operates through a proxy server, the JavaScript on t
 - node.js
 - Github Workspace
 - ResponsiveVoice
+- Canva
+- Logo Ai
 
 ---
 
@@ -319,17 +322,8 @@ ReadEase < https://dimitri-edel.github.io/barrier-breakers/ >
 
 ---
 
-
 ## Credits 
 - [ResponsiveVoice API] (https://responsivevoice.org)
-
-### Content
-
-- Informative Content
-
-
-- Outside Code
-
 
 
 ### Media 

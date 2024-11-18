@@ -3,7 +3,7 @@
     #navbar {
         flex-direction: column; /* Stack logo and links */
         align-items: flex-start; /* Align items to the left */
-        padding: 1rem;        
+        padding: 1rem;
     }
 
     #navbar ul {
@@ -31,6 +31,7 @@
     position: sticky;
     top: 0; /* Make the navbar sticky at the top */
 }
+
 .navbar-brand img {
     height: 60px; /* Adjusted logo height */
     width: auto; /* Maintain aspect ratio */
@@ -59,8 +60,8 @@
 
 /* Navbar Link Styling */
 .nav-link {
-    color: black !important; /* White text color */
-    font-size: 1.rem; /* Standard font size */
+    color: black !important; /* Black text color */
+    font-size: 1rem; /* Standard font size */
     padding: 0.5rem 1.5rem; /* Add padding for clickable area */
     border-radius: 8px; /* Rounded corners */
     background: linear-gradient(to right, #78B3CE, #5C9ABB); /* Gradient background */
@@ -74,13 +75,12 @@
 
 .nav-link:hover,
 .nav-link.active {
-    background:  linear-gradient(to right, #5C9ABB, #78B3CE); /* Gradient background */
+    background: linear-gradient(to right, #5C9ABB, #78B3CE); /* Gradient background */
     color: var(--white-color) !important; /* White text for contrast */
     font-weight: bold; /* Emphasize active link */
     transform: scale(1.1); /* Slightly enlarge */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
-
 
 /* Logo and Navbar Spacing */
 .navbar-brand {
@@ -88,23 +88,6 @@
     align-items: center; /* Center align logo */
     margin-right: auto; /* Push links to the right */
 }
-
-/* Adjust Navbar Links for All Screens */
-.nav-link {
-    color: black !important; /* Ensure text color is visible */
-    font-size: 1.1rem; /* Slightly larger text for readability */
-    padding: 0.8rem 1.5rem; /* Increase padding for better spacing */
-    border-radius: 8px; /* Smooth corners */
-    background: linear-gradient(to right, #78B3CE, #5C9ABB); /* Gradient background */
-    text-decoration: none; /* Remove underline */
-    transition: all 0.3s ease-in-out; /* Smooth hover and transform effects */
-    margin: 10px auto; /* Center align links and add spacing */
-    text-align: center; /* Center text inside buttons */
-    min-width: 150px; /* Ensure a consistent minimum width */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-
 
 /* Adjust for Medium Screens */
 @media (max-width: 1024px) {
