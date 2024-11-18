@@ -292,17 +292,6 @@ Lighthouse scores were impressive across all pages. Usability generally hovered 
 
 ---
 
-## Responsiveness
-
-
----
-
-
-## Bugs 
-
-
----
-
 ## Technologies Used
 
 - HTML: used to create the basis of the website.
@@ -318,6 +307,8 @@ Lighthouse scores were impressive across all pages. Usability generally hovered 
 - node.js
 - Github Workspace
 - ResponsiveVoice
+- Canva
+- Logo Ai
 
 ---
 
@@ -331,17 +322,8 @@ ReadEase < https://dimitri-edel.github.io/barrier-breakers/ >
 
 ---
 
-
 ## Credits 
 - [ResponsiveVoice API] (https://responsivevoice.org)
-
-### Content
-
-- Informative Content
-
-
-- Outside Code
-
 
 
 ### Media 
