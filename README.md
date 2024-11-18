@@ -226,7 +226,6 @@ Below are the details of manual tests conducted to ensure the functionality of t
 |----------------------------------|--------------------------------------------------------------|------------------------------------------------|-------------|
 | **Home Link**                    | User clicks on the **Home** link                             | The **home** page opens                        | **SUCCESS** |
 | **Site Viewer Link**             | User clicks on the **Site Viewer** link                      | The **site-viewer** page opens                 | **SUCCESS** |
-| **Text Viewer Link**             | User clicks on the **Text Viewer** link                      | The **text-viewer** page opens                 | **SUCCESS** |
 | **Instructions Link**            | User clicks on the **Instructions** link                     | The **instructions** page opens                | **SUCCESS** |
 | **About Link**                   | User clicks on the **About** link                            | The **about** page opens                       | **SUCCESS** |
 | **Paste of text to Text Viewer** | User pastes clipboard text in **Text Viewer**                | Clipboard text appears    in **Text Viewer**   | **SUCCESS** |
@@ -239,6 +238,31 @@ Below are the details of manual tests conducted to ensure the functionality of t
 | **Text-to-speech option select** | User selects a **speech option**: male/female, UK/US English | **Speech function** changes to selected option | **SUCCESS** |
 | **Text-to-speech Function**      | User selects text to be **read**                             | Selected text is **read** by the device        | **SUCCESS** | 
 
+### About Page
+
+Below are the details of manual tests conducted to ensure the functionality of the About page:
+
+
+| TEST                       | ACTION                                   | EXPECTATION                                                         | RESULT      |
+|----------------------------|------------------------------------------|---------------------------------------------------------------------|-------------|
+| **Home Link**              | User clicks on the **Home** link         | The **home** page opens                                             | **SUCCESS** |
+| **Site Viewer Link**       | User clicks on the **Site Viewer** link  | The **site-viewer** page opens                                      | **SUCCESS** |
+| **Text Viewer Link**       | User clicks on the **Text Viewer** link  | The **text-viewer** page opens                                      | **SUCCESS** |
+| **Instructions Link**      | User clicks on the **Instructions** link | The **Instructions** page opens                                     | **SUCCESS** |
+| **GitHub Profile Links**   | User clicks on the **GitHub icon**       | **GitHub Profile** page of the developer loads on a separate page   | **SUCCESS** |
+| **LinkedIn Profile Links** | User clicks on the **LinkedIn icon**     | **LinkedIn Profile** page of the developer loads on a separate page | **SUCCESS** |
+
+### Footer
+
+Below are the details of manual tests conducted to ensure the functionality of the Footer:
+
+| TEST              | ACTION                                | EXPECTATION              | RESULT      |
+|-------------------|---------------------------------------|--------------------------|-------------|
+| **Facebook Link** | User clicks on the **Facebook** icon  | **Facebook** page opens  | **SUCCESS** |
+| **Twitter Link**  | User clicks on the **Twitter** icon   | **Facebook** page opens  | **SUCCESS** |
+| **Instagram Link** | User clicks on the **Instagram** icon | **Instagram** page opens | **SUCCESS** |
+| **LinkedIn Link** | User clicks on the **LinkedIn** icon  | **LinkedIn** page opens  | **SUCCESS** |
+
 ### Proxy Server Limitations
 
 Note: Since the Site Viewer operates through a proxy server, the JavaScript on the active URL's site may not function correctly, and it may not be possible to navigate the website through the Site Viewer.
@@ -248,11 +272,23 @@ Note: Since the Site Viewer operates through a proxy server, the JavaScript on t
 
 ### W3C HTML Validation
 
+The HTML was generally valid apart from a few extra sections and empty spaces, 1 validation is provided as an example
+
+![HTML Validation](/assets/images/readme/HTML-valid-hacka.png)
 
 ### W3C CSS Validation
 
+The CSS was valid on all pages apart from 1 which had a few syntax errors that has been resolved, 1 validation is provided as an example
+
+![CSS Validation](/assets/images/readme/css-valid-hacka.png)
 
 ### Lighthouse
+
+Lighthouse scores were impressive across all pages. Usability generally hovered around 88, except for the more complex site-viewer page, which scored a 78 in usability.
+
+![Lighthouse 1](/assets/images/readme/lighthouse-index-hacka.png)
+
+![Lighthouse 2](/assets/images/readme/lightouse-viewer-hacka.png)
 
 ---
 
